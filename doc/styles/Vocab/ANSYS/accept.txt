@@ -1,6 +1,6 @@
-ANSYS
-Ansys
-ansys
+(?i)ansys
+Granta
+metapackage
+MI
 PyAnsys
-Granta MI
 PyGranta
