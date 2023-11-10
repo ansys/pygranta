@@ -1,6 +1,7 @@
-ANSYS
-Ansys
-ansys
+(?i)ansys
+API
+Granta
+metapackage
+MI
 PyAnsys
-Granta MI
 PyGranta

@@ -3,11 +3,13 @@ from datetime import datetime
 
 from ansys_sphinx_theme import ansys_favicon, pyansys_logo_black
 
+from pygranta import __version__
+
 # Project information
 project = "PyGranta Documentation"
 copyright = f"(c) {datetime.now().year} ANSYS, Inc. All rights reserved"
 author = "ANSYS, Inc."
-release = version = "0.1.dev0"
+release = version = __version__
 
 # Select desired logo, theme, and declare the html title
 html_logo = pyansys_logo_black
@@ -17,7 +19,7 @@ html_favicon = ansys_favicon
 
 # specify the location of your github repo
 html_theme_options = {
-    "github_url": "https://github.com/pyansys/grantami-docs",
+    "github_url": "https://github.com/ansys/pygranta",
     "show_prev_next": False,
     "show_breadcrumbs": True,
     "additional_breadcrumbs": [
