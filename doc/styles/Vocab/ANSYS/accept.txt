@@ -1,0 +1,7 @@
+(?i)ansys
+API
+Granta
+metapackage
+MI
+PyAnsys
+PyGranta

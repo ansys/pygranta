@@ -1,2 +1,0 @@
-# pygranta
-PyGranta metapackage
