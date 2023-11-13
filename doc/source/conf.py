@@ -1,7 +1,8 @@
 """Sphinx documentation configuration file."""
 from datetime import datetime
+import os
 
-from ansys_sphinx_theme import ansys_favicon, pyansys_logo_black
+from ansys_sphinx_theme import ansys_favicon, get_version_match, pyansys_logo_black
 
 from pygranta import __version__
 
@@ -17,6 +18,8 @@ html_theme = "ansys_sphinx_theme"
 html_short_title = html_title = "PyGranta"
 html_favicon = ansys_favicon
 
+cname = os.getenv("DOCUMENTATION_CNAME", "legendary-giggle-yr2yylw.pages.github.io")
+
 # specify the location of your github repo
 html_theme_options = {
     "github_url": "https://github.com/ansys/pygranta",
@@ -25,6 +28,11 @@ html_theme_options = {
     "additional_breadcrumbs": [
         ("PyAnsys", "https://docs.pyansys.com/"),
     ],
+    "switcher": {
+        "json_url": f"https://{cname}/versions.json",
+        "version_match": get_version_match(__version__),
+    },
+    "check_switcher": False,
 }
 
 # Sphinx extensions
