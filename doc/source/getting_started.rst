@@ -74,7 +74,7 @@ it with the following:
     unzip pygranta-v2023.1.dev0-wheelhouse-Linux-3.9-core.zip wheelhouse
     pip install pygranta -f wheelhouse --no-index --upgrade --ignore-installed
 
-If you're on Windows with Python 3.9, unzip to a wheelhouse directory and install using the same command as above.
+If you're on Windows with Python 3.9, unzip to a wheelhouse directory and install using the same command as for Linux.
 
 Consider installing using a `virtual environment <https://docs.python.org/3/library/venv.html>`_.
 
