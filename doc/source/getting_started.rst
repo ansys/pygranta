@@ -1,7 +1,11 @@
 Getting started
 ===============
 
-TODO: General PyGranta pre-amble
+The ``pygranta`` metapackage ensures compatibility between PyGranta packages and provides a convenient method for
+installing packages compatible with a specific release of Ansys Granta MI.
+
+Most packages require access to an installation of Ansys Granta MI. For more information on getting a licensed copy of
+Ansys products, visit the `Ansys website <https://www.ansys.com/>`_.
 
 ************
 Installation
@@ -70,7 +74,7 @@ it with the following:
     unzip pygranta-v2023.1.dev0-wheelhouse-Linux-3.9-core.zip wheelhouse
     pip install pygranta -f wheelhouse --no-index --upgrade --ignore-installed
 
-If you're on Windows with Python 3.9, unzip to a wheelhouse directory and install using the same command as above.
+If you're on Windows with Python 3.9, unzip to a wheelhouse directory and install using the same command as for Linux.
 
 Consider installing using a `virtual environment <https://docs.python.org/3/library/venv.html>`_.
 

@@ -7,6 +7,8 @@ services.
 For guidance on installing, using, or contributing to the listed packages, see the package documentation via the links
 provided below.
 
+See the :doc:`getting_started` section for guidance on installing the metapackage.
+
 .. toctree::
    :hidden:
    :maxdepth: 3
