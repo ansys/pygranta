@@ -1,7 +1,11 @@
 Getting started
 ===============
 
-TODO: General PyGranta pre-amble
+The ``pygranta`` metapackage ensures compatibility between PyGranta packages and provides a convenient method for
+installing packages compatible with a specific release of Ansys Granta MI.
+
+Most packages require access to an installation of Ansys Granta MI. For more information on getting a licensed copy of
+Ansys products, visit the `Ansys website <https://www.ansys.com/>`_.
 
 ************
 Installation
