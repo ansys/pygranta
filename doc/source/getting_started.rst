@@ -66,7 +66,7 @@ architecture from the repository's `Releases
 
 Each wheelhouse archive contains all the Python wheels necessary to install
 the ``pygranta`` metapackage from scratch on Windows, Linux, and MacOS from Python
-3.8 ot 3.11. You can install this on an isolated system with a fresh Python
+3.8 to 3.11. You can install this on an isolated system with a fresh Python
 installation or on a virtual environment.
 
 For example, on Linux with Python 3.9, unzip the wheelhouse archive and install

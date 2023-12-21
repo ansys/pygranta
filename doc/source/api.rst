@@ -4,7 +4,7 @@ API reference
 The ``pygranta`` metapackage does not have an API. The only information that you can
 obtain specific to this package is the version.
 
-To obtain the metapackage verion, use this code:
+To obtain the metapackage version, use this code:
 
 .. code-block:: pycon
 
