@@ -60,7 +60,7 @@ The documentation has four sections:
 - `API reference <https://grantami.docs.pyansys.com/version/dev/api.html>`_: Provides API member descriptions
   and usage examples.
 - `Examples <https://grantami.docs.pyansys.com/version/dev/examples.html>`_: Provides examples showing
-- end-to-end workflows for using PyGranta.
+  end-to-end workflows for using PyGranta.
 
 
 License and acknowledgments
