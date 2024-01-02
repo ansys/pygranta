@@ -65,7 +65,7 @@ architecture from the repository's `Releases
 <https://github.com/ansys/pygranta/releases>`_ page.
 
 Each wheelhouse archive contains all the Python wheels necessary to install
-the ``pygranta`` metapackage from scratch on Windows, Linux, and MacOS from Python
+the ``pygranta`` metapackage from scratch on Windows and Linux from Python
 3.8 to 3.11. You can install this on an isolated system with a fresh Python
 installation or on a virtual environment.
 
