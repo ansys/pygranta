@@ -1,8 +1,10 @@
 API reference
 =============
 
-The ``pygranta`` metapackage on its own does not have a specific API. The only information specific-only
-to this package that can be provided is its version. This can be looked up as follows:
+The ``pygranta`` metapackage does not have an API. The only information that you can
+obtain specific to this package is the version.
+
+To obtain the metapackage version, use this code:
 
 .. code-block:: pycon
 
@@ -11,21 +13,21 @@ to this package that can be provided is its version. This can be looked up as fo
 
     '2023.1.0'
 
-However, each of the PyGranta packages that shape the ``pygranta`` metapackage have their own specific API
-reference section. In order to navigate through them, please refer to their documentation.
+The documentation for each PyGranta package has its own "API reference" section.
+You can click the following cards to access their specific API documentation.
 
-*******************************
-PyGranta packages API reference
-*******************************
+**************************
+PyGranta API documentation
+**************************
 
 .. grid:: 3
 
-    .. grid-item-card:: Granta MI BoM Analytics
+    .. grid-item-card:: PyGranta BoM Analytics: API reference
       :link: https://bomanalytics.grantami.docs.pyansys.com/version/stable/api/index.html
       :text-align: center
       :class-title: pyansys-card-title
 
-    .. grid-item-card:: Granta MI RecordLists
+    .. grid-item-card:: PyGranta RecordLists: API reference
       :link: https://recordlists.grantami.docs.pyansys.com/version/stable/api/index.html
       :text-align: center
       :class-title: pyansys-card-title
