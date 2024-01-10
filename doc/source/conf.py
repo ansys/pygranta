@@ -18,7 +18,7 @@ html_theme = "ansys_sphinx_theme"
 html_short_title = html_title = "PyGranta"
 html_favicon = ansys_favicon
 
-cname = os.getenv("DOCUMENTATION_CNAME", "legendary-giggle-yr2yylw.pages.github.io")
+cname = os.getenv("DOCUMENTATION_CNAME", "grantami.docs.pyansys.com")
 
 # specify the location of your github repo
 html_theme_options = {
