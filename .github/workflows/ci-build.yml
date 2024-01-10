@@ -156,12 +156,12 @@ jobs:
          library-name: ${{ env.PACKAGE_NAME }}
          additional-artifacts: 'all-deps-Linux-3.8 all-deps-Linux-3.9 all-deps-Linux-3.10 all-deps-Linux-3.11 all-deps-Windows-3.8 all-deps-Windows-3.9 all-deps-Windows-3.10 all-deps-Windows-3.11'
 
-#     - name: Release to PyPI repository
-#       uses: ansys/actions/release-pypi-public@v4
-#       with:
-#         library-name: ${{ env.PACKAGE_NAME }}
-#         twine-username: __token__
-#         twine-token: ${{ secrets.PYPI_TOKEN }}
+     - name: Release to PyPI repository
+       uses: ansys/actions/release-pypi-public@v5
+       with:
+         library-name: ${{ env.PACKAGE_NAME }}
+         twine-username: __token__
+         twine-token: ${{ secrets.PYPI_TOKEN }}
 
   docs-release:
    name: Deploy release docs
