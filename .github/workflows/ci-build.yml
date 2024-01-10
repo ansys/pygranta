@@ -103,9 +103,10 @@ jobs:
 
     steps:
       - name: Build documentation
-        uses: ansys/actions/doc-build@main
+        uses: ansys/actions/doc-build@v5
         with:
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
+          check-links: false # TODO: enable once we have a first release
           # dependencies: "build-essential zip pandoc texlive-latex-extra latexmk texlive-pstricks"
 
   package:
