@@ -16,7 +16,7 @@ env:
   PACKAGE_NAME: pygranta
   PACKAGE_NAMESPACE: pygranta
   MAIN_PYTHON_VERSION: '3.11'
-  DOCUMENTATION_CNAME: "legendary-giggle-yr2yylw.pages.github.io"
+  DOCUMENTATION_CNAME: "grantami.docs.pyansys.com"
 
 jobs:
 
