@@ -1,6 +1,6 @@
 
-PyGranta metapackage
-####################
+PyGranta metapackage |version|
+##############################
 
 Welcome to the PyGranta metapackage documentation. This page lists the PyAnsys packages
 that provide integration with Granta MI services. For guidance on installing, using, or
@@ -21,7 +21,7 @@ Packages
 
 .. grid:: 3
 
-    .. grid-item-card:: PyGranta BoM Analytics: documetnation
+    .. grid-item-card:: PyGranta BoM Analytics: documentation
       :link: https://bomanalytics.grantami.docs.pyansys.com/
       :text-align: center
       :class-title: pyansys-card-title

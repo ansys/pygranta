@@ -50,16 +50,16 @@ Documentation
 -------------
 
 Documentation for the latest stable release of PyGranta is hosted at
-`PyGranta documentation <https://grantami.docs.pyansys.com/version/dev/index.html#>`_.
+`PyGranta documentation <https://grantami.docs.pyansys.com/version/stable/index.html#>`_.
 The documentation has four sections:
 
-- `Getting started <https://grantami.docs.pyansys.com/version/dev/getting_started.html#>`_: Describes
+- `Getting started <https://grantami.docs.pyansys.com/version/stable/getting_started.html#>`_: Describes
   how to install PyGranta in user mode.
-- `User guide <https://grantami.docs.pyansys.com/version/dev/user_guide.html>`_: Describes how to
+- `User guide <https://grantami.docs.pyansys.com/version/stable/user_guide.html>`_: Describes how to
   use PyGranta.
-- `API reference <https://grantami.docs.pyansys.com/version/dev/api.html>`_: Provides API member descriptions
+- `API reference <https://grantami.docs.pyansys.com/version/stable/api.html>`_: Provides API member descriptions
   and usage examples.
-- `Examples <https://grantami.docs.pyansys.com/version/dev/examples.html>`_: Provides examples showing
+- `Examples <https://grantami.docs.pyansys.com/version/stable/examples.html>`_: Provides examples showing
   end-to-end workflows for using PyGranta.
 
 
