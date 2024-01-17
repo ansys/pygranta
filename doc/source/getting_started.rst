@@ -19,8 +19,14 @@ the easiest is simply to run this command:
 
    pip install pygranta
 
-This installs all the PyGranta packages for the latest released
-version of Granta MI (for example, 2023 R2).
+This installs all the PyGranta packages for the latest released version of Granta MI.
+
+If you are interested in **installing a specific version**, such as ``2023.2.0``, you
+can run a command like this one:
+
+.. code:: bash
+
+   pip install pygranta==2023.2.0
 
 You can always install PyGranta packages individually by following the installation
 instructions for each package. For example, the instructions for PyGranta
@@ -47,12 +53,12 @@ Then, install the ``pygranta`` metapackage with this command:
 
    python -m pip install pygranta
 
-If you are interested in **installing a specific version**, such as ``2023.1.0``, you
+If you are interested in **installing a specific version**, such as ``2023.2.0``, you
 can run a command like this one:
 
 .. code:: bash
 
-   python -m pip install pygranta==2023.1.0
+   python -m pip install pygranta==2023.2.0
 
 
 Offline mode installation
@@ -65,19 +71,19 @@ architecture from the repository's `Releases
 <https://github.com/ansys/pygranta/releases>`_ page.
 
 Each wheelhouse archive contains all the Python wheels necessary to install
-the ``pygranta`` metapackage from scratch on Windows and Linux from Python
-3.8 to 3.11. You can install this on an isolated system with a fresh Python
+the ``pygranta`` metapackage from scratch on Windows and Linux for all supported
+Python versions. You can install this on an isolated system with a fresh Python
 installation or on a virtual environment.
 
-For example, on Linux with Python 3.9, unzip the wheelhouse archive and install
+For example, on Linux with Python 3.12, unzip the wheelhouse archive and install
 it with these commands:
 
 .. code:: bash
 
-    unzip pygranta-v2023.1.dev0-wheelhouse-Linux-3.9-core.zip wheelhouse
+    unzip pygranta-v2023.2.0-wheelhouse-Linux-3.12-core.zip wheelhouse
     pip install pygranta -f wheelhouse --no-index --upgrade --ignore-installed
 
-If you're on Windows with Python 3.9, unzip to a wheelhouse directory and install
+If you're on Windows with Python 3.12, unzip to a wheelhouse directory and install
 using the same command as for Linux.
 
 Consider installing using a `virtual environment <https://docs.python.org/3/library/venv.html>`_.
@@ -95,9 +101,9 @@ following versioning system is followed:
 
 Where:
 
-- ``XXXX`` is the Ansys product release year (for example, 2022).
-- ``Y`` is the Ansys product release within the same year (for example, 1,
-  which relates to R1).
+- ``XXXX`` is the Ansys product release year (for example, 2023).
+- ``Y`` is the Ansys product release within the same year (for example, 2,
+  which relates to R2).
 - ``ZZ`` is the patched versions to the ``pygranta`` metapackage, if any.
 
 Consequently, the first ``pygranta`` metapackage compatible with the 2024 R2
@@ -121,4 +127,4 @@ command like this:
 
 .. code:: bash
 
-   python -m pip install pygranta==2024.2.0
+   python -m pip install pygranta==2023.2.0

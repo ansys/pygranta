@@ -11,7 +11,7 @@ To obtain the metapackage version, use this code:
     >>> from pygranta import __version__
     >>> __version__
 
-    '2023.1.0'
+    '2023.2.0'
 
 The documentation for each PyGranta package has its own "API reference" section.
 You can click the following cards to access their specific API documentation.
