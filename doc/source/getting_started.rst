@@ -101,25 +101,25 @@ following versioning system is followed:
 
 Where:
 
-- ``XXXX`` is the Ansys product release year (for example, 2023).
-- ``Y`` is the Ansys product release within the same year (for example, 2,
+- ``XXXX`` is the Ansys product release year (for example, 2024).
+- ``Y`` is the Ansys product release within the same year (for example, 1,
   which relates to R2).
 - ``ZZ`` is the patched versions to the ``pygranta`` metapackage, if any.
 
-Consequently, the first ``pygranta`` metapackage compatible with the 2024 R2
+Consequently, the first ``pygranta`` metapackage compatible with the 2024 R1
 release would be:
 
 .. code:: bash
 
-   2024.2.0
+   2024.1.0
 
 Any subsequent patched version of this package would have these versions:
 
 .. code:: bash
 
-   2024.2.1
-   2024.2.2
-   2024.2.3
+   2024.1.1
+   2024.1.2
+   2024.1.3
    ...
 
 When using ``pip`` to install your package, you can install a specific version with a
@@ -127,4 +127,4 @@ command like this:
 
 .. code:: bash
 
-   python -m pip install pygranta==2023.2.0
+   python -m pip install pygranta==2024.1.0
