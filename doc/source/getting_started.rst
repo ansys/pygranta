@@ -103,7 +103,7 @@ Where:
 
 - ``XXXX`` is the Ansys product release year (for example, 2024).
 - ``Y`` is the Ansys product release within the same year (for example, 1,
-  which relates to R2).
+  which relates to R1).
 - ``ZZ`` is the patched versions to the ``pygranta`` metapackage, if any.
 
 Consequently, the first ``pygranta`` metapackage compatible with the 2024 R1
