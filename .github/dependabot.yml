@@ -6,6 +6,7 @@ updates:
     open-pull-requests-limit: 15
     schedule:
       interval: "daily"
+    versioning-strategy: "increase-if-necessary"
 
   - package-ecosystem: "github-actions"
     directory: "/"
