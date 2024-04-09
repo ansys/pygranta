@@ -95,6 +95,5 @@ python_implementation = platform.python_implementation()
 python_version = platform.python_version()
 os_version = platform.platform()
 user_agent = (
-    f"PyGranta Sphinx Documentation/{release} {python_implementation}/{python_version} "
-    f"({os_version})"
+    f"PyGranta Documentation/{release} {python_implementation}/{python_version} ({os_version})"
 )
