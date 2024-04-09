@@ -1,8 +1,6 @@
 """Sphinx documentation configuration file."""
-
 from datetime import datetime
 import os
-import platform
 
 from ansys_sphinx_theme import ansys_favicon, get_version_match, pyansys_logo_black
 
@@ -91,9 +89,7 @@ source_suffix = ".rst"
 master_doc = "index"
 
 # Set a custom user agent for linkcheck purposes
-python_implementation = platform.python_implementation()
-python_version = platform.python_version()
-os_version = platform.platform()
 user_agent = (
-    f"PyGranta Documentation/{release} {python_implementation}/{python_version} ({os_version})"
+    "(Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
+    "Chrome/123.0.0.0 Safari/537.36 Edg/123.0.2420.81"
 )
