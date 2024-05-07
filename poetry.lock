@@ -59,6 +59,21 @@ python-dateutil = ">=2.8.2,<3.0.0"
 requests = ">=2.26.0,<3.0.0"
 
 [[package]]
+name = "ansys-grantami-jobqueue"
+version = "1.0.0"
+description = "A python wrapper for the Granta MI Job Queue API"
+optional = false
+python-versions = "<4.0,>=3.9"
+files = [
+    {file = "ansys_grantami_jobqueue-1.0.0-py3-none-any.whl", hash = "sha256:8c3dadb571148a5ade3b79d591345d39919ed9d3a256b50baa77e7005bfbda85"},
+    {file = "ansys_grantami_jobqueue-1.0.0.tar.gz", hash = "sha256:f73c0c0a3135e010077ab496ddb4ea13938bc5b2cccd8a5d6c76ac4a44a9f7a4"},
+]
+
+[package.dependencies]
+ansys-grantami-serverapi-openapi = "3.0.0"
+ansys-openapi-common = ">=2.0.0,<3.0.0"
+
+[[package]]
 name = "ansys-grantami-recordlists"
 version = "1.2.1"
 description = "A python wrapper for the Granta MI RecordLists API"
@@ -1067,4 +1082,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "db1a6d007d5027180d915382323caa297627bb1fa9180348f1245caf831fc092"
+content-hash = "3c76f96c2440a20d4b029bd174dfa4c6479ea0266427d8c612f1ffefcdf25af6"
