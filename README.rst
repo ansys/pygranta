@@ -26,8 +26,8 @@ PyGranta metapackage
    :target: https://github.com/psf/black
    :alt: Black
 
-.. |pre-commit| image:: https://results.pre-commit.ci/badge/github/pyansys/pygranta/main.svg
-   :target: https://results.pre-commit.ci/latest/github/pyansys/pygranta/main
+.. |pre-commit| image:: https://results.pre-commit.ci/badge/github/ansys/pygranta/main.svg
+   :target: https://results.pre-commit.ci/latest/github/ansys/pygranta/main
    :alt: pre-commit.ci status
 
 Welcome to the PyGranta metapackage repository. The ``pygranta`` metapackage
