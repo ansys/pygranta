@@ -29,8 +29,8 @@ packages = [{ include = "**/*.py", from = "src" }]
 python = "^3.9"
 ansys-grantami-bomanalytics = "2.1.0a0"
 ansys-grantami-bomanalytics-openapi = "3.0.0a1"
-ansys-grantami-recordlists = "1.2.0a0"
-ansys-grantami-serverapi-openapi = "3.0.0a3"
+ansys-grantami-recordlists = "1.2.1"
+ansys-grantami-serverapi-openapi = "3.0.0"
 
 # Optional documentation dependencies
 [tool.poetry.group.doc]
