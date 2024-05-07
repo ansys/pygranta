@@ -31,3 +31,8 @@ PyGranta API documentation
       :link: https://recordlists.grantami.docs.pyansys.com/version/stable/api/index.html
       :text-align: center
       :class-title: pyansys-card-title
+
+    .. grid-item-card:: PyGranta JobQueue: API reference
+      :link: https://jobqueue.grantami.docs.pyansys.com/version/stable/api/index.html
+      :text-align: center
+      :class-title: pyansys-card-title
