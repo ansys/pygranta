@@ -5,7 +5,7 @@ build-backend = "poetry.core.masonry.api"
 [tool.poetry]
 name = "pygranta"
 description = "Pythonic interfaces to Ansys Granta MI"
-version = "2024.2.0a0"
+version = "2024.2.0"
 license = "MIT"
 authors = ["ANSYS, Inc. <pyansys.core@ansys.com>"]
 maintainers = ["ANSYS, Inc. <pyansys.core@ansys.com>"]
@@ -13,7 +13,7 @@ repository = "https://github.com/ansys/pygranta"
 documentation = "https://grantami.docs.pyansys.com"
 readme = "README.rst"
 classifiers = [
-  "Development Status :: 3 - Alpha",
+  "Development Status :: 5 - Production/Stable",
   "Intended Audience :: Science/Research",
   "Topic :: Scientific/Engineering :: Information Analysis",
   "License :: OSI Approved :: MIT License",
