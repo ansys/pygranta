@@ -34,3 +34,10 @@ Packages
       :class-title: pyansys-card-title
 
       Pythonic interface to Granta MI RecordLists services.
+
+    .. grid-item-card:: PyGranta JobQueue: documentation
+      :link: https://jobqueue.grantami.docs.pyansys.com/
+      :text-align: center
+      :class-title: pyansys-card-title
+
+      Pythonic interface to Granta MI JobQueue services.
