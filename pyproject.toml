@@ -30,7 +30,7 @@ python = "^3.9"
 ansys-grantami-bomanalytics = "2.1.1"
 ansys-grantami-bomanalytics-openapi = "3.0.0"
 ansys-grantami-recordlists = "1.2.1"
-ansys-grantami-jobqueue = "1.0.0"
+ansys-grantami-jobqueue = "1.0.1"
 ansys-grantami-serverapi-openapi = "3.0.0"
 
 # Optional documentation dependencies
