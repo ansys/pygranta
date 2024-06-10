@@ -27,7 +27,7 @@ packages = [{ include = "**/*.py", from = "src" }]
 
 [tool.poetry.dependencies]
 python = "^3.9"
-ansys-grantami-bomanalytics = "2.1.0"
+ansys-grantami-bomanalytics = "2.1.1"
 ansys-grantami-bomanalytics-openapi = "3.0.0"
 ansys-grantami-recordlists = "1.2.1"
 ansys-grantami-jobqueue = "1.0.0"
