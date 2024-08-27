@@ -23,21 +23,18 @@ Packages
 
     .. grid-item-card:: PyGranta BoM Analytics: documentation
       :link: https://bomanalytics.grantami.docs.pyansys.com/
-      :text-align: center
       :class-title: pyansys-card-title
 
       Pythonic interface to Granta MI BoM Analytics services.
 
     .. grid-item-card:: PyGranta RecordLists: documentation
       :link: https://recordlists.grantami.docs.pyansys.com/
-      :text-align: center
       :class-title: pyansys-card-title
 
       Pythonic interface to Granta MI RecordLists services.
 
     .. grid-item-card:: PyGranta JobQueue: documentation
       :link: https://jobqueue.grantami.docs.pyansys.com/
-      :text-align: center
       :class-title: pyansys-card-title
 
       Pythonic interface to Granta MI JobQueue services.

@@ -18,15 +18,12 @@ PyGranta documentation
 
     .. grid-item-card:: PyGranta BoM Analytics: documentation
       :link: https://bomanalytics.grantami.docs.pyansys.com/version/stable/index.html
-      :text-align: center
       :class-title: pyansys-card-title
 
     .. grid-item-card:: PyGranta RecordLists: documentation
       :link: https://recordlists.grantami.docs.pyansys.com/version/stable/index.html
-      :text-align: center
       :class-title: pyansys-card-title
 
     .. grid-item-card:: PyGranta JobQueue: documentation
       :link: https://jobqueue.grantami.docs.pyansys.com/version/stable/index.html
-      :text-align: center
       :class-title: pyansys-card-title
