@@ -1,8 +1,7 @@
 Examples
 ========
 
-The documentation for each PyGranta package has its own "Examples" section. You can click
-the following cards to access their specific examples.
+Each PyGranta package has its own set of example scripts, provided as Jupyter notebooks.
 
 *****************
 PyGranta examples
@@ -10,14 +9,14 @@ PyGranta examples
 
 .. grid:: 3
 
-    .. grid-item-card:: PyGranta BoM Analytics: Examples
+    .. grid-item-card:: PyGranta BoM Analytics :material-regular:`beaker`
       :link: https://bomanalytics.grantami.docs.pyansys.com/version/stable/examples/index.html
       :class-title: pyansys-card-title
 
-    .. grid-item-card:: Granta RecordLists: Examples
+    .. grid-item-card:: PyGranta RecordLists :material-regular:`list-unordered`
       :link: https://recordlists.grantami.docs.pyansys.com/version/stable/examples/index.html
       :class-title: pyansys-card-title
 
-    .. grid-item-card:: Granta JobQueue: Examples
+    .. grid-item-card:: PyGranta JobQueue :material-regular:`upload`
       :link: https://jobqueue.grantami.docs.pyansys.com/version/stable/examples/index.html
       :class-title: pyansys-card-title

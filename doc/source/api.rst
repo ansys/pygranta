@@ -13,8 +13,7 @@ To obtain the metapackage version, use this code:
 
     '2023.2.0'
 
-The documentation for each PyGranta package has its own "API reference" section.
-You can click the following cards to access their specific API documentation.
+Each PyGranta package has its own "API reference" documentation section.
 
 **************************
 PyGranta API documentation
@@ -22,17 +21,17 @@ PyGranta API documentation
 
 .. grid:: 3
 
-    .. grid-item-card:: PyGranta BoM Analytics: API reference
+    .. grid-item-card:: PyGranta BoM Analytics :material-regular:`beaker`
       :link: https://bomanalytics.grantami.docs.pyansys.com/version/stable/api/index.html
       :text-align: center
       :class-title: pyansys-card-title
 
-    .. grid-item-card:: PyGranta RecordLists: API reference
+    .. grid-item-card:: PyGranta RecordLists :material-regular:`list-unordered`
       :link: https://recordlists.grantami.docs.pyansys.com/version/stable/api/index.html
       :text-align: center
       :class-title: pyansys-card-title
 
-    .. grid-item-card:: PyGranta JobQueue: API reference
+    .. grid-item-card:: PyGranta JobQueue :material-regular:`upload`
       :link: https://jobqueue.grantami.docs.pyansys.com/version/stable/api/index.html
       :text-align: center
       :class-title: pyansys-card-title
