@@ -1,11 +1,8 @@
+PyGranta |version|
+##################
 
-PyGranta metapackage |version|
-##############################
-
-Welcome to the PyGranta metapackage documentation. This page lists the PyAnsys packages
-that provide integration with Granta MI services. For guidance on installing, using, or
-contributing to the listed packages, click the following cards to go to their specific
-documentation. For guidance on installing the PyGranta metapackage, see :doc:`getting_started`.
+Welcome to the PyGranta project. This page lists the PyAnsys packages
+that provide integration with Granta MI services.
 
 .. toctree::
    :hidden:
@@ -16,28 +13,22 @@ documentation. For guidance on installing the PyGranta metapackage, see :doc:`ge
    api
    examples
 
-Packages
-========
-
 .. grid:: 3
 
-    .. grid-item-card:: PyGranta BoM Analytics: documentation
+    .. grid-item-card:: PyGranta BoM Analytics :material-regular:`science` :material-regular:`eco`
       :link: https://bomanalytics.grantami.docs.pyansys.com/
-      :text-align: center
       :class-title: pyansys-card-title
 
-      Pythonic interface to Granta MI BoM Analytics services.
+      Sustainability and restricted substance analysis.
 
-    .. grid-item-card:: PyGranta RecordLists: documentation
+    .. grid-item-card:: PyGranta RecordLists :material-regular:`list`
       :link: https://recordlists.grantami.docs.pyansys.com/
-      :text-align: center
       :class-title: pyansys-card-title
 
-      Pythonic interface to Granta MI RecordLists services.
+      Manage favorite Granta MI materials in Python as record lists.
 
-    .. grid-item-card:: PyGranta JobQueue: documentation
+    .. grid-item-card:: PyGranta JobQueue :material-regular:`work_history`
       :link: https://jobqueue.grantami.docs.pyansys.com/
-      :text-align: center
       :class-title: pyansys-card-title
 
-      Pythonic interface to Granta MI JobQueue services.
+      Import and export text and Excel data with Python asynchronously.
