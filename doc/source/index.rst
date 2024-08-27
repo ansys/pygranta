@@ -21,13 +21,13 @@ that provide integration with Granta MI services.
 
       Sustainability and restricted substance analysis.
 
-    .. grid-item-card:: PyGranta RecordLists :material-regular:`lists`
+    .. grid-item-card:: PyGranta RecordLists :material-regular:`list`
       :link: https://recordlists.grantami.docs.pyansys.com/
       :class-title: pyansys-card-title
 
-      Manage favorite Granta MI materials in Python.
+      Manage favorite Granta MI materials in Python as record lists.
 
-    .. grid-item-card:: PyGranta JobQueue :material-regular:`work-history`
+    .. grid-item-card:: PyGranta JobQueue :material-regular:`work_history`
       :link: https://jobqueue.grantami.docs.pyansys.com/
       :class-title: pyansys-card-title
 

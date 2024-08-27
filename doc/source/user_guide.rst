@@ -18,10 +18,10 @@ PyGranta user guides
       :link: https://bomanalytics.grantami.docs.pyansys.com/version/stable/user_guide/index.html
       :class-title: pyansys-card-title
 
-    .. grid-item-card:: PyGranta RecordLists :material-regular:`lists`
+    .. grid-item-card:: PyGranta RecordLists :material-regular:`list`
       :link: https://recordlists.grantami.docs.pyansys.com/version/stable/user_guide/index.html
       :class-title: pyansys-card-title
 
-    .. grid-item-card:: PyGranta JobQueue :material-regular:`work-history`
+    .. grid-item-card:: PyGranta JobQueue :material-regular:`work_history`
       :link: https://jobqueue.grantami.docs.pyansys.com/version/stable/user_guide/index.html
       :class-title: pyansys-card-title
