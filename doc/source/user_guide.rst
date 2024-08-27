@@ -14,14 +14,14 @@ PyGranta user guides
 
 .. grid:: 3
 
-    .. grid-item-card:: PyGranta BoM Analytics :material-regular:`beaker`
+    .. grid-item-card:: PyGranta BoM Analytics :material-regular:`science` :material-regular:`eco`
       :link: https://bomanalytics.grantami.docs.pyansys.com/version/stable/user_guide/index.html
       :class-title: pyansys-card-title
 
-    .. grid-item-card:: PyGranta RecordLists  :material-regular:`list-unordered`
+    .. grid-item-card:: PyGranta RecordLists :material-regular:`lists`
       :link: https://recordlists.grantami.docs.pyansys.com/version/stable/user_guide/index.html
       :class-title: pyansys-card-title
 
-    .. grid-item-card:: PyGranta JobQueue :material-regular:`upload`
+    .. grid-item-card:: PyGranta JobQueue :material-regular:`work-history`
       :link: https://jobqueue.grantami.docs.pyansys.com/version/stable/user_guide/index.html
       :class-title: pyansys-card-title
