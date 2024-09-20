@@ -94,23 +94,136 @@ linkcheck_ignore = ["https://www.ansys.com/"]
 
 # sphinx-jinja configuration
 jinja_contexts = {
-    "package_versions_ctx": {
-        "releases": {
-            "2024R2": [
-                {
-                    "name": "ansys-grantami-bomanalytics",
-                    "version": "2.1.1",
-                    "docs": "https://bomanalytics.grantami.docs.pyansys.com/version/2.1/index.html",
-                    "pypi": f"https://pypi.org/project/ansys-grantami-bomanalytics/2.1.1",
-                }
-            ],
-            "2024R1": [],
-        },
-    }
+    "package_versions_ctx": {}
 }
 
 ########
 # Fetch all versions of the metapackage and dependencies
 ########
 
-# releases =
+def get_release_branches_in_metapackage():
+    """Retrieve the release branches in the PyAnsys metapackage."""
+    import github
+
+    # Get the PyAnsys metapackage repository
+    g = github.Github(os.getenv("GITHUB_TOKEN", None))
+    github_repo = g.get_repo("ansys/pygranta")
+
+    # Get the branches
+    branches = github_repo.get_branches()
+
+    # Get the branches that are release branches + main
+    release_branches = []
+    versions = []
+    for branch in branches:
+        if branch.name.startswith("release"):
+            release_branches.append(branch.name)
+            versions.append(branch.name.split("/")[-1])
+
+    # Sort the release branches and versions: from newest to oldest
+    release_branches.reverse()
+    versions.reverse()
+
+    return release_branches, versions
+
+
+def get_documentation_link_from_pypi(library: str, library_version: str) -> str:
+    """Get the documentation link from PyPI for a specific library and version."""
+    import requests
+    print(f"Getting docs link for {library} {library_version}")
+    # Get the PyPI metadata for the library
+    resp = requests.get(f"https://pypi.org/pypi/{library}/{library_version}/json")
+    metadata = resp.json()
+
+    # Get the documentation URL
+    default_url = f"https://pypi.org/project/{library}/{library_version}"
+    try:
+        project_urls = metadata["info"]["project_urls"]
+        url = None
+        for tag in [
+            "Documentation",
+        ]:  # Prefer Documentation, then Homepage, then Source...
+            url = project_urls.get(tag)
+            if url:
+                break
+
+        return url if url else default_url
+    except (KeyError, AttributeError):
+        return default_url
+
+
+def pyansys_multiversion_docs_link(docs_link: str, library_version: str) -> str:
+    """Verify if the documentation link is a multi-version link.
+    Notes
+    -----
+    Checks if the documentation link is a multi-version link. If it is, it
+    tries to access the documentation for the specific version. In case of
+    failure, it returns the default link. This is done on a best effort basis.
+    """
+    import requests
+
+    # First, let's check it is an official PyAnsys documentation link
+    if "docs.pyansys.com" in docs_link:
+        # Clean the link
+        tmp_link = docs_link.split("docs.pyansys.com")[0] + "docs.pyansys.com"
+        # Get the major.minor version
+        major_minor_version = ".".join(library_version.split(".")[:2])
+
+        # Attempt to access the documentation for the specific version
+        try:
+            resp = requests.get(f"{tmp_link}/version/{major_minor_version}/index.html")
+            if resp.status_code == 200:
+                return f"{tmp_link}/version/{major_minor_version}"
+        except requests.exceptions.RequestException:
+            pass
+
+    # Fall back to the default link
+    return docs_link
+
+
+def list_dependencies(branch):
+    import requests
+    import toml
+    import warnings
+    resp = requests.get(f"https://raw.githubusercontent.com/ansys/pygranta/{branch}/pyproject.toml")
+    pyproject = toml.loads(resp.text)
+    # Assume poetry
+    pyansys_libraries = []
+    for name, raw_library_version in pyproject["tool"]["poetry"]["dependencies"].items():
+        if "ansys-grantami" not in name:
+            continue
+        # Check if the version is a string or a dictionary...
+        if (
+                isinstance(raw_library_version, dict)
+                and isinstance(raw_library_version["version"], str)
+        ):
+            library_version = raw_library_version["version"]
+        elif isinstance(raw_library_version, str):
+            library_version = raw_library_version
+        else:
+            warnings.warn(f"Unknown version format {type(raw_library_version)}, {raw_library_version}")
+            continue
+
+        library_version = library_version.split("==")[0]
+
+        pypi_link = f"https://pypi.org/project/{name}/{library_version}"
+        doc_link = get_documentation_link_from_pypi(name, library_version)
+        doc_link = pyansys_multiversion_docs_link(doc_link, library_version)
+
+        pyansys_libraries.append({
+            "name": name,
+            "version": library_version,
+            "docs": doc_link,
+            "pypi": pypi_link,
+        })
+    return pyansys_libraries
+
+
+releases = {}
+if tags.has("list_packages"):
+    branches, versions = get_release_branches_in_metapackage()
+    for branch, version in zip(branches, versions):
+        releases[version] = list_dependencies(branch)
+
+
+jinja_contexts["package_versions_ctx"]["releases"] = releases
