@@ -93,21 +93,18 @@ user_agent = (
 linkcheck_ignore = ["https://www.ansys.com/"]
 
 # sphinx-jinja configuration
-jinja_contexts = {
-    "package_versions_ctx": {}
-}
+jinja_contexts = {"package_versions_ctx": {}}
 
 ########
 # Fetch all versions of the metapackage and dependencies
 ########
 releases = {}
-if tags.has("list_packages"):
+if tags.has("list_packages"):  # noqa: F821
     import sys
+
     sys.path.insert(0, os.path.abspath("../"))
-    from _package_list import (
-        get_release_branches_in_metapackage,
-        list_dependencies,
-    )
+    from _package_list import get_release_branches_in_metapackage, list_dependencies
+
     branches, versions = get_release_branches_in_metapackage()
     for branch, version in zip(branches, versions):
         releases[version] = list_dependencies(branch)

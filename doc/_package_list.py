@@ -1,8 +1,9 @@
 import os
+import warnings
+
 import github
 import requests
 import toml
-import warnings
 
 REPOSITORY = "ansys/pygranta"
 
@@ -16,15 +17,16 @@ def list_dependencies(branch):
         if "ansys-grantami" not in name:
             continue
         # Check if the version is a string or a dictionary...
-        if (
-                isinstance(raw_library_version, dict)
-                and isinstance(raw_library_version["version"], str)
+        if isinstance(raw_library_version, dict) and isinstance(
+            raw_library_version["version"], str
         ):
             library_version = raw_library_version["version"]
         elif isinstance(raw_library_version, str):
             library_version = raw_library_version
         else:
-            warnings.warn(f"Unknown version format {type(raw_library_version)}, {raw_library_version}")
+            warnings.warn(
+                f"Unknown version format {type(raw_library_version)}, {raw_library_version}"
+            )
             continue
 
         library_version = library_version.split("==")[0]
@@ -33,12 +35,14 @@ def list_dependencies(branch):
         doc_link = get_documentation_link_from_pypi(name, library_version)
         doc_link = pyansys_multiversion_docs_link(doc_link, library_version)
 
-        pyansys_libraries.append({
-            "name": name,
-            "version": library_version,
-            "docs": doc_link,
-            "pypi": pypi_link,
-        })
+        pyansys_libraries.append(
+            {
+                "name": name,
+                "version": library_version,
+                "docs": doc_link,
+                "pypi": pypi_link,
+            }
+        )
     return pyansys_libraries
 
 
