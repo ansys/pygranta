@@ -12,6 +12,7 @@ that provide integration with Granta MI services.
    user_guide
    api
    examples
+   package_versions
 
 .. grid:: 3
 

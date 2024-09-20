@@ -91,3 +91,26 @@ user_agent = (
 
 # Ignore ansys links for linkcheck
 linkcheck_ignore = ["https://www.ansys.com/"]
+
+# sphinx-jinja configuration
+jinja_contexts = {
+    "package_versions_ctx": {
+        "releases": {
+            "2024R2": [
+                {
+                    "name": "ansys-grantami-bomanalytics",
+                    "version": "2.1.1",
+                    "docs": "https://bomanalytics.grantami.docs.pyansys.com/version/2.1/index.html",
+                    "pypi": f"https://pypi.org/project/ansys-grantami-bomanalytics/2.1.1",
+                }
+            ],
+            "2024R1": [],
+        },
+    }
+}
+
+########
+# Fetch all versions of the metapackage and dependencies
+########
+
+# releases =
