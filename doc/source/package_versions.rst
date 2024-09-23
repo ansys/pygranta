@@ -17,6 +17,6 @@ Package versions
     {% for package in packages %}
        * - {{package.name}}
          - {{package.version}}
-         - `PyPI <{{package.pypi}}>`__, `Documentation <{{package.docs}}>`__
+         - `PyPI <{{package.pypi}}>`__{% if package.docs %}, `Documentation <{{package.docs}}>`__{% endif %}
     {% endfor %}
     {% endfor %}

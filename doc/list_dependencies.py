@@ -1,7 +1,7 @@
 """Helper module to fetch dependencies of all versions of the meta-package."""
 
 import os
-from typing import Dict, List
+from typing import Dict, List, Optional
 import warnings
 
 import github
@@ -9,6 +9,13 @@ import requests
 import toml
 
 REPOSITORY = "ansys/pygranta"
+PYGRANTA_DOCS_URL = "https://grantami.docs.pyansys.com"
+# Early versions of the auto-generated libraries did not include a documentation link.
+# Packages without a documentation link and not in this list will emit a warning.
+IGNORE_MISSING_DOCS = [
+    ("ansys-grantami-bomanalytics-openapi", "1.1.0"),
+    ("ansys-grantami-serverapi-openapi", "1.0.0"),
+]
 
 
 def list_dependencies_in_branch(branch: str) -> List[Dict[str, str]]:
@@ -42,7 +49,8 @@ def list_dependencies_in_branch(branch: str) -> List[Dict[str, str]]:
 
         pypi_link = f"https://pypi.org/project/{name}/{library_version}"
         doc_link = get_documentation_link_from_pypi(name, library_version)
-        doc_link = pyansys_multiversion_docs_link(doc_link, library_version)
+        if doc_link is not None:
+            doc_link = pyansys_multiversion_docs_link(doc_link, library_version)
 
         pyansys_libraries.append(
             {
@@ -79,20 +87,23 @@ def get_release_branches_in_metapackage():
     return release_branches, versions
 
 
-def get_documentation_link_from_pypi(library: str, library_version: str) -> str:
+def get_documentation_link_from_pypi(library: str, library_version: str) -> Optional[str]:
     """Get the documentation link from PyPI for a specific library and version."""
     # Get the PyPI metadata for the library
     resp = requests.get(f"https://pypi.org/pypi/{library}/{library_version}/json")
     metadata = resp.json()
 
-    # Get the documentation URL
-    default_url = f"https://pypi.org/project/{library}/{library_version}"
     try:
-        project_urls = metadata["info"]["project_urls"]
-        url = project_urls.get("Documentation")
-        return url if url else default_url
-    except (KeyError, AttributeError):
-        return default_url
+        doc_url = metadata["info"]["project_urls"]["Documentation"]
+    except (KeyError, AttributeError, TypeError):
+        if (library, library_version) not in IGNORE_MISSING_DOCS:
+            warnings.warn(f"No documentation link found for {library}, version {library_version}")
+        return None
+    else:
+        # Auto-generated packages include a link to the general PyGranta docs, filter them out
+        if library.endswith("-openapi") and doc_url == PYGRANTA_DOCS_URL:
+            return None
+        return doc_url
 
 
 def pyansys_multiversion_docs_link(docs_link: str, library_version: str) -> str:
