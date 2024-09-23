@@ -103,11 +103,11 @@ if tags.has("list_packages"):  # noqa: F821
     import sys
 
     sys.path.insert(0, os.path.abspath("../"))
-    from _package_list import get_release_branches_in_metapackage, list_dependencies
+    from list_dependencies import get_release_branches_in_metapackage, list_dependencies_in_branch
 
     branches, versions = get_release_branches_in_metapackage()
     for branch, version in zip(branches, versions):
-        releases[version] = list_dependencies(branch)
+        releases[version] = list_dependencies_in_branch(branch)
 
 
 jinja_contexts["package_versions_ctx"]["releases"] = releases

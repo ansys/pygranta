@@ -1,4 +1,7 @@
+"""Helper module to fetch dependencies of all versions of the meta-package."""
+
 import os
+from typing import Dict, List
 import warnings
 
 import github
@@ -8,7 +11,13 @@ import toml
 REPOSITORY = "ansys/pygranta"
 
 
-def list_dependencies(branch):
+def list_dependencies_in_branch(branch: str) -> List[Dict[str, str]]:
+    """
+    Fetch the pyproject.toml file from a branch and inspects it to list dependencies.
+
+    Return dictionary includes the name of the dependency, the version, a link to the version on
+    PyPI, and a link to the documentation.
+    """
     resp = requests.get(f"https://raw.githubusercontent.com/{REPOSITORY}/{branch}/pyproject.toml")
     pyproject = toml.loads(resp.text)
     # Assume poetry
@@ -47,15 +56,15 @@ def list_dependencies(branch):
 
 
 def get_release_branches_in_metapackage():
-    """Retrieve the release branches in the PyAnsys metapackage."""
-    # Get the PyAnsys metapackage repository
+    """Retrieve the release branches in the PyGranta metapackage."""
+    # Get the PyGranta metapackage repository
     g = github.Github(os.getenv("GITHUB_TOKEN", None))
     github_repo = g.get_repo(REPOSITORY)
 
     # Get the branches
     branches = github_repo.get_branches()
 
-    # Get the branches that are release branches + main
+    # Get the branches that are release branches
     release_branches = []
     versions = []
     for branch in branches:
@@ -88,6 +97,7 @@ def get_documentation_link_from_pypi(library: str, library_version: str) -> str:
 
 def pyansys_multiversion_docs_link(docs_link: str, library_version: str) -> str:
     """Verify if the documentation link is a multi-version link.
+
     Notes
     -----
     Checks if the documentation link is a multi-version link. If it is, it
