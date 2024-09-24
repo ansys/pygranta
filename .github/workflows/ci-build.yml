@@ -106,6 +106,7 @@ jobs:
         uses: ansys/actions/doc-build@v7
         with:
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
+          sphinxopts: '-j auto -W --keep-going -n -t list_packages'
 
   package:
     name: Package library
