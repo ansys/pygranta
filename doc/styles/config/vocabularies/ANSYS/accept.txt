@@ -5,3 +5,6 @@ metapackage
 MI
 PyAnsys
 PyGranta
+(?i)codegen
+towncrier
+VM

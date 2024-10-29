@@ -21,7 +21,7 @@ Definitions
 
 * *Codegen template*: The template used to generate the *auto-generated packages*.
 * *Production test VM*: Virtual machine used for CI integration tests and for executing notebooks as part of the
-  documentation build. This machine always runs the Granta MI version required to build the most recently-released
+  documentation build. This machine always runs the Granta MI version required to build the most recently released
   ``release`` branch for the *PyGranta meta-package* and all *idiomatic packages*.
 * *Development test VM*: Virtual machine used for CI integration tests and for executing notebooks as part of the
   documentation build. This machine is upgraded as required to support CI on *idiomatic package* ``main`` branches
@@ -33,7 +33,7 @@ Development and release timeline
 The timeline is split into three distinct phases:
 
 1. Phase 1: Development. There is active development upstream on closed-source Granta MI components, the *codegen
-   template*, and on the open-source *idiomatic packages* and *auto-generated packages*. Effort is made to ensure CI is
+   template*, and on the open source *idiomatic packages* and *auto-generated packages*. Effort is made to ensure CI is
    passing on all ``main`` branches, but from time to time CI may fail. The *development test VM* is upgraded as
    required to support CI passing on ``main`` branches.
 2. Phase 2: Hardening. Bugs are fixed and minor improvements are made to *idiomatic packages*, *auto-generated
@@ -59,8 +59,7 @@ If significant *idiomatic package* development is being done that depends on the
 package*, you should update the ``main`` branch of the corresponding *idiomatic package* to depend on the
 *auto-generated package* ``main`` directly.
 
-During this phase, the *development test VM* may be upgraded if required to support new upstream Granta MI
-functionality.
+During this phase, the *development test VM* may be upgraded if required to support new upstream Granta MI capabilities.
 
 Phase 2: Hardening
 ~~~~~~~~~~~~~~~~~~
@@ -68,10 +67,10 @@ Phase 2: Hardening
 #. Update the *development test VM* with the latest Granta MI software and databases. See the
    ``ansys-grantami-bomanalytics`` repository for details about preparing the Restricted Substances test database.
 #. Publish *auto-generated packages* to the internal PyPI mirror with ``.dev`` version numbers.
-#. Update *idiomatic package* ``main`` branches to depend on the *auto-generated package* dev releases. If the ``main``
-   branch has not been updated to depend on the *auto-generated package* ``main`` branch during development, then there
-   may be integration issues discovered at this point - these should be resolved in the PR before merging. The PR
-   typically includes:
+#. Update *idiomatic package* ``main`` branches to depend on the *auto-generated package* ``.dev`` releases. If the
+   ``main`` branch has not been updated to depend on the *auto-generated package* ``main`` branch during development,
+   then there may be integration issues discovered at this point - these should be resolved in the PR before merging.
+   The PR typically includes:
 
    * Updates to Python version support to align with changes to the *auto-generated package*.
    * Updates to the ``README.rst`` to reflect any changes in the minimum required Granta MI version.
@@ -138,14 +137,15 @@ Checklist for completing this phase:
 Phase 3: Pre-release
 ~~~~~~~~~~~~~~~~~~~~
 
-#. Update the *production test VM* to run the Granta MI release validated during the hardening phase above.
+#. Update the *production test VM* to run the Granta MI release validated during the
+   `hardening phase <Phase 2: Hardening>`_.
 #. Update the latest *idiomatic package* ``release`` branches created during the hardening phase to run CI against the
    *production test VM*.
 #. Update the *PyGranta meta-package* ``main`` branch to depend on the public *idiomatic packages* release candidates
    and *auto-generated packages* stable releases.
 #. Create a ``release`` branch for the *PyGranta meta-package* and publish as a release candidate to public PyPI.
 #. Create a Pull Request in the PyAnsys meta-package repository to move the PyGranta dependency to the release candidate
-   published above.
+   published in the preceding step.
 #. Manually test the *PyGranta meta-package* release candidate against the Granta MI release candidate.
 
 Testing should occur up to a week before the availability of Granta MI to customers.
@@ -165,10 +165,10 @@ Within the final week before Granta MI is available to customers, stable version
 
 #. Publish *idiomatic packages* as stable releases to public PyPI.
 #. Update the *PyGranta meta-package* ``main`` branch to depend on the public *idiomatic packages* stable releases.
-#. Cherry-pick the changes above to the ``release`` branch.
+#. Cherry-pick the changes to the ``release`` branch.
 #. Publish the *PyGranta meta-package* as a stable release to public PyPI.
-#. Create a Pull Request in the PyAnsys meta-package repository to move the PyGranta dependency to the stable release
-   published above.
+#. Create a Pull Request in the PyAnsys meta-package repository to move the PyGranta dependency to the new stable
+   release.
 #. If any new *idiomatic package* releases are compatible with the previous release of Granta MI, create a patch release
    of the previous *PyGranta meta-package* release.
 
