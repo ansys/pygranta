@@ -137,8 +137,7 @@ Checklist for completing this phase:
 Phase 3: Pre-release
 ~~~~~~~~~~~~~~~~~~~~
 
-#. Update the *production test VM* to run the Granta MI release validated during the
-   `hardening phase <Phase 2: Hardening>`_.
+#. Update the *production test VM* to run the Granta MI release validated during the hardening phase.
 #. Update the latest *idiomatic package* ``release`` branches created during the hardening phase to run CI against the
    *production test VM*.
 #. Update the *PyGranta meta-package* ``main`` branch to depend on the public *idiomatic packages* release candidates
@@ -186,8 +185,8 @@ Test VM management
 ~~~~~~~~~~~~~~~~~~
 
 At all times the *production test VM* virtual machine should be running the latest validated Granta MI version. This
-is generally the most recent released version, but during the `pre-release <Phase 3: Pre-release>`_ phase the version of
-Granta MI installed on the *production test VM* is more recent than the latest version available to customers.
+is generally the most recent released version, but during the pre-release phase the version of Granta MI installed on
+the *production test VM* is more recent than the latest version available to customers.
 
 The *development test VM* runs whichever version of Granta MI is required to support CI on *idiomatic package* ``main``
 branches during development.
@@ -196,7 +195,7 @@ This approach achieves two goals:
 
 * CI is generally passing on all *idiomatic package* ``main`` branches at any point in development and release.
 * The most recent *PyGranta meta-package* and all *idiomatic package* **released** ``release`` branches can still be
-  built up to the `pre-release <Phase 3: Pre-release>`_ phase to support patch releases if required.
+  built up to the pre-release phase to support patch releases if required.
 
 
 .. |chkbx| raw:: html
