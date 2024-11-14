@@ -64,6 +64,9 @@ During this phase, the *development test VM* may be upgraded if required to supp
 Phase 2: Hardening
 ~~~~~~~~~~~~~~~~~~
 
+Phase 2a: Initial dev releases
+******************************
+
 #. Update the *development test VM* with the latest Granta MI software and databases. See the
    ``ansys-grantami-bomanalytics`` repository for details about preparing the Restricted Substances test database.
 #. Publish *auto-generated packages* to the internal PyPI mirror with ``.dev`` version numbers.
@@ -90,6 +93,28 @@ Phase 2: Hardening
 
 #. Continue to review any changes to API definitions via *auto-generated packages* throughout the hardening phase. If
    there are any issues with the API definitions, these must be escalated with high priority.
+
+Phase 2b: Documentation review
+******************************
+
+Review the documentation for all *idiomatic packages* and the *PyGranta meta-package*:
+
+* Significant new documentation is reviewed by the appropriate reviews for linguistic and technical accuracy.
+* References to dependencies are updated, including:
+
+  * Server software versions
+  * Required Python versions
+  * Compatible third-party library versions
+
+* References to Ansys documentation of other packages/products are checked to see if they need to be updated to the
+  in-development version of that documentation.
+
+  .. note::
+     Unreleased Ansys documentation may not be publicly accessible. A Sphinx linkcheck exclusion may need to be added in
+     these cases.
+
+Phase 2c: Release candidates
+****************************
 
 Towards the end of the hardening phase, once the API definitions are determined to be stable, the *auto-generated
 packages* are released:
@@ -120,12 +145,14 @@ The stable *auto-generated packages* and release candidate *idiomatic packages* 
 internal packages. It is recommended to make any closed-source *idiomatic package* release candidate dependencies
 flexible enough such that they match subsequent stable releases of those *idiomatic packages*.
 
-Checklist for completing this phase:
+Checklist
+*********
 
 * |chkbx| The *development test VM* is running an up-to-date development version of Granta MI.
 * |chkbx| CI for all *idiomatic packages* is passing.
-* |chkbx| *Idiomatic package* documentation has been reviewed to update changes in dependencies, for example Python
-  version support, minimum Granta MI version.
+* |chkbx| Documentation for all *idiomatic packages* and the *PyGranta meta-package* has been reviewed to verify
+  significant new content, changes in dependencies (for example Python version support, minimum Granta MI version), and
+  references to other Ansys documentation sources.
 * |chkbx| ``release`` branches have been created for *auto-generated packages* and *idiomatic packages*.
 * |chkbx| Stable *auto-generated packages* are available on PyPI.
 * |chkbx| Internal packages with runtime dependencies on *auto-generated packages* depend on the stable PyPI releases.
@@ -147,7 +174,8 @@ Phase 3: Pre-release
    published in the preceding step.
 #. Manually test the *PyGranta meta-package* release candidate against the Granta MI release candidate.
 
-Testing should occur up to a week before the availability of Granta MI to customers.
+Testing should occur up to a week before the availability of Granta MI to customers. Any issues raised during testing
+should be immediately triaged and fixed or deferred.
 
 Checklist for completing this phase:
 
@@ -156,12 +184,15 @@ Checklist for completing this phase:
 * |chkbx| Release candidate *PyGranta meta-package* is available on PyPI.
 * |chkbx| The PyAnsys meta-package depends on the *PyGranta meta-package* release candidate.
 * |chkbx| Manual testing has been completed against the *PyGranta meta-package* and all *idiomatic packages*.
+* |chkbx| The GitHub PyGranta Development project contains no must-deliver features or bug fixes still outstanding for
+  the active release.
 
 Phase 4: Release
 ~~~~~~~~~~~~~~~~
 
 Within the final week before Granta MI is available to customers, stable versions of the packages should be released:
 
+#. Defer any issues still associated with the active release in the GitHub PyGranta Development to a future release.
 #. Publish *idiomatic packages* as stable releases to public PyPI.
 #. Update the *PyGranta meta-package* ``main`` branch to depend on the public *idiomatic packages* stable releases.
 #. Cherry-pick the changes to the ``release`` branch.
@@ -173,6 +204,8 @@ Within the final week before Granta MI is available to customers, stable version
 
 Checklist for completing this phase:
 
+* |chkbx| The active release in the GitHub PyGranta Development project is empty, with all deferred tickets re-assigned
+  to a future release.
 * |chkbx| Stable releases of all *idiomatic packages* and the *PyGranta meta-package* are available on PyPI.
 * |chkbx| The PyAnsys meta-package depends on the *PyGranta meta-package* stable release.
 * |chkbx| A patch release has been made for the previous *PyGranta meta-package* if there is at least one backwards-
