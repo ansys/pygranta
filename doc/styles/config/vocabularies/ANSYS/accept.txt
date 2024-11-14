@@ -8,3 +8,6 @@ PyGranta
 (?i)codegen
 towncrier
 VM
+dev
+linkcheck
+triaged
