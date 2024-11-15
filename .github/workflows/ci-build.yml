@@ -15,7 +15,7 @@ concurrency:
 env:
   PACKAGE_NAME: pygranta
   PACKAGE_NAMESPACE: pygranta
-  MAIN_PYTHON_VERSION: '3.11'
+  MAIN_PYTHON_VERSION: '3.12'
   DOCUMENTATION_CNAME: "grantami.docs.pyansys.com"
 
 jobs:
@@ -46,7 +46,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [windows-latest, ubuntu-latest]
-        python-version: ['3.9', '3.10', '3.11', '3.12']
+        python-version: ['3.10', '3.11', '3.12', '3.13']
 
     steps:
       - uses: actions/checkout@v4
@@ -73,7 +73,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [windows-latest, ubuntu-latest]
-        python-version: ['3.9', '3.10', '3.11', '3.12']
+        python-version: ['3.10', '3.11', '3.12', '3.13']
 
     steps:
       - name: Build wheelhouse and perform smoke test
@@ -147,7 +147,7 @@ jobs:
        uses: ansys/actions/release-github@v8
        with:
          library-name: ${{ env.PACKAGE_NAME }}
-         additional-artifacts: 'all-deps-Linux-3.9 all-deps-Linux-3.10 all-deps-Linux-3.11 all-deps-Linux-3.12 all-deps-Windows-3.9 all-deps-Windows-3.10 all-deps-Windows-3.11 all-deps-Windows-3.12'
+         additional-artifacts: 'all-deps-Linux-3.10 all-deps-Linux-3.11 all-deps-Linux-3.12 all-deps-Linux-3.13 all-deps-Windows-3.10 all-deps-Windows-3.11 all-deps-Windows-3.12 all-deps-Windows-3.13'
 
      - name: Release to PyPI repository
        uses: ansys/actions/release-pypi-public@v8
