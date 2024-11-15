@@ -107,11 +107,12 @@ Review the documentation for all *idiomatic packages* and the *PyGranta meta-pac
   * Compatible third-party library versions
 
 * References to Ansys documentation of other packages/products are checked to see if they need to be updated to the
-  in-development version of that documentation.
+  previous version of that documentation.
 
   .. note::
-     Unreleased Ansys documentation may not be publicly accessible. A Sphinx linkcheck exclusion may need to be added in
-     these cases.
+     The Ansys documentation for the current in-development release will not be published before the PyGranta packages
+     described here need to be released. The documentation for the previous release should be used to ensure links in
+     published PyGranta documentation can always be resolved.
 
 Phase 2c: Release candidates
 ****************************
@@ -190,15 +191,16 @@ Checklist for completing this phase:
 Phase 4: Release
 ~~~~~~~~~~~~~~~~
 
-Within the final week before Granta MI is available to customers, stable versions of the packages should be released:
+The PyAnsys meta-package is typically released a week before Granta MI is available to customers. As a result, the
+stable versions of the packages should be released at least the week before Granta MI is available to customers:
 
 #. Defer any issues still associated with the active release in the GitHub PyGranta Development to a future release.
 #. Publish *idiomatic packages* as stable releases to public PyPI.
 #. Update the *PyGranta meta-package* ``main`` branch to depend on the public *idiomatic packages* stable releases.
 #. Cherry-pick the changes to the ``release`` branch.
 #. Publish the *PyGranta meta-package* as a stable release to public PyPI.
-#. Create a Pull Request in the PyAnsys meta-package repository to move the PyGranta dependency to the new stable
-   release.
+#. Create a Pull Request in the PyAnsys meta-package repository to move the *PyGranta meta-package* dependency to the
+   new stable release.
 #. If any new *idiomatic package* releases are compatible with the previous release of Granta MI, create a patch release
    of the previous *PyGranta meta-package* release.
 
