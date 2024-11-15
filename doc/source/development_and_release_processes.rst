@@ -110,9 +110,9 @@ Review the documentation for all *idiomatic packages* and the *PyGranta meta-pac
   previous version of that documentation.
 
   .. note::
-     The Ansys documentation for the current in-development release will not be published before the PyGranta packages
-     described here need to be released. The documentation for the previous release should be used to ensure links in
-     published PyGranta documentation can always be resolved.
+     The Ansys documentation for the current in-development release is published after the PyGranta packages are
+     released. The documentation for the previous release should be used to ensure links in published PyGranta
+     documentation can always be resolved.
 
 Phase 2c: Release candidates
 ****************************
