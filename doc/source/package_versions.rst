@@ -5,9 +5,10 @@ These tables map a PyGranta metapackage version to the individual PyGranta packa
 this can be used to determine which PyGranta package is compatible with a given version of Granta MI.
 
 .. note::
-   The PyGranta metapackage version for ansys-grantami-bomanalytics and ansys-grantami-bomanalytics-openapi refers to
-   the required version of BoM Analytics Services, included with Granta MI Restricted Substances and Sustainability
-   Reports.
+   The versions of ansys-grantami-bomanalytics and ansys-grantami-bomanalytics-openapi included in a metapackage version
+   are compatible with that version of *BoM Analytics Services*, included with Granta MI Restricted
+   Substances and Sustainability Reports. Multiple versions of BoM Analytics Services are compatible with a single
+   version of Granta MI.
 
 .. jinja:: package_versions_ctx
 
