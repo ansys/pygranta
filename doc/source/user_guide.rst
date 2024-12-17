@@ -15,7 +15,7 @@ PyGranta user guides
 .. grid:: 3
 
     .. grid-item-card:: PyGranta BoM Analytics :material-regular:`science` :material-regular:`eco`
-      :link: https://bomanalytics.grantami.docs.pyansys.com/version/dev/index.html
+      :link: https://bomanalytics.grantami.docs.pyansys.com/version/stable/user_guide/index.html
       :class-title: pyansys-card-title
 
     .. grid-item-card:: PyGranta RecordLists :material-regular:`list`
