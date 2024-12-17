@@ -28,6 +28,12 @@ can run a command like this one:
 
    pip install pygranta==2023.2.0
 
+.. note::
+   The versions of ansys-grantami-bomanalytics and ansys-grantami-bomanalytics-openapi included in the metapackage
+   are compatible with that version of *BoM Analytics Services*, included with Granta MI Restricted
+   Substances and Sustainability Reports. Multiple versions of BoM Analytics Services are compatible with a single
+   version of Granta MI.
+
 You can always install PyGranta packages individually by following the installation
 instructions for each package. For example, the instructions for PyGranta
 RecordLists have you install it by running this command:
