@@ -27,13 +27,13 @@ files = [
 
 [[package]]
 name = "ansys-grantami-bomanalytics"
-version = "2.2.0rc0"
+version = "2.2.0"
 description = "Perform compliance and sustainability analysis on materials data stored in Granta MI."
 optional = false
 python-versions = "<4.0.0,>=3.10.0"
 files = [
-    {file = "ansys_grantami_bomanalytics-2.2.0rc0-py3-none-any.whl", hash = "sha256:5913f6aa7a52b778eb9e0eceddb78f7ce8be6bf2e4395d5d4b8f8faf2cdc40bb"},
-    {file = "ansys_grantami_bomanalytics-2.2.0rc0.tar.gz", hash = "sha256:38c882808a30ee73d78c513cf6ec88e68969632cacfcb540e7364af74ceeffab"},
+    {file = "ansys_grantami_bomanalytics-2.2.0-py3-none-any.whl", hash = "sha256:85ee707422ac945c5bbb374ed7c21bf1f174f371c68bdb558c9633c3749a8037"},
+    {file = "ansys_grantami_bomanalytics-2.2.0.tar.gz", hash = "sha256:2a2f90b63c8ea9e20bf88b023f00d2e20a05ec1a26b56dc9fe5c1307b4200f56"},
 ]
 
 [package.dependencies]
@@ -1394,4 +1394,4 @@ test = ["big-O", "jaraco.functools", "jaraco.itertools", "jaraco.test", "more-it
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "dbf3e66b341a7fd0373ded7732c8aaa97732ba0c9cff141628eac1e5a0f8e1b6"
+content-hash = "4c9a70afbd62ea5f7cda29968a0aa58b0867e59f5cd04f27a3fe643291b52d0a"
