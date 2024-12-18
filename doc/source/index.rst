@@ -13,6 +13,7 @@ that provide integration with Granta MI services.
    api
    examples
    package_versions
+   development_and_release_processes
 
 .. grid:: 3
 
