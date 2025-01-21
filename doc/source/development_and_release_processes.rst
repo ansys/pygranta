@@ -127,6 +127,8 @@ packages* are released:
 #. Create Pull Requests in *idiomatic package* repositories to update ``main`` to depend on the *auto-generated
    package* stable releases. Ensure CI passes for *idiomatic packages*.
 #. Create ``release`` branches for *idiomatic packages* and publish as release candidates to public PyPI.
+#. Update the *PyGranta meta-package* ``main`` branch to depend on the public *idiomatic packages* release candidates
+   and *auto-generated packages* stable releases.
 
    .. note::
       At this point release branches should be created for *idiomatic packages*. However, during hardening these release
@@ -146,6 +148,11 @@ The stable *auto-generated packages* and release candidate *idiomatic packages* 
 internal packages. It is recommended to make any closed-source *idiomatic package* release candidate dependencies
 flexible enough such that they match subsequent stable releases of those *idiomatic packages*.
 
+At the end of this phase, the *PyGranta meta-package* depends on release candidates for the *idiomatic packages* and
+releases of the *auto-generated packages*. This guarantees that there exists a consistent set of dependencies across all
+*idiomatic packages* and *auto-generated packages*. Any issues at this stage should be resolved by addressing any
+dependency conflicts in the *idiomatic packages* and publishing new release candidates to public PyPI as necessary.
+
 Checklist
 *********
 
@@ -161,6 +168,8 @@ Checklist
 * |chkbx| Release candidate *idiomatic packages* are available on PyPI.
 * |chkbx| Internal packages with runtime dependencies on *idiomatic packages* depend on the release candidate PyPI
   releases.
+* |chkbx| The *PyGranta meta-package* ``main`` branch depends on *idiomatic packages* release candidates and
+  *auto-generated packages* stable releases only.
 
 Phase 3: Pre-release
 ~~~~~~~~~~~~~~~~~~~~
@@ -168,22 +177,21 @@ Phase 3: Pre-release
 #. Update the *production test VM* to run the Granta MI release validated during the hardening phase.
 #. Update the latest *idiomatic package* ``release`` branches created during the hardening phase to run CI against the
    *production test VM*.
-#. Update the *PyGranta meta-package* ``main`` branch to depend on the public *idiomatic packages* release candidates
-   and *auto-generated packages* stable releases.
-#. Create a ``release`` branch for the *PyGranta meta-package* and publish as a release candidate to public PyPI.
-#. Create a Pull Request in the PyAnsys meta-package repository to move the PyGranta dependency to the release candidate
-   published in the preceding step.
-#. Manually test the *PyGranta meta-package* release candidate against the Granta MI release candidate.
+#. Manually test the *PyGranta meta-package* against the Granta MI release candidate by installing the ``main`` branch
+   directly using ``pip``.
 
-Testing should occur up to a week before the availability of Granta MI to customers. Any issues raised during testing
-should be immediately triaged and fixed or deferred.
+.. note::
+   If there have been significant changes to the *PyGranta meta-package*, a release candidate may optionally be
+   published to PyPI. Examples of significant changes include re-organization of the documentation and changes to the
+   CI process, both of which are not checked as part of the manual test described above.
+
+Testing should occur 4 weeks following Phase 2. Any issues raised during testing should be immediately triaged and
+fixed or deferred.
 
 Checklist for completing this phase:
 
 * |chkbx| The *production test VM* is running the release version of Granta MI.
 * |chkbx| CI for all *idiomatic packages* is passing.
-* |chkbx| Release candidate *PyGranta meta-package* is available on PyPI.
-* |chkbx| The PyAnsys meta-package depends on the *PyGranta meta-package* release candidate.
 * |chkbx| Manual testing has been completed against the *PyGranta meta-package* and all *idiomatic packages*.
 * |chkbx| The GitHub PyGranta Development project contains no must-deliver features or bug fixes still outstanding for
   the active release.
@@ -192,12 +200,13 @@ Phase 4: Release
 ~~~~~~~~~~~~~~~~
 
 The PyAnsys meta-package is typically released a week before Granta MI is available to customers. As a result, the
-stable versions of the packages should be released at least the week before Granta MI is available to customers:
+stable versions of the packages should be released at least a week before Granta MI is available to customers:
 
 #. Defer any issues still associated with the active release in the GitHub PyGranta Development to a future release.
 #. Publish *idiomatic packages* as stable releases to public PyPI.
 #. Update the *PyGranta meta-package* ``main`` branch to depend on the public *idiomatic packages* stable releases.
-#. Cherry-pick the changes to the ``release`` branch.
+#. Create (or update if a release candidate was published in Phase 3) a ``release`` branch for the *PyGranta
+   meta-package*.
 #. Publish the *PyGranta meta-package* as a stable release to public PyPI.
 #. Create a Pull Request in the PyAnsys meta-package repository to move the *PyGranta meta-package* dependency to the
    new stable release.
@@ -221,17 +230,21 @@ Test VM management
 
 At all times the *production test VM* virtual machine should be running the latest validated Granta MI version. This
 is generally the most recent released version, but during the pre-release phase the version of Granta MI installed on
-the *production test VM* is more recent than the latest version available to customers.
+the *production test VM* is more recent than the latest version available to customers. The name and URL of the
+*production test VM* is stored in the ``AZURE_VM_NAME`` and ``TEST_SERVER_URL`` secrets respectively.
 
 The *development test VM* runs whichever version of Granta MI is required to support CI on *idiomatic package* ``main``
-branches during development.
+branches during development. The name and URL of the *development test VM* is stored in the ``AZURE_VM_NAME_NEXT``
+and ``TEST_SERVER_URL_NEXT`` secrets respectively.
+
+The *production test VM* and *development test VM* can be distinguished by their desktop backgrounds and text files
+in the hard drive root.
 
 This approach achieves two goals:
 
 * CI is generally passing on all *idiomatic package* ``main`` branches at any point in development and release.
 * The most recent *PyGranta meta-package* and all *idiomatic package* **released** ``release`` branches can still be
   built up to the pre-release phase to support patch releases if required.
-
 
 .. |chkbx| raw:: html
 
