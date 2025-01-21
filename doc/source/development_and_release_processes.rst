@@ -183,7 +183,7 @@ Phase 3: Pre-release
 .. note::
    If there have been significant changes to the *PyGranta meta-package*, a release candidate may optionally be
    published to PyPI. Examples of significant changes include re-organization of the documentation and changes to the
-   CI process, both of which are not checked as part of the manual test described above.
+   CI process, both of which are not checked as part of the manual test required in this phase.
 
 Testing should occur 4 weeks following Phase 2. Any issues raised during testing should be immediately triaged and
 fixed or deferred.
