@@ -210,8 +210,9 @@ stable versions of the packages should be released at least a week before Granta
 #. Publish the *PyGranta meta-package* as a stable release to public PyPI.
 #. Create a Pull Request in the PyAnsys meta-package repository to move the *PyGranta meta-package* dependency to the
    new stable release.
-#. If any new *idiomatic package* releases are compatible with the previous release of Granta MI, create a patch release
-   of the previous *PyGranta meta-package* release.
+#. If any new *idiomatic package* releases are compatible with the previous release of Granta MI and PyGranta,
+   including the minimum supported Python version, create a patch release of the previous *PyGranta meta-package*
+   release which includes the new *idiomatic package* releases.
 
 Checklist for completing this phase:
 
