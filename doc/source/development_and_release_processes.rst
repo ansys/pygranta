@@ -251,7 +251,7 @@ This approach has the following advantages:
 * CI is generally passing on all *idiomatic package* ``main`` branches at any point in development and release, which
   reflects successful CI run against all supported Granta MI releases and a recent Granta MI development build.
 * All *PyGranta meta-package* and *idiomatic package* **released** ``release`` branches can be patched and used for
-  releases if required. Changes in behavior from subsequent Granta MI development will not affect existing ``release``
+  releases if required. Changes in behavior from subsequent Granta MI development do not affect existing ``release``
   branches.
 
 .. note:: If a *production test VM* has been decommissioned, it should be removed from ``release`` branch CI if a patch
