@@ -20,14 +20,13 @@ Definitions
   * ``ansys-grantami-serverapi-openapi``
 
 * *Codegen template*: The template used to generate the *auto-generated packages*.
-* *Production test VM*: A virtual machine used for CI integration tests and for executing notebooks as part of the
-  documentation build. This machine always runs a release Granta MI build, and is only upgraded following the initial
-  deployment if a service pack is released for that Granta MI version. It is used as part of CI on *idiomatic packages*
-  during development and release.
-* *Development test VM*: Virtual machine used for CI integration tests and for executing notebooks as part of the
-  documentation build. This machine is upgraded as required to support CI on *idiomatic package* ``main`` branches
-  during development. This machine may be used for building ``release`` branches and pre-releases, but should not be
-  used for releasing stable releases.
+* *Production test VM*: A virtual machine used as part of CI. A new *Production test VM* is commissioned for each new
+  Granta MI release, and the VM is only upgraded if a service pack is made available for that release. It is used as
+  part of *idiomatic package* CI during development and release to ensure compatibility with a specific version of
+  Granta MI.
+* *Development test VM*: Virtual machine used as part of CI. This machine is upgraded as required during development.
+  It is used as part of *idiomatic package* CI during development **only** to ensure compatibility with development
+  builds of Granta MI.
 
 Development and release timeline
 --------------------------------
@@ -235,26 +234,28 @@ Test VM management
 ~~~~~~~~~~~~~~~~~~
 
 There are multiple *production test VMs* in use at one time, and each runs a validated Granta MI version. The names and
-URLs of the *development test VM* are stored in the ``AZURE_VM_NAME_yyRn`` and ``TEST_SERVER_yyRn_URL`` secrets
+URLs of the *production test VM* are stored in the ``AZURE_VM_NAME_yyRn`` and ``TEST_SERVER_yyRn_URL`` secrets
 respectively, where ``yyRn`` is the Granta MI version, for example ``25R2``.
 
-*Production test VMs* can be decommissioned when that version of Granta MI moves out of support.
+*Production test VMs* are commissioned for a new Granta MI release once it is declared stable, and is decommissioned
+when support is withdrawn for that Granta MI release.
 
-The *development test VM* runs whichever version of Granta MI is required to support CI on *idiomatic package* ``main``
-branches during development. The name and URL of the *development test VM* is stored in the ``AZURE_VM_NAME_DEV``
-and ``TEST_SERVER_DEV_URL`` secrets respectively.
+The *development test VM* runs a development build of Granta MI, and is upgraded as required to support CI on
+*idiomatic package* ``main`` branches during development. The name and URL of the *development test VM* are stored in
+the ``AZURE_VM_NAME_DEV`` and ``TEST_SERVER_DEV_URL`` secrets respectively.
 
 The *development test VM* has a green desktop background to indicate it is safe to upgrade.
 
 This approach has the following advantages:
 
-* CI is generally passing on all *idiomatic package* ``main`` branches at any point in development and release, testing
-  against previous Granta MI versions still in support, and the current development Granta MI version.
+* CI is generally passing on all *idiomatic package* ``main`` branches at any point in development and release, which
+  reflects successful CI run against all supported Granta MI releases and a recent Granta MI development build.
 * All *PyGranta meta-package* and *idiomatic package* **released** ``release`` branches can be patched and used for
-  releases if required, and will not be subject to any changes in behavior from subsequent Granta MI development.
+  releases if required. Changes in behavior from subsequent Granta MI development will not affect existing ``release``
+  branches.
 
-.. note:: If a *production test VM* has been decommissioned, it may need to be removed from ``release`` branch CI before
-   the release can be completed.
+.. note:: If a *production test VM* has been decommissioned, it should be removed from ``release`` branch CI if a patch
+   release is required.
 
 .. |chkbx| raw:: html
 
