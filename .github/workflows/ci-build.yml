@@ -158,11 +158,19 @@ jobs:
          additional-artifacts: 'all-deps-Linux-3.10 all-deps-Linux-3.11 all-deps-Linux-3.12 all-deps-Linux-3.13 all-deps-Windows-3.10 all-deps-Windows-3.11 all-deps-Windows-3.12 all-deps-Windows-3.13'
          token: ${{ secrets.GITHUB_TOKEN }}
 
-     - name: Release to PyPI repository
-       uses: ansys/actions/release-pypi-public@v9
+     - name: "Download the library artifacts"
+       uses: actions/download-artifact@cc203385981b70ca67e1cc392babf9cc229d5806  # v4.1.9
        with:
-         library-name: ${{ env.PACKAGE_NAME }}
-         use-trusted-publisher: true
+         name: ${{ env.PACKAGE_NAME }}-artifacts
+         path: ${{ env.PACKAGE_NAME }}-artifacts
+
+     - name: "Upload artifacts to PyPI using trusted publisher"
+       uses: pypa/gh-action-pypi-publish@76f52bc884231f62b9a034ebfe128415bbaabdfc  # v1.12.4
+       with:
+         repository-url: "https://upload.pypi.org/legacy/"
+         print-hash: true
+         packages-dir: ${{ env.PACKAGE_NAME }}-artifacts
+         skip-existing: false
 
   docs-release:
    name: Deploy release docs
