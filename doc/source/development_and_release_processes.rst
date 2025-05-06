@@ -20,12 +20,13 @@ Definitions
   * ``ansys-grantami-serverapi-openapi``
 
 * *Codegen template*: The template used to generate the *auto-generated packages*.
-* *Production test VM*: Virtual machine used for CI integration tests and for executing notebooks as part of the
-  documentation build. This machine always runs the Granta MI version required to build the most recently released
-  ``release`` branch for the *PyGranta meta-package* and all *idiomatic packages*.
-* *Development test VM*: Virtual machine used for CI integration tests and for executing notebooks as part of the
-  documentation build. This machine is upgraded as required to support CI on *idiomatic package* ``main`` branches
-  during development.
+* *Production test VM*: A virtual machine used as part of CI. A new *Production test VM* is commissioned for each new
+  Granta MI release, and the VM is only upgraded if a service pack is made available for that release. It is used as
+  part of *idiomatic package* CI during development and release to ensure compatibility with a specific version of
+  Granta MI.
+* *Development test VM*: Virtual machine used as part of CI. This machine is upgraded as required during development.
+  It is used as part of *idiomatic package* CI during development **only** to ensure compatibility with development
+  builds of Granta MI.
 
 Development and release timeline
 --------------------------------
@@ -174,9 +175,11 @@ Checklist
 Phase 3: Pre-release
 ~~~~~~~~~~~~~~~~~~~~
 
-#. Update the *production test VM* to run the Granta MI release validated during the hardening phase.
+#. Provision a new *production test VM* to run the Granta MI release validated during the hardening phase.
 #. Update the latest *idiomatic package* ``release`` branches created during the hardening phase to run CI against the
-   *production test VM*.
+   newly provisioned *production test VM*.
+#. Update the latest *idiomatic package* ``release`` branches created during the hardening phase to **not** run CI
+   against the *development test VM*.
 #. Manually test the *PyGranta meta-package* against the Granta MI release candidate by installing the ``main`` branch
    directly using ``pip``.
 
@@ -185,12 +188,13 @@ Phase 3: Pre-release
    published to PyPI. Examples of significant changes include re-organization of the documentation and changes to the
    CI process, both of which are not checked as part of the manual test required in this phase.
 
-Testing should occur 4 weeks following Phase 2. Any issues raised during testing should be immediately triaged and
-fixed or deferred.
+Testing should occur within 4 weeks following Phase 2. Any issues raised during testing should be immediately triaged
+and fixed or deferred.
 
 Checklist for completing this phase:
 
-* |chkbx| The *production test VM* is running the release version of Granta MI.
+* |chkbx| There is a new *production test VM* provisioned and running the release version of Granta MI.
+* |chkbx| All ``release`` branches no longer target the *development test VM*.
 * |chkbx| CI for all *idiomatic packages* is passing.
 * |chkbx| Manual testing has been completed against the *PyGranta meta-package* and all *idiomatic packages*.
 * |chkbx| The GitHub PyGranta Development project contains no must-deliver features or bug fixes still outstanding for
@@ -229,23 +233,29 @@ Addenda
 Test VM management
 ~~~~~~~~~~~~~~~~~~
 
-At all times the *production test VM* virtual machine should be running the latest validated Granta MI version. This
-is generally the most recent released version, but during the pre-release phase the version of Granta MI installed on
-the *production test VM* is more recent than the latest version available to customers. The name and URL of the
-*production test VM* is stored in the ``AZURE_VM_NAME`` and ``TEST_SERVER_URL`` secrets respectively.
+There are multiple *production test VMs* in use at one time, and each runs a validated Granta MI version. The names and
+URLs of the *production test VM* are stored in the ``AZURE_VM_NAME_yyRn`` and ``TEST_SERVER_yyRn_URL`` secrets
+respectively, where ``yyRn`` is the Granta MI version, for example ``25R2``.
 
-The *development test VM* runs whichever version of Granta MI is required to support CI on *idiomatic package* ``main``
-branches during development. The name and URL of the *development test VM* is stored in the ``AZURE_VM_NAME_NEXT``
-and ``TEST_SERVER_URL_NEXT`` secrets respectively.
+*Production test VMs* are commissioned for a new Granta MI release once it is declared stable, and is decommissioned
+when support is withdrawn for that Granta MI release.
 
-The *production test VM* and *development test VM* can be distinguished by their desktop backgrounds and text files
-in the hard drive root.
+The *development test VM* runs a development build of Granta MI, and is upgraded as required to support CI on
+*idiomatic package* ``main`` branches during development. The name and URL of the *development test VM* are stored in
+the ``AZURE_VM_NAME_DEV`` and ``TEST_SERVER_DEV_URL`` secrets respectively.
 
-This approach achieves two goals:
+The *development test VM* has a green desktop background to indicate it is safe to upgrade.
 
-* CI is generally passing on all *idiomatic package* ``main`` branches at any point in development and release.
-* The most recent *PyGranta meta-package* and all *idiomatic package* **released** ``release`` branches can still be
-  built up to the pre-release phase to support patch releases if required.
+This approach has the following advantages:
+
+* CI is generally passing on all *idiomatic package* ``main`` branches at any point in development and release, which
+  reflects successful CI run against all supported Granta MI releases and a recent Granta MI development build.
+* All *PyGranta meta-package* and *idiomatic package* **released** ``release`` branches can be patched and used for
+  releases if required. Changes in behavior from subsequent Granta MI development do not affect existing ``release``
+  branches.
+
+.. note:: If a *production test VM* has been decommissioned, it should be removed from ``release`` branch CI if a patch
+   release is required.
 
 .. |chkbx| raw:: html
 
