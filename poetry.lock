@@ -143,14 +143,14 @@ oidc = ["keyring (>=22,<26)", "requests_auth (>=8.0.0,<9.0.0)"]
 
 [[package]]
 name = "ansys-sphinx-theme"
-version = "1.4.3"
+version = "1.4.4"
 description = "A theme devised by ANSYS, Inc. for Sphinx documentation."
 optional = false
 python-versions = "<4,>=3.10"
 groups = ["doc"]
 files = [
-    {file = "ansys_sphinx_theme-1.4.3-py3-none-any.whl", hash = "sha256:19c52c3635a8a652dbd236f19ca190e5d51ebabf71af5b0c33e794034586d52a"},
-    {file = "ansys_sphinx_theme-1.4.3.tar.gz", hash = "sha256:a491de868b91c6bfa8bd9fdc172a9e75d153ac4b5870a18068a4df6fbf24c494"},
+    {file = "ansys_sphinx_theme-1.4.4-py3-none-any.whl", hash = "sha256:1a07115ae1c0da0948daa2bfb24760efc87cd10558d3d4765f88a59c94de1c95"},
+    {file = "ansys_sphinx_theme-1.4.4.tar.gz", hash = "sha256:32d03b498d91654d21d00b5648171a8633438004fe30f040c6965e16e2108c47"},
 ]
 
 [package.dependencies]
@@ -158,12 +158,13 @@ importlib-metadata = ">=4.0"
 Jinja2 = ">=3.1.2"
 pdf2image = ">=1.17.0"
 pydata-sphinx-theme = ">=0.15.4,<0.17"
+snowballstemmer = "<3"
 Sphinx = ">=6.1.0"
 
 [package.extras]
 autoapi = ["astroid (>=3.0,<4.0)", "sphinx-autoapi (==3.6.0)", "sphinx-design (==0.6.1)", "sphinx-jinja (==2.0.2)"]
 changelog = ["PyYAML (==6.0.2)", "sphinx-design (==0.6.1)"]
-doc = ["Pillow (>=9.0)", "PyGitHub (==2.6.1)", "PyYAML (==6.0.2)", "jupytext (==1.16.7)", "nbsphinx (==0.9.7)", "notebook (==7.3.3)", "numpydoc (==1.8.0)", "pandas (==2.2.3)", "plotly (==6.0.1)", "pyvista[jupyter] (==0.44.2)", "requests (==2.32.3)", "sphinx-autoapi (==3.6.0)", "sphinx-copybutton (==0.5.2)", "sphinx-design (==0.6.1)", "sphinx-gallery (==0.19.0)", "sphinx-jinja (==2.0.2)", "sphinx-notfound-page (==1.1.0)", "sphinx-theme-builder[cli] (==0.2.0b2)", "tox (==4.24.2)"]
+doc = ["Pillow (>=9.0)", "PyGitHub (==2.6.1)", "PyYAML (==6.0.2)", "jupytext (==1.17.1)", "nbsphinx (==0.9.7)", "notebook (==7.4.1)", "numpydoc (==1.8.0)", "pandas (==2.2.3)", "plotly (==6.0.1)", "pyvista[jupyter] (==0.45.0)", "requests (==2.32.3)", "sphinx-autoapi (==3.6.0)", "sphinx-copybutton (==0.5.2)", "sphinx-design (==0.6.1)", "sphinx-gallery (==0.19.0)", "sphinx-jinja (==2.0.2)", "sphinx-notfound-page (==1.1.0)", "sphinx-theme-builder[cli] (==0.2.0b2)", "tox (==4.25.0)"]
 
 [[package]]
 name = "babel"
