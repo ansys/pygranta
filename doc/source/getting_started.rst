@@ -2,7 +2,7 @@ Getting started
 ===============
 
 The ``pygranta`` metapackage guarantees mutual compatibility between all PyGranta packages. The packages referenced by a
-``pygranta`` metapackage version are certified to be compatibile with each other and with the corresponding Granta MI
+``pygranta`` metapackage version are certified to be compatible with each other and with the corresponding Granta MI
 version.
 
 .. note::
@@ -41,7 +41,7 @@ More detailed guidance on selecting package versions which are compatible with s
 on the :doc:`package_versions` page. This page also includes a list of all PyGranta packages associated with each
 ``pygranta`` metapackage version.
 
-See `Versioning system`_ for more details on PyGranta pacakge version numbers.
+See `Versioning system`_ for more details on PyGranta package version numbers.
 
 
 User mode installation
