@@ -7,9 +7,14 @@ version.
 
 .. note::
    The ``ansys-grantami-bomanalytics`` and ``ansys-grantami-bomanalytics-openapi`` versions included in the metapackage
-   are compatible with that version of *BoM Analytics Services*, included with Granta MI Restricted
-   Substances and Sustainability Reports. Multiple versions of BoM Analytics Services are compatible with a single
-   version of Granta MI.
+   are instead compatible with the corresponding version of *BoM Analytics Services*. BoM Analytics Services is the REST
+   API used by ``ansys-grantami-bomanalytics``, and is provided as part of the *Granta MI Restricted Substances and
+   Sustainability Reports* package.
+
+   Multiple versions of *Granta MI Restricted Substances and Sustainability Reports* are available for a single version
+   of Granta MI. The selected version of *Granta MI Restricted Substances and Sustainability Reports* (and therefore
+   the required version of ``ansys-grantami-bomanalytics``) depends on the *Restricted Substances and Sustainability*
+   database version.
 
 Most packages require access to an installation of Ansys Granta MI. For more information on getting a licensed copy of
 Ansys products, visit the `Ansys website <https://www.ansys.com/>`_.
