@@ -41,6 +41,7 @@ extensions = [
     "sphinx_design",
     "sphinx_copybutton",
     "sphinx_jinja",
+    "sphinx.ext.extlinks",
 ]
 
 # Intersphinx mapping
@@ -70,6 +71,12 @@ numpydoc_validation_checks = {
     # type, unless multiple values are being returned"
 }
 
+extlinks = {
+    "MI_docs": (
+        "https://ansyshelp.ansys.com/account/secured?returnurl=/Views/Secured/Granta/v251/en/%s",
+        None,
+    ),
+}
 
 # static path
 html_static_path = ["_static"]
