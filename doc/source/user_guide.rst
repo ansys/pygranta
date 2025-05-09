@@ -9,7 +9,7 @@ PyGranta packages that are compatible with each other and with a given Granta MI
 The user guide for each PyGranta package provides usage information specific to that package.
 
 PyGranta user guides
-~~~~~~~~~~~~~~~~~~~~
+--------------------
 
 .. grid:: 3
 
