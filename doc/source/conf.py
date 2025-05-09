@@ -97,7 +97,7 @@ user_agent = (
 )
 
 # Ignore ansys links for linkcheck
-linkcheck_ignore = ["https://www.ansys.com/"]
+linkcheck_ignore = ["https://www.ansys.com/", "https://ansyshelp.ansys.com"]
 
 # sphinx-jinja configuration
 jinja_contexts = {"package_versions_ctx": {}}
