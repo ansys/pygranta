@@ -3,13 +3,14 @@ PyGranta and Granta MI compatibility
 
 PyGranta packages have always been compatible with the Granta MI version they were delivered against.
 
-Starting with pygranta version ``2025.2.0`` (released with Granta MI 2025 R2), where possible, PyGranta packages are
+Starting with ``pygranta 2025.2.0`` (released with Granta MI 2025 R2), where possible, PyGranta packages are
 backwards compatible with all supported Granta MI versions at the time of release. This allows access to improvements
 and bug fixes without having to upgrade Granta MI.
 
-Note: Full backwards compatibility for all supported Granta MI versions is not always guaranteed. Check the README or
-"Getting Started" guide for the individual PyGranta package to confirm the minimum required Granta MI version and for
-installation instructions.
+.. note::
+   Full backwards compatibility for all supported Granta MI versions is not always guaranteed. Check the README or
+   "Getting Started" guide for the individual PyGranta package to confirm the minimum required Granta MI version and for
+   installation instructions.
 
 If the latest PyGranta package version does not support the required Granta MI version, either:
 
