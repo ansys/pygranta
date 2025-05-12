@@ -6,11 +6,10 @@ User guide
 The ``pygranta`` metapackage itself is not used directly. Instead, it provides a bundle of
 PyGranta packages that are compatible with each other and with a given Granta MI release.
 
-The user guide for each PyGranta package provides general usage information.
+The user guide for each PyGranta package provides usage information specific to that package.
 
-********************
 PyGranta user guides
-********************
+--------------------
 
 .. grid:: 3
 
@@ -25,3 +24,5 @@ PyGranta user guides
     .. grid-item-card:: PyGranta JobQueue :material-regular:`work_history`
       :link: https://jobqueue.grantami.docs.pyansys.com/version/stable/user_guide/index.html
       :class-title: pyansys-card-title
+
+

@@ -1,50 +1,60 @@
 Getting started
 ===============
 
-The ``pygranta`` metapackage ensures compatibility between PyGranta packages and
-provides a convenient method for installing packages compatible with a specific
-release of Ansys Granta MI.
+The ``pygranta`` metapackage guarantees mutual compatibility between all the PyGranta packages in a specific version.
+That is, the packages referenced by a ``pygranta`` metapackage version are certified to be compatible with each other
+and with the corresponding Granta MI version.
 
-Most packages require access to an installation of Ansys Granta MI. For more
-information on getting a licensed copy of Ansys products, visit the `Ansys website <https://www.ansys.com/>`_.
+.. note::
+   The ``ansys-grantami-bomanalytics`` and ``ansys-grantami-bomanalytics-openapi`` versions included in the metapackage
+   are instead compatible with the corresponding version of *BoM Analytics Services*. BoM Analytics Services is the REST
+   API used by ``ansys-grantami-bomanalytics``, and is provided as part of the *Granta MI Restricted Substances and
+   Sustainability Reports* package. Multiple versions of the reports package are available for a single version of
+   Granta MI.
 
-************
-Installation
-************
+   The selected version of the reports package, and therefore the required version of ``ansys-grantami-bomanalytics``,
+   depends on the *Restricted Substances and Sustainability* database version.
 
-There are several ways of installing PyGranta depending on your use case, but
-the easiest is simply to run this command:
+   Refer to :MI_docs:`the Restricted Substances and Sustainability Install and Configuration guide
+   <RS_and_Sustainability_Install/rs_and_sustainability/planning_your_implementation_rsands.html>` for more details on
+   *Granta MI Restricted Substances and Sustainability Reports* versioning and installation.
+
+
+Most packages require access to an installation of Ansys Granta MI. For more information on getting a licensed copy of
+Ansys products, visit the `Ansys website <https://www.ansys.com/>`_.
+
+Installing the latest version
+-----------------------------
+
+To install the latest version of the ``pygranta`` metapackage, run:
 
 .. code:: bash
 
    pip install pygranta
 
-This installs all the PyGranta packages for the latest released version of Granta MI.
+This installs all the PyGranta packages certified to be compatible with the latest released version of Granta MI.
 
-If you are interested in **installing a specific version**, such as ``2023.2.0``, you
-can run a command like this one:
+
+Installing packages compatible with a specific version of Granta MI
+-------------------------------------------------------------------
+
+To install the version of the ``pygranta`` metapackage associated with a specific version of Granta MI, provide the
+version number during installation. For example, to install the version associated with Granta MI 2023 R2, specify the
+``pygranta`` metapackage version ``2023.2.0``:
 
 .. code:: bash
 
    pip install pygranta==2023.2.0
 
-.. note::
-   The versions of ansys-grantami-bomanalytics and ansys-grantami-bomanalytics-openapi included in the metapackage
-   are compatible with that version of *BoM Analytics Services*, included with Granta MI Restricted
-   Substances and Sustainability Reports. Multiple versions of BoM Analytics Services are compatible with a single
-   version of Granta MI.
+More detailed guidance on selecting package versions which are compatible with specific Granta MI versions is available
+on the :doc:`package_versions` page. This page also includes a list of all PyGranta packages associated with each
+``pygranta`` metapackage version.
 
-You can always install PyGranta packages individually by following the installation
-instructions for each package. For example, the instructions for PyGranta
-RecordLists have you install it by running this command:
-
-.. code:: bash
-
-   pip install ansys-grantami-recordlists
+See `Versioning system`_ for more details on PyGranta package version numbers.
 
 
 User mode installation
-^^^^^^^^^^^^^^^^^^^^^^
+----------------------
 
 Before installing the ``pygranta`` metapackage in user mode, ensure that you have the
 latest version of `pip <https://pypi.org/project/pip/>`_ by running this command:
@@ -67,8 +77,8 @@ can run a command like this one:
    python -m pip install pygranta==2023.2.0
 
 
-Offline mode installation
-^^^^^^^^^^^^^^^^^^^^^^^^^
+Offline installation
+--------------------
 
 If you lack an internet connection on your installation machine, the
 recommended way of installing the ``pygranta`` metapackage is downloading the
@@ -93,6 +103,9 @@ If you're on Windows with Python 3.12, unzip to a wheelhouse directory and insta
 using the same command as for Linux.
 
 Consider installing using a `virtual environment <https://docs.python.org/3/library/venv.html>`_.
+
+
+.. _versioning_system:
 
 Versioning system
 -----------------
