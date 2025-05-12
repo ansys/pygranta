@@ -1,9 +1,9 @@
 Getting started
 ===============
 
-The ``pygranta`` metapackage guarantees mutual compatibility between all PyGranta packages. The packages referenced by a
-``pygranta`` metapackage version are certified to be compatible with each other and with the corresponding Granta MI
-version.
+The ``pygranta`` metapackage guarantees mutual compatibility between all the PyGranta packages in a specific version.
+That is, the packages referenced by a ``pygranta`` metapackage version are certified to be compatible with each other
+and with the corresponding Granta MI version.
 
 .. note::
    The ``ansys-grantami-bomanalytics`` and ``ansys-grantami-bomanalytics-openapi`` versions included in the metapackage
