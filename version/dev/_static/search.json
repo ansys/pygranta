@@ -1,0 +1,226 @@
+[
+    {
+        "objectID": "package_versions",
+        "href": "package_versions.html#pygranta-and-granta-mi-compatibility",
+        "title": "PyGranta and Granta MI compatibility",
+        "section": "PyGranta and Granta MI compatibility",
+        "text": "PyGranta packages have always been compatible with the Granta MI version they were delivered against (see\nversioning_system).\nStarting with PyGranta version 2025.2.0 (released with Granta MI 2025 R2), where possible, PyGranta packages are\nbackwards compatible with all supported Granta MI versions at the time of release. This allows access to improvements\nand bug fixes without having to upgrade Granta MI.\nFull backwards compatibility for all supported Granta MI versions is not always guaranteed. Check the README or\n“Getting Started” guide for the individual PyGranta package to confirm the minimum required Granta MI version and for\ninstallation instructions.\nIf the latest PyGranta package version does not support the required Granta MI version, use the Package versions table\nbelow to identify the version of the PyGranta package released with the required Granta MI version.\nIn addition, forwards compatibility of PyGranta packages with future Granta MI releases is not guaranteed. PyGranta\npackages should always be upgraded following a Granta MI server upgrade.\nPyGranta and Granta MI compatibility\n2025.2.0"
+    },
+    {
+        "objectID": "package_versions",
+        "href": "package_versions.html#package-versions",
+        "title": "PyGranta and Granta MI compatibility > Package versions",
+        "section": "Package versions",
+        "text": "These tables map a PyGranta metapackage version to the individual PyGranta package associated with it. This can be used\nto determine the minimum PyGranta package that is compatible with a given version of Granta MI. However, due to\nbackwards compatibility, it may be possible to use more modern package versions.\nThe ansys-grantami-bomanalytics and ansys-grantami-bomanalytics-openapi versions included in the metapackage\nare compatible with that version of BoM Analytics Services, included with Granta MI Restricted Substances and\nSustainability Reports. Multiple versions of BoM Analytics Services are compatible with a single version of Granta\nMI.\nPackage versions\nansys-grantami-bomanalytics\nansys-grantami-bomanalytics-openapi"
+    },
+    {
+        "objectID": "package_versions",
+        "href": "package_versions.html#20251",
+        "title": "PyGranta and Granta MI compatibility > 2025.1",
+        "section": "2025.1",
+        "text": "Library\nVersion\nLinks\nansys-grantami-bomanalytics\n2.2.0\nPyPI, Documentation\nansys-grantami-bomanalytics-openapi\n3.1.0\nPyPI\nansys-grantami-recordlists\n1.3.0\nPyPI, Documentation\nansys-grantami-jobqueue\n1.1.0\nPyPI, Documentation\nansys-grantami-serverapi-openapi\n4.0.0\nPyPI\n2025.1"
+    },
+    {
+        "objectID": "package_versions",
+        "href": "package_versions.html#20242",
+        "title": "PyGranta and Granta MI compatibility > 2024.2",
+        "section": "2024.2",
+        "text": "Library\nVersion\nLinks\nansys-grantami-bomanalytics\n2.1.1\nPyPI, Documentation\nansys-grantami-bomanalytics-openapi\n3.0.0\nPyPI\nansys-grantami-recordlists\n1.2.1\nPyPI, Documentation\nansys-grantami-jobqueue\n1.0.1\nPyPI, Documentation\nansys-grantami-serverapi-openapi\n3.0.0\nPyPI\n2024.2"
+    },
+    {
+        "objectID": "package_versions",
+        "href": "package_versions.html#20241",
+        "title": "PyGranta and Granta MI compatibility > 2024.1",
+        "section": "2024.1",
+        "text": "Library\nVersion\nLinks\nansys-grantami-bomanalytics\n2.0.0\nPyPI, Documentation\nansys-grantami-bomanalytics-openapi\n2.0.0\nPyPI\nansys-grantami-recordlists\n1.1.0\nPyPI, Documentation\nansys-grantami-serverapi-openapi\n2.0.0\nPyPI\n2024.1"
+    },
+    {
+        "objectID": "package_versions",
+        "href": "package_versions.html#20232",
+        "title": "PyGranta and Granta MI compatibility > 2023.2",
+        "section": "2023.2",
+        "text": "Library\nVersion\nLinks\nansys-grantami-bomanalytics\n1.2.0\nPyPI, Documentation\nansys-grantami-bomanalytics-openapi\n1.1.0\nPyPI\nansys-grantami-recordlists\n1.0.0.post1\nPyPI, Documentation\nansys-grantami-serverapi-openapi\n1.0.0\nPyPI\n2023.2"
+    },
+    {
+        "objectID": "index",
+        "href": "index.html#pygranta-202520dev0",
+        "title": "PyGranta 2025.2.0.dev0",
+        "section": "PyGranta 2025.2.0.dev0",
+        "text": "Welcome to the PyGranta project. This page lists the PyAnsys packages\nthat provide integration with Granta MI services.\nSustainability and restricted substance analysis.\nManage favorite Granta MI materials in Python as record lists.\nImport and export text and Excel data with Python asynchronously.\nPyGranta 2025.2.0.dev0"
+    },
+    {
+        "objectID": "development_and_release_processes",
+        "href": "development_and_release_processes.html#development-and-release-processes",
+        "title": "Development and release processes",
+        "section": "Development and release processes",
+        "text": "Development and release processes"
+    },
+    {
+        "objectID": "development_and_release_processes",
+        "href": "development_and_release_processes.html#definitions",
+        "title": "Development and release processes > Definitions",
+        "section": "Definitions",
+        "text": "PyGranta meta-package: A package which depends on the idiomatic packages and auto-generated packages. Includes\ndocumentation describing the PyGranta ecosystem, including this document.\nIdiomatic package: A hand-written package. Typically depends on one auto-generated package and openapi-common.\nThere are currently three idiomatic packages in PyGranta:\nansys-grantami-bomanalytics\nansys-grantami-recordlists\nansys-grantami-jobqueue\nAuto-generated package: A package generated by the codegen template. There are currently two auto-generated\npackages in PyGranta:\nansys-grantami-bomanalytics-openapi\nansys-grantami-serverapi-openapi\nCodegen template: The template used to generate the auto-generated packages.\nProduction test VM: A virtual machine used as part of CI. A new Production test VM is commissioned for each new\nGranta MI release, and the VM is only upgraded if a service pack is made available for that release. It is used as\npart of idiomatic package CI during development and release to ensure compatibility with a specific version of\nGranta MI.\nDevelopment test VM: Virtual machine used as part of CI. This machine is upgraded as required during development.\nIt is used as part of idiomatic package CI during development only to ensure compatibility with development\nbuilds of Granta MI.\nDefinitions\nopenapi-common\nansys-grantami-bomanalytics\nansys-grantami-recordlists\nansys-grantami-jobqueue\nansys-grantami-bomanalytics-openapi\nansys-grantami-serverapi-openapi"
+    },
+    {
+        "objectID": "development_and_release_processes",
+        "href": "development_and_release_processes.html#development-and-release-timeline",
+        "title": "Development and release processes > Development and release timeline",
+        "section": "Development and release timeline",
+        "text": "The timeline is split into three distinct phases:\nPhase 1: Development. There is active development upstream on closed-source Granta MI components, the codegen\ntemplate, and on the open source idiomatic packages and auto-generated packages. Effort is made to ensure CI is\npassing on all main branches, but from time to time CI may fail. The development test VM is upgraded as\nrequired to support CI passing on main branches.\nPhase 2: Hardening. Bugs are fixed and minor improvements are made to idiomatic packages, auto-generated\npackages, and the codegen template. During this phase the codegen template and auto-generated packages are\nfinalized.\nPhase 3: Pre-release. The upstream closed-source development has completed. The PyGranta meta-package and\nidiomatic packages are manually tested and finalized.\nDevelopment and release timeline\nmain\nmain"
+    },
+    {
+        "objectID": "development_and_release_processes",
+        "href": "development_and_release_processes.html#phase-1-development",
+        "title": "Development and release processes > Phase 1: Development",
+        "section": "Phase 1: Development",
+        "text": "During development, the following processes happen continuously:\nIncorporate changes to upstream API definitions into auto-generated package repositories.\nCheck that code generation is successful by monitoring CI in the auto-generated package repositories.\nIf code generation is not successful, resolve by either fixing the codegen template, fixing the auto-generated\npackage configuration, or raise the issue with the internal Ansys development team.\nIf idiomatic package development does not depend on upstream API development, then there is no dependency between\nthe idiomatic package and the auto-generated package and work can proceed in parallel.\nIf significant idiomatic package development is being done that depends on the current state of an auto-generated\npackage, you should update the main branch of the corresponding idiomatic package to depend on the\nauto-generated package main directly.\nDuring this phase, the development test VM may be upgraded if required to support new upstream Granta MI capabilities.\nPhase 1: Development\nmain\nmain"
+    },
+    {
+        "objectID": "development_and_release_processes",
+        "href": "development_and_release_processes.html#phase-2-hardening",
+        "title": "Development and release processes > Phase 2: Hardening",
+        "section": "Phase 2: Hardening",
+        "text": "Phase 2: Hardening"
+    },
+    {
+        "objectID": "development_and_release_processes",
+        "href": "development_and_release_processes.html#phase-2a-initial-dev-releases",
+        "title": "Development and release processes > Phase 2a: Initial dev releases",
+        "section": "Phase 2a: Initial dev releases",
+        "text": "Update the development test VM with the latest Granta MI software and databases. See the\nansys-grantami-bomanalytics repository for details about preparing the Restricted Substances test database.\nPublish auto-generated packages to the internal PyPI mirror with .dev version numbers.\nUpdate idiomatic package main branches to depend on the auto-generated package .dev releases. If the\nmain branch has not been updated to depend on the auto-generated package main branch during development,\nthen there may be integration issues discovered at this point - these should be resolved in the PR before merging.\nThe PR typically includes:\nUpdates to Python version support to align with changes to the auto-generated package.\nUpdates to the README.rst to reflect any changes in the minimum required Granta MI version.\nChanges at the interface with the auto-generated package if either the codegen template or API definition has\nchanged.\nChanges to expected test results. This is typically relevant for ansys-grantami-bomanalytics which includes\nacceptance-style tests.\nPublish idiomatic packages to the internal PyPI mirror with .dev version numbers.\nAt this point release branches should not be created. .dev releases should be published to the internal\nPyPI mirror from the main branch.\nThese .dev releases can be used for internal testing of closed-source packages that have runtime\ndependencies on PyGranta packages.\nContinue to review any changes to API definitions via auto-generated packages throughout the hardening phase. If\nthere are any issues with the API definitions, these must be escalated with high priority.\nPhase 2a: Initial dev releases\nansys-grantami-bomanalytics\n.dev\nmain\n.dev\nmain\nmain\nREADME.rst\nansys-grantami-bomanalytics\n.dev\n.dev\nmain\n.dev"
+    },
+    {
+        "objectID": "development_and_release_processes",
+        "href": "development_and_release_processes.html#phase-2b-documentation-review",
+        "title": "Development and release processes > Phase 2b: Documentation review",
+        "section": "Phase 2b: Documentation review",
+        "text": "Review the documentation for all idiomatic packages and the PyGranta meta-package:\nSignificant new documentation is reviewed by the appropriate reviews for linguistic and technical accuracy.\nReferences to dependencies are updated, including:\nServer software versions\nRequired Python versions\nCompatible third-party library versions\nReferences to Ansys documentation of other packages/products are checked to see if they need to be updated to the\nprevious version of that documentation.\nThe Ansys documentation for the current in-development release is published after the PyGranta packages are\nreleased. The documentation for the previous release should be used to ensure links in published PyGranta\ndocumentation can always be resolved.\nPhase 2b: Documentation review"
+    },
+    {
+        "objectID": "development_and_release_processes",
+        "href": "development_and_release_processes.html#phase-2c-release-candidates",
+        "title": "Development and release processes > Phase 2c: Release candidates",
+        "section": "Phase 2c: Release candidates",
+        "text": "Towards the end of the hardening phase, once the API definitions are determined to be stable, the auto-generated\npackages are released:\nCreate release branches for auto-generated packages and publish as release candidates to public PyPI.\nCreate Pull Requests in idiomatic package repositories to update main to depend on the auto-generated\npackage release candidate releases. Ensure CI passes for idiomatic packages.\nPublish auto-generated packages as stable releases to public PyPI.\nCreate Pull Requests in idiomatic package repositories to update main to depend on the auto-generated\npackage stable releases. Ensure CI passes for idiomatic packages.\nCreate release branches for idiomatic packages and publish as release candidates to public PyPI.\nUpdate the PyGranta meta-package main branch to depend on the public idiomatic packages release candidates\nand auto-generated packages stable releases.\nAt this point release branches should be created for idiomatic packages. However, during hardening these release\nbranches still run CI against the development test VM.\nIdiomatic package release candidates must depend on stable release versions of auto-generated packages only.\nThey must not depend on pre-release versions of auto-generated packages.\nWhen performing pre-releases of packages with towncrier, the Ansys action creates a Pull Request to update\nCHANGELOG.md on main, and commits the CHANGELOG.md changes directly to the release branch. The commit to the\nrelease branch should be reverted, and the Pull Request to merge the changes to main should be closed and\nnot merged.\nThe stable auto-generated packages and release candidate idiomatic packages can now be used for the final release of\ninternal packages. It is recommended to make any closed-source idiomatic package release candidate dependencies\nflexible enough such that they match subsequent stable releases of those idiomatic packages.\nAt the end of this phase, the PyGranta meta-package depends on release candidates for the idiomatic packages and\nreleases of the auto-generated packages. This guarantees that there exists a consistent set of dependencies across all\nidiomatic packages and auto-generated packages. Any issues at this stage should be resolved by addressing any\ndependency conflicts in the idiomatic packages and publishing new release candidates to public PyPI as necessary.\nPhase 2c: Release candidates\nrelease\nmain\nmain\nrelease\nmain\nmain\nmain"
+    },
+    {
+        "objectID": "development_and_release_processes",
+        "href": "development_and_release_processes.html#checklist",
+        "title": "Development and release processes > Checklist",
+        "section": "Checklist",
+        "text": "<input type=\"checkbox\"> The development test VM is running an up-to-date development version of Granta MI.\n<input type=\"checkbox\"> CI for all idiomatic packages is passing.\n<input type=\"checkbox\"> Documentation for all idiomatic packages and the PyGranta meta-package has been reviewed to verify\nsignificant new content, changes in dependencies (for example Python version support, minimum Granta MI version), and\nreferences to other Ansys documentation sources.\n<input type=\"checkbox\"> release branches have been created for auto-generated packages and idiomatic packages.\n<input type=\"checkbox\"> Stable auto-generated packages are available on PyPI.\n<input type=\"checkbox\"> Internal packages with runtime dependencies on auto-generated packages depend on the stable PyPI releases.\n<input type=\"checkbox\"> Idiomatic packages depend on stable releases of auto-generated packages only.\n<input type=\"checkbox\"> Release candidate idiomatic packages are available on PyPI.\n<input type=\"checkbox\"> Internal packages with runtime dependencies on idiomatic packages depend on the release candidate PyPI\nreleases.\n<input type=\"checkbox\"> The PyGranta meta-package main branch depends on idiomatic packages release candidates and\nauto-generated packages stable releases only.\nChecklist\nrelease\nmain"
+    },
+    {
+        "objectID": "development_and_release_processes",
+        "href": "development_and_release_processes.html#phase-3-pre-release",
+        "title": "Development and release processes > Phase 3: Pre-release",
+        "section": "Phase 3: Pre-release",
+        "text": "Provision a new production test VM to run the Granta MI release validated during the hardening phase.\nUpdate the latest idiomatic package release branches created during the hardening phase to run CI against the\nnewly provisioned production test VM.\nUpdate the latest idiomatic package release branches created during the hardening phase to not run CI\nagainst the development test VM.\nManually test the PyGranta meta-package against the Granta MI release candidate by installing the main branch\ndirectly using pip.\nIf there have been significant changes to the PyGranta meta-package, a release candidate may optionally be\npublished to PyPI. Examples of significant changes include re-organization of the documentation and changes to the\nCI process, both of which are not checked as part of the manual test required in this phase.\nTesting should occur within 4 weeks following Phase 2. Any issues raised during testing should be immediately triaged\nand fixed or deferred.\nChecklist for completing this phase:\n<input type=\"checkbox\"> There is a new production test VM provisioned and running the release version of Granta MI.\n<input type=\"checkbox\"> All release branches no longer target the development test VM.\n<input type=\"checkbox\"> CI for all idiomatic packages is passing.\n<input type=\"checkbox\"> Manual testing has been completed against the PyGranta meta-package and all idiomatic packages.\n<input type=\"checkbox\"> The GitHub PyGranta Development project contains no must-deliver features or bug fixes still outstanding for\nthe active release.\nPhase 3: Pre-release\nrelease\nrelease\nmain\npip\nrelease"
+    },
+    {
+        "objectID": "development_and_release_processes",
+        "href": "development_and_release_processes.html#phase-4-release",
+        "title": "Development and release processes > Phase 4: Release",
+        "section": "Phase 4: Release",
+        "text": "The PyAnsys meta-package is typically released a week before Granta MI is available to customers. As a result, the\nstable versions of the packages should be released at least a week before Granta MI is available to customers:\nDefer any issues still associated with the active release in the GitHub PyGranta Development to a future release.\nPublish idiomatic packages as stable releases to public PyPI.\nUpdate the PyGranta meta-package main branch to depend on the public idiomatic packages stable releases.\nCreate (or update if a release candidate was published in Phase 3) a release branch for the PyGranta\nmeta-package.\nPublish the PyGranta meta-package as a stable release to public PyPI.\nCreate a Pull Request in the PyAnsys meta-package repository to move the PyGranta meta-package dependency to the\nnew stable release.\nIf any new idiomatic package releases are compatible with the previous release of Granta MI and PyGranta,\nincluding the minimum supported Python version, create a patch release of the previous PyGranta meta-package\nrelease which includes the new idiomatic package releases.\nChecklist for completing this phase:\n<input type=\"checkbox\"> The active release in the GitHub PyGranta Development project is empty, with all deferred tickets re-assigned\nto a future release.\n<input type=\"checkbox\"> Stable releases of all idiomatic packages and the PyGranta meta-package are available on PyPI.\n<input type=\"checkbox\"> The PyAnsys meta-package depends on the PyGranta meta-package stable release.\n<input type=\"checkbox\"> A patch release has been made for the previous PyGranta meta-package if there is at least one backwards-\ncompatible idiomatic package released during this development cycle.\nPhase 4: Release\nmain\nrelease"
+    },
+    {
+        "objectID": "development_and_release_processes",
+        "href": "development_and_release_processes.html#addenda",
+        "title": "Development and release processes > Addenda",
+        "section": "Addenda",
+        "text": "Addenda"
+    },
+    {
+        "objectID": "development_and_release_processes",
+        "href": "development_and_release_processes.html#test-vm-management",
+        "title": "Development and release processes > Test VM management",
+        "section": "Test VM management",
+        "text": "There are multiple production test VMs in use at one time, and each runs a validated Granta MI version. The names and\nURLs of the production test VM are stored in the AZURE_VM_NAME_yyRn and TEST_SERVER_yyRn_URL secrets\nrespectively, where yyRn is the Granta MI version, for example 25R2.\nProduction test VMs are commissioned for a new Granta MI release once it is declared stable, and is decommissioned\nwhen support is withdrawn for that Granta MI release.\nThe development test VM runs a development build of Granta MI, and is upgraded as required to support CI on\nidiomatic package main branches during development. The name and URL of the development test VM are stored in\nthe AZURE_VM_NAME_DEV and TEST_SERVER_DEV_URL secrets respectively.\nThe development test VM has a green desktop background to indicate it is safe to upgrade.\nThis approach has the following advantages:\nCI is generally passing on all idiomatic package main branches at any point in development and release, which\nreflects successful CI run against all supported Granta MI releases and a recent Granta MI development build.\nAll PyGranta meta-package and idiomatic package released release branches can be patched and used for\nreleases if required. Changes in behavior from subsequent Granta MI development do not affect existing release\nbranches.\nIf a production test VM has been decommissioned, it should be removed from release branch CI if a patch\nrelease is required.\nTest VM management\nAZURE_VM_NAME_yyRn\nTEST_SERVER_yyRn_URL\nyyRn\n25R2\nmain\nAZURE_VM_NAME_DEV\nTEST_SERVER_DEV_URL\nmain\nrelease\nrelease\nrelease"
+    },
+    {
+        "objectID": "examples",
+        "href": "examples.html#examples",
+        "title": "Examples",
+        "section": "Examples",
+        "text": "Each PyGranta package has its own set of example scripts, provided as Jupyter notebooks.\nExamples"
+    },
+    {
+        "objectID": "examples",
+        "href": "examples.html#pygranta-examples",
+        "title": "Examples > PyGranta examples",
+        "section": "PyGranta examples",
+        "text": "PyGranta examples"
+    },
+    {
+        "objectID": "api",
+        "href": "api.html#api-reference",
+        "title": "API reference",
+        "section": "API reference",
+        "text": "The pygranta metapackage does not have an API. The only information that you can\nobtain specific to this package is the version.\nTo obtain the metapackage version, use this code:\nEach PyGranta package has its own “API reference” documentation section.\nAPI reference\npygranta"
+    },
+    {
+        "objectID": "api",
+        "href": "api.html#pygranta-api-documentation",
+        "title": "API reference > PyGranta API documentation",
+        "section": "PyGranta API documentation",
+        "text": "PyGranta API documentation"
+    },
+    {
+        "objectID": "getting_started",
+        "href": "getting_started.html#getting-started",
+        "title": "Getting started",
+        "section": "Getting started",
+        "text": "The pygranta metapackage guarantees mutual compatibility between all the PyGranta packages in a specific version.\nThat is, the packages referenced by a pygranta metapackage version are certified to be compatible with each other\nand with the corresponding Granta MI version.\nThe ansys-grantami-bomanalytics and ansys-grantami-bomanalytics-openapi versions included in the metapackage\nare instead compatible with the corresponding version of BoM Analytics Services. BoM Analytics Services is the REST\nAPI used by ansys-grantami-bomanalytics, and is provided as part of the Granta MI Restricted Substances and\nSustainability Reports package. Multiple versions of the reports package are available for a single version of\nGranta MI.\nThe selected version of the reports package, and therefore the required version of ansys-grantami-bomanalytics,\ndepends on the Restricted Substances and Sustainability database version.\nRefer to the Restricted Substances and Sustainability Install and Configuration guide for more details on\nGranta MI Restricted Substances and Sustainability Reports versioning and installation.\nMost packages require access to an installation of Ansys Granta MI. For more information on getting a licensed copy of\nAnsys products, visit the Ansys website.\nGetting started\npygranta\npygranta\nansys-grantami-bomanalytics\nansys-grantami-bomanalytics-openapi\nansys-grantami-bomanalytics\nansys-grantami-bomanalytics"
+    },
+    {
+        "objectID": "getting_started",
+        "href": "getting_started.html#installing-the-latest-version",
+        "title": "Getting started > Installing the latest version",
+        "section": "Installing the latest version",
+        "text": "To install the latest version of the pygranta metapackage, run:\nThis installs all the PyGranta packages certified to be compatible with the latest released version of Granta MI.\nInstalling the latest version\npygranta"
+    },
+    {
+        "objectID": "getting_started",
+        "href": "getting_started.html#installing-packages-compatible-with-a-specific-version-of-granta-mi",
+        "title": "Getting started > Installing packages compatible with a specific version of Granta MI",
+        "section": "Installing packages compatible with a specific version of Granta MI",
+        "text": "To install the version of the pygranta metapackage associated with a specific version of Granta MI, provide the\nversion number during installation. For example, to install the version associated with Granta MI 2023 R2, specify the\npygranta metapackage version 2023.2.0:\nMore detailed guidance on selecting package versions which are compatible with specific Granta MI versions is available\non the package_versions page. This page also includes a list of all PyGranta packages associated with each\npygranta metapackage version.\nSee Versioning system for more details on PyGranta package version numbers.\nInstalling packages compatible with a specific version of Granta MI\npygranta\npygranta\n2023.2.0\npygranta"
+    },
+    {
+        "objectID": "getting_started",
+        "href": "getting_started.html#user-mode-installation",
+        "title": "Getting started > User mode installation",
+        "section": "User mode installation",
+        "text": "Before installing the pygranta metapackage in user mode, ensure that you have the\nlatest version of pip by running this command:\nThen, install the pygranta metapackage with this command:\nIf you are interested in installing a specific version, such as 2023.2.0, you\ncan run a command like this one:\nUser mode installation\npygranta\npygranta\n2023.2.0"
+    },
+    {
+        "objectID": "getting_started",
+        "href": "getting_started.html#offline-installation",
+        "title": "Getting started > Offline installation",
+        "section": "Offline installation",
+        "text": "If you lack an internet connection on your installation machine, the\nrecommended way of installing the pygranta metapackage is downloading the\nwheelhouse archive for your corresponding machine\narchitecture from the repository’s Releases page.\nEach wheelhouse archive contains all the Python wheels necessary to install\nthe pygranta metapackage from scratch on Windows and Linux for all supported\nPython versions. You can install this on an isolated system with a fresh Python\ninstallation or on a virtual environment.\nFor example, on Linux with Python 3.12, unzip the wheelhouse archive and install\nit with these commands:\nIf you’re on Windows with Python 3.12, unzip to a wheelhouse directory and install\nusing the same command as for Linux.\nConsider installing using a virtual environment.\nOffline installation\npygranta\npygranta"
+    },
+    {
+        "objectID": "getting_started",
+        "href": "getting_started.html#versioning-system",
+        "title": "Getting started > Versioning system",
+        "section": "Versioning system",
+        "text": "The pygranta metapackage follows a semantic-like versioning system, though\nit has been adapted to the Ansys product release mechanism. In this sense, the\nfollowing versioning system is followed:\nWhere:\nXXXX is the Ansys product release year (for example, 2024).\nY is the Ansys product release within the same year (for example, 1,\nwhich relates to R1).\nZZ is the patched versions to the pygranta metapackage, if any.\nConsequently, the first pygranta metapackage compatible with the 2024 R1\nrelease would be:\nAny subsequent patched version of this package would have these versions:\nWhen using pip to install your package, you can install a specific version with a\ncommand like this:\nVersioning system\npygranta\nXXXX\nY\nZZ\npygranta\npygranta\npip"
+    },
+    {
+        "objectID": "user_guide",
+        "href": "user_guide.html#user-guide",
+        "title": "User guide",
+        "section": "User guide",
+        "text": "The pygranta metapackage itself is not used directly. Instead, it provides a bundle of\nPyGranta packages that are compatible with each other and with a given Granta MI release.\nThe user guide for each PyGranta package provides usage information specific to that package.\nUser guide\npygranta"
+    },
+    {
+        "objectID": "user_guide",
+        "href": "user_guide.html#pygranta-user-guides",
+        "title": "User guide > PyGranta user guides",
+        "section": "PyGranta user guides",
+        "text": "PyGranta user guides"
+    }
+]
