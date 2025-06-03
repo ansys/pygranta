@@ -25,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: PyGranta Licenses Check
-        uses: ansys/actions/check-licenses@v9
+        uses: ansys/actions/check-licenses@v10
         with:
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
           target: "all"
@@ -35,7 +35,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: PyGranta documentation style checks
-        uses: ansys/actions/doc-style@v9
+        uses: ansys/actions/doc-style@v10
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -80,7 +80,7 @@ jobs:
 
     steps:
       - name: Build wheelhouse and perform smoke test
-        uses: ansys/actions/build-wheelhouse@v9
+        uses: ansys/actions/build-wheelhouse@v10
         with:
           library-name: ${{ env.PACKAGE_NAME }}
           operating-system: ${{ runner.os }}
@@ -107,7 +107,7 @@ jobs:
 
     steps:
       - name: Build documentation
-        uses: ansys/actions/doc-build@v9
+        uses: ansys/actions/doc-build@v10
         with:
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
           sphinxopts: '-j auto -W --keep-going -n -t list_packages'
@@ -121,7 +121,7 @@ jobs:
       attestations: write
     steps:
       - name: Build library source and wheel artifacts
-        uses: ansys/actions/build-library@v9
+        uses: ansys/actions/build-library@v10
         with:
           library-name: ${{ env.PACKAGE_NAME }}
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
@@ -134,7 +134,7 @@ jobs:
     needs: [ package ]
     steps:
       - name: Deploy the latest documentation
-        uses: ansys/actions/doc-deploy-dev@v9
+        uses: ansys/actions/doc-deploy-dev@v10
         with:
           cname: ${{ env.DOCUMENTATION_CNAME }}
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -152,7 +152,7 @@ jobs:
    runs-on: ubuntu-latest
    steps:
      - name: Release to GitHub
-       uses: ansys/actions/release-github@v9
+       uses: ansys/actions/release-github@v10
        with:
          library-name: ${{ env.PACKAGE_NAME }}
          additional-artifacts: 'all-deps-Linux-3.10 all-deps-Linux-3.11 all-deps-Linux-3.12 all-deps-Linux-3.13 all-deps-Windows-3.10 all-deps-Windows-3.11 all-deps-Windows-3.12 all-deps-Windows-3.13'
@@ -178,7 +178,7 @@ jobs:
    needs: [release]
    steps:
      - name: Deploy the latest release documentation
-       uses: ansys/actions/doc-deploy-stable@v9
+       uses: ansys/actions/doc-deploy-stable@v10
        with:
          cname: ${{ env.DOCUMENTATION_CNAME }}
          token: ${{ secrets.GITHUB_TOKEN }}
