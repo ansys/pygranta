@@ -85,7 +85,6 @@ jobs:
           library-name: ${{ env.PACKAGE_NAME }}
           operating-system: ${{ runner.os }}
           python-version: ${{ matrix.python-version }}
-          target: "all"
           attest-provenance: true
 
       - name: List dependencies (pip freeze)
