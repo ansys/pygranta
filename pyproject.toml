@@ -27,12 +27,12 @@ packages = [{ include = "**/*.py", from = "src" }]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-ansys-grantami-bomanalytics = { version="2.2.0", allow-prereleases=true }
-ansys-grantami-bomanalytics-openapi = "3.1.0"
+ansys-grantami-bomanalytics = { version="2.3.0rc0", allow-prereleases=true }
+ansys-grantami-bomanalytics-openapi = "4.0.0"
 ansys-grantami-recordlists = { version="2.0.0rc0", allow-prereleases=true }
 ansys-grantami-jobqueue = { version="1.2.0rc0", allow-prereleases=true }
 ansys-grantami-serverapi-openapi = "5.0.0"
-ansys-grantami-dataflow-extensions = {version = "0.1.0", platform = "win32"}
+ansys-grantami-dataflow-extensions = {version = "0.2.0", platform = "win32"}
 
 # Optional documentation dependencies
 [tool.poetry.group.doc]
