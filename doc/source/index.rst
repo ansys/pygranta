@@ -34,3 +34,9 @@ that provide integration with Granta MI services.
       :class-title: pyansys-card-title
 
       Import and export text and Excel data with Python asynchronously.
+
+    .. grid-item-card:: PyGranta Data Flow Extensions :material-regular:`network_node`
+      :link: https://dataflow-extensions.grantami.docs.pyansys.com/
+      :class-title: pyansys-card-title
+
+      Interoperability between Granta MI Data Flow and Python.

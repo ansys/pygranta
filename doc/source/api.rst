@@ -32,3 +32,7 @@ PyGranta API documentation
     .. grid-item-card:: PyGranta JobQueue :material-regular:`work_history`
       :link: https://jobqueue.grantami.docs.pyansys.com/version/stable/api/index.html
       :class-title: pyansys-card-title
+
+    .. grid-item-card:: PyGranta Data Flow Extensions :material-regular:`network_node`
+      :link: https://jobqueue.grantami.docs.pyansys.com/version/stable/api/index.html
+      :class-title: pyansys-card-title

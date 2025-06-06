@@ -20,3 +20,7 @@ PyGranta examples
     .. grid-item-card:: PyGranta JobQueue :material-regular:`work_history`
       :link: https://jobqueue.grantami.docs.pyansys.com/version/stable/examples/index.html
       :class-title: pyansys-card-title
+
+    .. grid-item-card:: PyGranta Data Flow Extensions :material-regular:`network_node`
+      :link: https://dataflow-extensions.grantami.docs.pyansys.com/version/stable/examples/index.html
+      :class-title: pyansys-card-title

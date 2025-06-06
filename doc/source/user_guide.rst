@@ -25,4 +25,6 @@ PyGranta user guides
       :link: https://jobqueue.grantami.docs.pyansys.com/version/stable/user_guide/index.html
       :class-title: pyansys-card-title
 
-
+    .. grid-item-card:: PyGranta Data Flow Extensions :material-regular:`network_node`
+      :link: https://dataflow-extensions.grantami.docs.pyansys.com/version/stable/user_guide/index.html
+      :class-title: pyansys-card-title
