@@ -107,6 +107,8 @@ jinja_contexts = {"package_versions_ctx": {}}
 ########
 releases = {}
 if tags.has("list_packages"):  # noqa: F821
+    print("'list_packages' tag provided. Generating package list.")
+
     import sys
 
     from packaging.version import parse as parse_version
