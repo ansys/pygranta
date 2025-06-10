@@ -38,5 +38,5 @@ PyGranta API documentation
 
     .. grid-item-card:: PyGranta Data Flow Extensions :material-outlined:`fork_right`
       :padding: 2 2 2 2
-      :link: https://jobqueue.grantami.docs.pyansys.com/version/stable/api/index.html
+      :link: https://dataflow-extensions.grantami.docs.pyansys.com/version/stable/api/index.html
       :class-title: pyansys-card-title
