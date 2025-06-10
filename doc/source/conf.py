@@ -106,7 +106,9 @@ jinja_contexts = {"package_versions_ctx": {}}
 # Fetch all versions of the metapackage and dependencies
 ########
 releases = {}
-if tags.has("list_packages"):  # noqa: F821
+if not tags.has("list_packages"):  # noqa: F821
+    print("'list_packages' tag not provided. Skipping package list generation.")
+else:
     print("'list_packages' tag provided. Generating package list.")
 
     import sys
