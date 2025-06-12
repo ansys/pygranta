@@ -91,7 +91,10 @@ def get_documentation_link_from_pypi(library: str, library_version: str) -> Opti
     """Get the documentation link from PyPI for a specific library and version."""
     # Get the PyPI metadata for the library
     resp = requests.get(f"https://pypi.org/pypi/{library}/{library_version}/json")
-    metadata = resp.json()
+    try:
+        metadata = resp.json()
+    except requests.JSONDecodeError:
+        metadata = {}
 
     try:
         doc_url = metadata["info"]["project_urls"]["Documentation"]
