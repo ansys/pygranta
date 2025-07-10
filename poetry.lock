@@ -33,14 +33,14 @@ files = [
 
 [[package]]
 name = "ansys-grantami-bomanalytics"
-version = "2.3.0rc0"
+version = "2.3.0"
 description = "Perform compliance and sustainability analysis on materials data stored in Granta MI."
 optional = false
 python-versions = "<4.0.0,>=3.10.0"
 groups = ["main"]
 files = [
-    {file = "ansys_grantami_bomanalytics-2.3.0rc0-py3-none-any.whl", hash = "sha256:94548ebd900db04918ebc698a84084b3d3acddf245d2f93805991594f208e611"},
-    {file = "ansys_grantami_bomanalytics-2.3.0rc0.tar.gz", hash = "sha256:2fe8eb7f92a1f657a29012500fdfa1b7d0c41c2bdb9a45880e2d1af46188bc47"},
+    {file = "ansys_grantami_bomanalytics-2.3.0-py3-none-any.whl", hash = "sha256:95a8a23942fbba8a55630613961783b08744d62f54a6e6977b53c3a2720f759c"},
+    {file = "ansys_grantami_bomanalytics-2.3.0.tar.gz", hash = "sha256:d03a546b0869dfad0865e363ce5ec5d488e275db8a77ccffd1973ec6eaaf17bc"},
 ]
 
 [package.dependencies]
@@ -1561,4 +1561,4 @@ type = ["pytest-mypy"]
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.10"
-content-hash = "6d0519ce85d9ed1910a682ef1c53f0208b10e89fa6636475c141e1daf6e54ecc"
+content-hash = "d00fd45b59f24165491d0e8f91b05a66db6df9574d1a2a33c0f462af55e01d7e"
