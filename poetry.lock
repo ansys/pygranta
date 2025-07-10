@@ -88,14 +88,14 @@ requests-negotiate-sspi = ">=0.5.2,<0.6.0"
 
 [[package]]
 name = "ansys-grantami-jobqueue"
-version = "1.2.0rc0"
+version = "1.2.0"
 description = "A python wrapper for the Granta MI Job Queue API"
 optional = false
 python-versions = "<4.0,>=3.10"
 groups = ["main"]
 files = [
-    {file = "ansys_grantami_jobqueue-1.2.0rc0-py3-none-any.whl", hash = "sha256:1e2b8d6e6e085e0dccc19fbfb3757aeecef5c5c5af7238e0ec6394a9f29ddc76"},
-    {file = "ansys_grantami_jobqueue-1.2.0rc0.tar.gz", hash = "sha256:e303b802af5d4504012b59cc3ce396bd22e0bd1c3ee40f7b257e403211e6fc94"},
+    {file = "ansys_grantami_jobqueue-1.2.0-py3-none-any.whl", hash = "sha256:43683c3a8f0701177c01eb251680e5b8dc2ff23a8937f2cf1138f9cba7e2d0e7"},
+    {file = "ansys_grantami_jobqueue-1.2.0.tar.gz", hash = "sha256:21fcdbbd29c15ff44f9e4d7cba15fa18b6c7ce38eeb5727534af83cfa3b07988"},
 ]
 
 [package.dependencies]
@@ -1561,4 +1561,4 @@ type = ["pytest-mypy"]
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.10"
-content-hash = "6d0519ce85d9ed1910a682ef1c53f0208b10e89fa6636475c141e1daf6e54ecc"
+content-hash = "f6e35d8c4f77fdf975e0bf940fde42fa9c96f48e75467fa2871a87abf2ef3791"
