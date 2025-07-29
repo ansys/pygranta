@@ -104,14 +104,14 @@ ansys-openapi-common = ">=2.0.0,<3.0.0"
 
 [[package]]
 name = "ansys-grantami-recordlists"
-version = "2.0.0"
+version = "2.0.1"
 description = "A python wrapper for the Granta MI RecordLists API"
 optional = false
 python-versions = "<4.0,>=3.10"
 groups = ["main"]
 files = [
-    {file = "ansys_grantami_recordlists-2.0.0-py3-none-any.whl", hash = "sha256:2ccf2fa100a4dc01d8277ec108a979c676a39e608b68c241197c062ebbaf24c8"},
-    {file = "ansys_grantami_recordlists-2.0.0.tar.gz", hash = "sha256:d71700b92ae46ba88fb349be34b21cd69ab6920deb3ebbac9ea7610528b376b7"},
+    {file = "ansys_grantami_recordlists-2.0.1-py3-none-any.whl", hash = "sha256:90a7cc325f07dabe7d741f4f4875152a1385003a75af014126c171e8405b5486"},
+    {file = "ansys_grantami_recordlists-2.0.1.tar.gz", hash = "sha256:08a562ed34caa59c9a75bf86e0c12bd8adbf9c9098ebc2823eb513289d79f95c"},
 ]
 
 [package.dependencies]
@@ -1561,4 +1561,4 @@ type = ["pytest-mypy"]
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.10"
-content-hash = "e76feac8e3cd6b811b12f735f7cf5ffe0214913a1c611fec074a9afbfac8a1dc"
+content-hash = "787c51ad01bcfb6cbca48088d93d56bcaaa051cf12616b3969d420e9f4e4d792"
