@@ -29,7 +29,7 @@ packages = [{ include = "**/*.py", from = "src" }]
 python = "^3.10"
 ansys-grantami-bomanalytics = "2.3.1"
 ansys-grantami-bomanalytics-openapi = "4.0.0"
-ansys-grantami-recordlists = "2.0.0"
+ansys-grantami-recordlists = "2.0.1"
 ansys-grantami-jobqueue = "1.2.0"
 ansys-grantami-serverapi-openapi = "5.0.0"
 ansys-grantami-dataflow-extensions = {version = "0.2.0", platform = "win32"}
