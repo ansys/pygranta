@@ -1,0 +1,149 @@
+Getting started
+===============
+
+The ``pygranta`` metapackage guarantees mutual compatibility between all the PyGranta packages in a specific version.
+That is, the packages referenced by a ``pygranta`` metapackage version are certified to be compatible with each other
+and with the corresponding Granta MI version.
+
+.. note::
+   The ``ansys-grantami-bomanalytics`` and ``ansys-grantami-bomanalytics-openapi`` versions included in the metapackage
+   are instead compatible with the corresponding version of *BoM Analytics Services*. BoM Analytics Services is the REST
+   API used by ``ansys-grantami-bomanalytics``, and is provided as part of the *Granta MI Restricted Substances and
+   Sustainability Reports* package. Multiple versions of the reports package are available for a single version of
+   Granta MI.
+
+   The selected version of the reports package, and therefore the required version of ``ansys-grantami-bomanalytics``,
+   depends on the *Restricted Substances and Sustainability* database version.
+
+   Refer to :MI_docs:`the Restricted Substances and Sustainability Install and Configuration guide
+   <RS_and_Sustainability_Install/rs_and_sustainability/planning_your_implementation_rsands.html>` for more details on
+   *Granta MI Restricted Substances and Sustainability Reports* versioning and installation.
+
+
+Most packages require access to an installation of Ansys Granta MI. For more information on getting a licensed copy of
+Ansys products, visit the `Ansys website <https://www.ansys.com/>`_.
+
+Installing the latest version
+-----------------------------
+
+To install the latest version of the ``pygranta`` metapackage, run:
+
+.. code:: bash
+
+   pip install pygranta
+
+This installs all the PyGranta packages certified to be compatible with the latest released version of Granta MI.
+
+
+Installing packages compatible with a specific version of Granta MI
+-------------------------------------------------------------------
+
+To install the version of the ``pygranta`` metapackage associated with a specific version of Granta MI, provide the
+version number during installation. For example, to install the version associated with Granta MI 2023 R2, specify the
+``pygranta`` metapackage version ``2023.2.0``:
+
+.. code:: bash
+
+   pip install pygranta==2023.2.0
+
+More detailed guidance on selecting package versions which are compatible with specific Granta MI versions is available
+on the :doc:`package_versions` page. This page also includes a list of all PyGranta packages associated with each
+``pygranta`` metapackage version.
+
+See `Versioning system`_ for more details on PyGranta package version numbers.
+
+
+User mode installation
+----------------------
+
+Before installing the ``pygranta`` metapackage in user mode, ensure that you have the
+latest version of `pip <https://pypi.org/project/pip/>`_ by running this command:
+
+.. code:: bash
+
+    python -m pip install -U pip
+
+Then, install the ``pygranta`` metapackage with this command:
+
+.. code:: bash
+
+   python -m pip install pygranta
+
+If you are interested in **installing a specific version**, such as ``2023.2.0``, you
+can run a command like this one:
+
+.. code:: bash
+
+   python -m pip install pygranta==2023.2.0
+
+
+Offline installation
+--------------------
+
+If you lack an internet connection on your installation machine, the
+recommended way of installing the ``pygranta`` metapackage is downloading the
+wheelhouse archive for your corresponding machine
+architecture from the repository's `Releases
+<https://github.com/ansys/pygranta/releases>`_ page.
+
+Each wheelhouse archive contains all the Python wheels necessary to install
+the ``pygranta`` metapackage from scratch on Windows and Linux for all supported
+Python versions. You can install this on an isolated system with a fresh Python
+installation or on a virtual environment.
+
+For example, on Linux with Python 3.12, unzip the wheelhouse archive and install
+it with these commands:
+
+.. code:: bash
+
+    unzip pygranta-v2023.2.0-wheelhouse-Linux-3.12-core.zip wheelhouse
+    pip install pygranta -f wheelhouse --no-index --upgrade --ignore-installed
+
+If you're on Windows with Python 3.12, unzip to a wheelhouse directory and install
+using the same command as for Linux.
+
+Consider installing using a `virtual environment <https://docs.python.org/3/library/venv.html>`_.
+
+
+.. _versioning_system:
+
+Versioning system
+-----------------
+
+The ``pygranta`` metapackage follows a semantic-like versioning system, though
+it has been adapted to the Ansys product release mechanism. In this sense, the
+following versioning system is followed:
+
+.. code:: bash
+
+   XXXX.Y.ZZ
+
+Where:
+
+- ``XXXX`` is the Ansys product release year (for example, 2024).
+- ``Y`` is the Ansys product release within the same year (for example, 1,
+  which relates to R1).
+- ``ZZ`` is the patched versions to the ``pygranta`` metapackage, if any.
+
+Consequently, the first ``pygranta`` metapackage compatible with the 2024 R1
+release would be:
+
+.. code:: bash
+
+   2024.1.0
+
+Any subsequent patched version of this package would have these versions:
+
+.. code:: bash
+
+   2024.1.1
+   2024.1.2
+   2024.1.3
+   ...
+
+When using ``pip`` to install your package, you can install a specific version with a
+command like this:
+
+.. code:: bash
+
+   python -m pip install pygranta==2024.1.0
