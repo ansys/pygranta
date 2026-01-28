@@ -13,9 +13,6 @@ and bug fixes without having to upgrade Granta MI.
    "Getting Started" guide for the individual PyGranta package to confirm the minimum required Granta MI version and for
    installation instructions.
 
-If the latest PyGranta package version does not support the required Granta MI version, use the Package versions table
-below to identify the version of the PyGranta package released with the required Granta MI version.
-
 In addition, forwards compatibility of PyGranta packages with future Granta MI releases is not guaranteed. PyGranta
 packages should always be upgraded following a Granta MI server upgrade.
 
@@ -23,7 +20,7 @@ packages should always be upgraded following a Granta MI server upgrade.
 Package versions
 ----------------
 
-These tables map a PyGranta metapackage version to the individual PyGranta package associated with it. This can be used
+This table lists the individual PyGranta packages associated with a version of the PyGranta metapackage. This can be used
 to determine the **minimum** PyGranta package that is compatible with a given version of Granta MI. However, due to
 backwards compatibility, it may be possible to use more modern package versions.
 
