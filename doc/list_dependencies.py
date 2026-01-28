@@ -5,6 +5,7 @@ from pathlib import Path
 from typing import Dict, List, Optional
 import warnings
 
+from packaging.version import Version
 from packaging.version import parse as parse_version
 import requests
 import toml
@@ -30,17 +31,16 @@ def list_current_dependencies(allow_prereleases: bool) -> List[Dict[str, str]]:
     for dependency in pyproject["project"]["dependencies"]:
 
         name, library_version = dependency.split(";")[0].split("==")[0:2]
-        parsed_library_version = parse_version(library_version)
+        parsed_library_version: Version = parse_version(library_version)
 
         if "ansys-grantami" not in name:
             continue
 
         pypi_link = f"https://pypi.org/project/{name}/{library_version}"
-        doc_link = None
-        if not parsed_library_version.is_prerelease:
-            doc_link = get_documentation_link_from_pypi(name, library_version)
+
+        doc_link = get_documentation_link_from_pypi(name, library_version)
         if doc_link is not None:
-            doc_link = pyansys_multiversion_docs_link(doc_link, library_version)
+            doc_link = pyansys_multiversion_docs_link(doc_link, parsed_library_version)
 
         pyansys_libraries.append(
             {
@@ -54,7 +54,8 @@ def list_current_dependencies(allow_prereleases: bool) -> List[Dict[str, str]]:
     prereleases = [item for item in pyansys_libraries if item["prerelease"] is True]
     if prereleases and not allow_prereleases:
         raise ValueError(
-            f"Pre-release versions found: {[itemgetter('name', 'version')(item) for item in prereleases]}."
+            "Pre-release versions found: "
+            f"{[itemgetter('name', 'version')(item) for item in prereleases]}."
         )
     return pyansys_libraries
 
@@ -81,7 +82,7 @@ def get_documentation_link_from_pypi(library: str, library_version: str) -> Opti
         return doc_url
 
 
-def pyansys_multiversion_docs_link(docs_link: str, library_version: str) -> str:
+def pyansys_multiversion_docs_link(docs_link: str, library_version: Version) -> str:
     """Verify if the documentation link is a multi-version link.
 
     Notes
@@ -96,14 +97,18 @@ def pyansys_multiversion_docs_link(docs_link: str, library_version: str) -> str:
     if DOCS_DOMAIN in docs_link:
         # Clean the link
         tmp_link = docs_link.split(DOCS_DOMAIN)[0] + DOCS_DOMAIN
-        # Get the major.minor version
-        major_minor_version = ".".join(library_version.split(".")[:2])
+
+        if library_version.is_prerelease:
+            # RCs are listed with their full version
+            doc_version = str(library_version)
+        else:
+            doc_version = f"{library_version.major}.{library_version.minor}"
 
         # Attempt to access the documentation for the specific version
         try:
-            resp = requests.get(f"{tmp_link}/version/{major_minor_version}/index.html")
+            resp = requests.get(f"{tmp_link}/version/{doc_version}/index.html")
             if resp.status_code == 200:
-                return f"{tmp_link}/version/{major_minor_version}"
+                return f"{tmp_link}/version/{doc_version}"
         except requests.exceptions.RequestException:
             pass
 
