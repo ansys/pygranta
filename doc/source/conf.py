@@ -106,7 +106,9 @@ jinja_contexts = {"package_versions_ctx": {}}
 # Fetch dependencies versions
 ########
 packages = []
-allow_prereleases = {"true": True, "false": False}[os.getenv("ALLOW_DEPENDENCY_PRERELEASES", "false")]
+allow_prereleases = {"true": True, "false": False}[
+    os.getenv("ALLOW_DEPENDENCY_PRERELEASES", "false")
+]
 
 if not tags.has("list_packages"):  # noqa: F821
     print("'list_packages' tag not provided. Skipping package list generation.")

@@ -1,10 +1,11 @@
 """Helper module to fetch dependencies of all versions of the meta-package."""
+
 from operator import itemgetter
-from packaging.version import parse as parse_version
 from pathlib import Path
 from typing import Dict, List, Optional
 import warnings
 
+from packaging.version import parse as parse_version
 import requests
 import toml
 
@@ -12,8 +13,7 @@ REPOSITORY = "ansys/pygranta"
 PYGRANTA_DOCS_URL = "https://grantami.docs.pyansys.com"
 # Early versions of the auto-generated libraries did not include a documentation link.
 # Packages without a documentation link and not in this list will emit a warning.
-IGNORE_MISSING_DOCS = [
-]
+IGNORE_MISSING_DOCS = []
 
 
 def list_current_dependencies(allow_prereleases: bool) -> List[Dict[str, str]]:
@@ -23,7 +23,7 @@ def list_current_dependencies(allow_prereleases: bool) -> List[Dict[str, str]]:
     Return dictionary includes the name of the dependency, the version, a link to the version on
     PyPI, and a link to the documentation.
     """
-    with open(Path(__file__).parents[1] /"pyproject.toml", "r") as f:
+    with open(Path(__file__).parents[1] / "pyproject.toml", "r") as f:
         pyproject = toml.load(f)
 
     pyansys_libraries = []
