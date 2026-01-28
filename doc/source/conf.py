@@ -106,9 +106,7 @@ jinja_contexts = {"package_versions_ctx": {}}
 # Fetch dependencies versions
 ########
 packages = []
-allow_prereleases = {"true": True, "false": False}[
-    os.getenv("ALLOW_DEPENDENCY_PRERELEASES", "false")
-]
+is_tagged_build = {"true": True, "false": False}[os.getenv("IS_TAGGED_BUILD")]
 
 if not tags.has("list_packages"):  # noqa: F821
     print("'list_packages' tag not provided. Skipping package list generation.")
@@ -117,9 +115,13 @@ else:
 
     import sys
 
+    from packaging.version import parse as parse_version
+
     sys.path.insert(0, os.path.abspath("../"))
     from list_dependencies import list_current_dependencies
 
+    current_version = parse_version(__version__)
+    allow_prereleases = not is_tagged_build or current_version.is_prerelease
     packages = list_current_dependencies(allow_prereleases=allow_prereleases)
 
 

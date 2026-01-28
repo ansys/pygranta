@@ -110,7 +110,7 @@ jobs:
           group-dependencies-name: "doc"
           optional-dependencies-name: ""
         env:
-          ALLOW_DEPENDENCY_PRERELEASES: ${{ !(github.event_name == 'push' && contains(github.ref, 'refs/tags')) }}
+          IS_TAGGED_BUILD: ${{ github.event_name == 'push' && contains(github.ref, 'refs/tags') }}
 
   package:
     name: Package library
