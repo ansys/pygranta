@@ -35,10 +35,11 @@ backwards compatibility, it may be possible to use more modern package versions.
 
 .. jinja:: package_versions_ctx
 
-    {% for release, packages in releases.items() %}
-    {{"*" * release|length}}
-    {{release}}
-    {{"*" * release|length}}
+    {% if packages %}
+
+    *********
+    |version|
+    *********
 
     .. list-table::
        :header-rows: 1
@@ -51,4 +52,4 @@ backwards compatibility, it may be possible to use more modern package versions.
          - {{package.version}}
          - `PyPI <{{package.pypi}}>`__{% if package.docs %}, `Documentation <{{package.docs}}>`__{% endif %}
     {% endfor %}
-    {% endfor %}
+    {% endif %}

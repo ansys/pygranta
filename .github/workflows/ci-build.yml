@@ -109,6 +109,8 @@ jobs:
           sphinxopts: "-j auto -W --keep-going -n -t list_packages"
           group-dependencies-name: "doc"
           optional-dependencies-name: ""
+        env:
+          ALLOW_DEPENDENCY_PRERELEASES: ${{ !(github.event_name == 'push' && contains(github.ref, 'refs/tags')) }}
 
   package:
     name: Package library
