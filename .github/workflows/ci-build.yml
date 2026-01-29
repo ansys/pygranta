@@ -86,7 +86,7 @@ jobs:
 
       - name: List dependencies (pip freeze)
         run: |
-          uv export --format requirements.txt --frozen --no-dev --no-install-project --no-header --no-annotate --no-hashes --output-file  all-deps-${{ runner.os }}-${{ matrix.python-version }}.txt
+          uv pip freeze > all-deps-${{ runner.os }}-${{ matrix.python-version }}.txt
           cat all-deps-${{ runner.os }}-${{ matrix.python-version }}.txt
 
       - name: Upload dependencies list
