@@ -86,6 +86,7 @@ jobs:
 
       - name: List dependencies (pip freeze)
         run: |
+          uv sync --frozen --no-dev --no-install-project
           uv pip freeze > all-deps-${{ runner.os }}-${{ matrix.python-version }}.txt
           cat all-deps-${{ runner.os }}-${{ matrix.python-version }}.txt
 
