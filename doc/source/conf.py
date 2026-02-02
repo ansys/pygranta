@@ -103,9 +103,11 @@ linkcheck_ignore = ["https://www.ansys.com/", "https://ansyshelp.ansys.com"]
 jinja_contexts = {"package_versions_ctx": {}}
 
 ########
-# Fetch all versions of the metapackage and dependencies
+# Fetch dependencies versions
 ########
-releases = {}
+packages = []
+is_tagged_build = {"true": True, "false": False}[os.getenv("IS_TAGGED_BUILD")]
+
 if not tags.has("list_packages"):  # noqa: F821
     print("'list_packages' tag not provided. Skipping package list generation.")
 else:
@@ -116,14 +118,11 @@ else:
     from packaging.version import parse as parse_version
 
     sys.path.insert(0, os.path.abspath("../"))
-    from list_dependencies import get_release_branches_in_metapackage, list_dependencies_in_branch
+    from list_dependencies import list_current_dependencies
 
     current_version = parse_version(__version__)
-    branches, versions = get_release_branches_in_metapackage()
-    for branch, _version in zip(branches, versions):
-        branch_version = parse_version(_version)
-        if branch_version <= current_version:
-            releases[_version] = list_dependencies_in_branch(branch)
+    allow_prereleases = not is_tagged_build or current_version.is_prerelease
+    packages = list_current_dependencies(allow_prereleases=allow_prereleases)
 
 
-jinja_contexts["package_versions_ctx"]["releases"] = releases
+jinja_contexts["package_versions_ctx"]["packages"] = packages

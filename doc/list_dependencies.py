@@ -1,10 +1,12 @@
 """Helper module to fetch dependencies of all versions of the meta-package."""
 
-import os
+from operator import itemgetter
+from pathlib import Path
 from typing import Dict, List, Optional
 import warnings
 
-import github
+from packaging.version import Version
+from packaging.version import parse as parse_version
 import requests
 import toml
 
@@ -12,45 +14,33 @@ REPOSITORY = "ansys/pygranta"
 PYGRANTA_DOCS_URL = "https://grantami.docs.pyansys.com"
 # Early versions of the auto-generated libraries did not include a documentation link.
 # Packages without a documentation link and not in this list will emit a warning.
-IGNORE_MISSING_DOCS = [
-    ("ansys-grantami-bomanalytics-openapi", "1.1.0"),
-    ("ansys-grantami-serverapi-openapi", "1.0.0"),
-]
+IGNORE_MISSING_DOCS = []
 
 
-def list_dependencies_in_branch(branch: str) -> List[Dict[str, str]]:
+def list_current_dependencies(allow_prereleases: bool) -> List[Dict[str, str]]:
     """
-    Fetch the pyproject.toml file from a branch and inspects it to list dependencies.
+    Inspects the pyproject.toml file to list dependencies.
 
     Return dictionary includes the name of the dependency, the version, a link to the version on
     PyPI, and a link to the documentation.
     """
-    resp = requests.get(f"https://raw.githubusercontent.com/{REPOSITORY}/{branch}/pyproject.toml")
-    pyproject = toml.loads(resp.text)
-    # Assume poetry
+    with open(Path(__file__).parents[1] / "pyproject.toml", "r") as f:
+        pyproject = toml.load(f)
+
     pyansys_libraries = []
-    for name, raw_library_version in pyproject["tool"]["poetry"]["dependencies"].items():
+    for dependency in pyproject["project"]["dependencies"]:
+
+        name, library_version = dependency.split(";")[0].split("==")[0:2]
+        parsed_library_version: Version = parse_version(library_version)
+
         if "ansys-grantami" not in name:
             continue
-        # Check if the version is a string or a dictionary...
-        if isinstance(raw_library_version, dict) and isinstance(
-            raw_library_version["version"], str
-        ):
-            library_version = raw_library_version["version"]
-        elif isinstance(raw_library_version, str):
-            library_version = raw_library_version
-        else:
-            warnings.warn(
-                f"Unknown version format {type(raw_library_version)}, {raw_library_version}"
-            )
-            continue
-
-        library_version = library_version.split("==")[0]
 
         pypi_link = f"https://pypi.org/project/{name}/{library_version}"
+
         doc_link = get_documentation_link_from_pypi(name, library_version)
         if doc_link is not None:
-            doc_link = pyansys_multiversion_docs_link(doc_link, library_version)
+            doc_link = pyansys_multiversion_docs_link(doc_link, parsed_library_version)
 
         pyansys_libraries.append(
             {
@@ -58,33 +48,16 @@ def list_dependencies_in_branch(branch: str) -> List[Dict[str, str]]:
                 "version": library_version,
                 "docs": doc_link,
                 "pypi": pypi_link,
+                "prerelease": parsed_library_version.is_prerelease,
             }
         )
+    prereleases = [item for item in pyansys_libraries if item["prerelease"] is True]
+    if prereleases and not allow_prereleases:
+        raise ValueError(
+            "Pre-release versions found: "
+            f"{[itemgetter('name', 'version')(item) for item in prereleases]}."
+        )
     return pyansys_libraries
-
-
-def get_release_branches_in_metapackage():
-    """Retrieve the release branches in the PyGranta metapackage."""
-    # Get the PyGranta metapackage repository
-    g = github.Github(os.getenv("GITHUB_TOKEN", None))
-    github_repo = g.get_repo(REPOSITORY)
-
-    # Get the branches
-    branches = github_repo.get_branches()
-
-    # Get the branches that are release branches
-    release_branches = []
-    versions = []
-    for branch in branches:
-        if branch.name.startswith("release"):
-            release_branches.append(branch.name)
-            versions.append(branch.name.split("/")[-1])
-
-    # Sort the release branches and versions: from newest to oldest
-    release_branches.reverse()
-    versions.reverse()
-
-    return release_branches, versions
 
 
 def get_documentation_link_from_pypi(library: str, library_version: str) -> Optional[str]:
@@ -109,7 +82,7 @@ def get_documentation_link_from_pypi(library: str, library_version: str) -> Opti
         return doc_url
 
 
-def pyansys_multiversion_docs_link(docs_link: str, library_version: str) -> str:
+def pyansys_multiversion_docs_link(docs_link: str, library_version: Version) -> str:
     """Verify if the documentation link is a multi-version link.
 
     Notes
@@ -124,14 +97,18 @@ def pyansys_multiversion_docs_link(docs_link: str, library_version: str) -> str:
     if DOCS_DOMAIN in docs_link:
         # Clean the link
         tmp_link = docs_link.split(DOCS_DOMAIN)[0] + DOCS_DOMAIN
-        # Get the major.minor version
-        major_minor_version = ".".join(library_version.split(".")[:2])
+
+        if library_version.is_prerelease:
+            # RCs are listed with their full version
+            doc_version = str(library_version)
+        else:
+            doc_version = f"{library_version.major}.{library_version.minor}"
 
         # Attempt to access the documentation for the specific version
         try:
-            resp = requests.get(f"{tmp_link}/version/{major_minor_version}/index.html")
+            resp = requests.get(f"{tmp_link}/version/{doc_version}/index.html")
             if resp.status_code == 200:
-                return f"{tmp_link}/version/{major_minor_version}"
+                return f"{tmp_link}/version/{doc_version}"
         except requests.exceptions.RequestException:
             pass
 
