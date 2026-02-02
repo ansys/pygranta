@@ -1,0 +1,926 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta property="og:site_name" content="PyAnsys" />
+    <title>Development and release processes &#8212; PyGranta</title>
+  
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/ansys-sphinx-theme.css?v=ce7f2556" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/ansys-sphinx-theme.css?v=ce7f2556" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://www.nerdfonts.com/assets/css/webfont.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+
+  <!-- Include desired assets -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  
+
+  
+    <link href="_static/css/breadcrumbs.css" rel="stylesheet" />
+  
+    <script src="_static/documentation_options.js?v=539b4acb"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'development_and_release_processes';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://grantami.docs.pyansys.com/versions.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '2025.2';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
+        </script>
+    <link rel="icon" href="_static/ansys-favicon.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="PyGranta and Granta MI compatibility" href="package_versions.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="2025.2.1" />
+  <link rel="canonical" href="https://grantami.docs.pyansys.com/version/stable/development_and_release_processes.html" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="https://www.ansys.com/">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/ansys_logo_transparent_black.png" class="logo__image only-light" alt="PyGranta - Home"/>
+    <img src="_static/ansys_logo_transparent_white.png" class="logo__image only-dark pst-js-only" alt="PyGranta - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="getting_started.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide.html">
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api.html">
+    API reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="examples.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="package_versions.html">
+    PyGranta and Granta MI compatibility
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" current active">
+  <a class="nav-link dropdown-item nav-internal" href="#">
+    Development and release processes
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+      
+        <div class="navbar-item">
+<div class="search-bar pst-js-only" id="search-bar">
+  <form class="bd-search d-flex align-items-center" action="search.html" method="get">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="search" class="form-control" name="q" placeholder="Search the docs ..."
+      aria-label="Search the docs ..." autocomplete="off" autocorrect="off"
+      autocapitalize="off" spellcheck="false" />
+    <span class="search-button__kbd-shortcut">
+      <kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd>
+    </span>
+  </form>
+  <div id="static-search-results" class="static-search-results" style="display:none;" tabindex="0"></div>
+</div></div>
+      
+        <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/pygranta" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+  
+    <div id="announcement_msg"></div>
+<script>
+  fetch("announcement.html")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error: ${response.status}`);
+      }
+      return response.text();
+    })
+    .then(
+      (text) => (document.getElementById("announcement_msg").innerHTML = text),
+    )
+    .catch((error) => console.error(`Fetch problem: ${error.message}`));
+</script>
+  
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="getting_started.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide.html">
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api.html">
+    API reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="examples.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="package_versions.html">
+    PyGranta and Granta MI compatibility
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Development and release processes
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<div class="search-bar pst-js-only" id="search-bar">
+  <form class="bd-search d-flex align-items-center" action="search.html" method="get">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="search" class="form-control" name="q" placeholder="Search the docs ..."
+      aria-label="Search the docs ..." autocomplete="off" autocorrect="off"
+      autocapitalize="off" spellcheck="false" />
+    <span class="search-button__kbd-shortcut">
+      <kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd>
+    </span>
+  </form>
+  <div id="static-search-results" class="static-search-results" style="display:none;" tabindex="0"></div>
+</div></div>
+        
+          <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-3"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-3"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-3"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-3">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/pygranta" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"></div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+         
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="https://docs.pyansys.com/" class="nav-link">PyAnsys</a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a
+        href="index.html"
+        class="nav-link"
+        aria-label="Home"
+      >
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+      
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Development and release processes</span></li>
+    
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="development-and-release-processes">
+<h1>Development and release processes<a class="headerlink" href="#development-and-release-processes" title="Link to this heading">#</a></h1>
+<section id="definitions">
+<h2>Definitions<a class="headerlink" href="#definitions" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><em>PyGranta meta-package</em>: A package which depends on the <em>idiomatic</em> packages and <em>auto-generated packages</em>. Includes
+documentation describing the PyGranta ecosystem, including this document.</p></li>
+<li><p><em>Idiomatic package</em>: A hand-written package. Typically depends on one <em>auto-generated package</em> and <code class="docutils literal notranslate"><span class="pre">openapi-common</span></code>.
+There are currently three <em>idiomatic packages</em> in PyGranta:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">ansys-grantami-bomanalytics</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ansys-grantami-recordlists</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ansys-grantami-jobqueue</span></code></p></li>
+</ul>
+</li>
+<li><p><em>Auto-generated package</em>: A package generated by the <em>codegen template</em>. There are currently two <em>auto-generated</em>
+packages in PyGranta:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">ansys-grantami-bomanalytics-openapi</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ansys-grantami-serverapi-openapi</span></code></p></li>
+</ul>
+</li>
+<li><p><em>Codegen template</em>: The template used to generate the <em>auto-generated packages</em>.</p></li>
+<li><p><em>Production test VM</em>: A virtual machine used as part of CI. A new <em>Production test VM</em> is commissioned for each new
+Granta MI release, and the VM is only upgraded if a service pack is made available for that release. It is used as
+part of <em>idiomatic package</em> CI during development and release to ensure compatibility with a specific version of
+Granta MI.</p></li>
+<li><p><em>Development test VM</em>: Virtual machine used as part of CI. This machine is upgraded as required during development.
+It is used as part of <em>idiomatic package</em> CI during development <strong>only</strong> to ensure compatibility with development
+builds of Granta MI.</p></li>
+</ul>
+</section>
+<section id="development-and-release-timeline">
+<h2>Development and release timeline<a class="headerlink" href="#development-and-release-timeline" title="Link to this heading">#</a></h2>
+<p>The timeline is split into three distinct phases:</p>
+<ol class="arabic simple">
+<li><p>Phase 1: Development. There is active development upstream on closed-source Granta MI components, the <em>codegen
+template</em>, and on the open source <em>idiomatic packages</em> and <em>auto-generated packages</em>. Effort is made to ensure CI is
+passing on all <code class="docutils literal notranslate"><span class="pre">main</span></code> branches, but from time to time CI may fail. The <em>development test VM</em> is upgraded as
+required to support CI passing on <code class="docutils literal notranslate"><span class="pre">main</span></code> branches.</p></li>
+<li><p>Phase 2: Hardening. Bugs are fixed and minor improvements are made to <em>idiomatic packages</em>, <em>auto-generated
+packages</em>, and the <em>codegen template</em>. During this phase the <em>codegen template</em> and <em>auto-generated packages</em> are
+finalized.</p></li>
+<li><p>Phase 3: Pre-release. The upstream closed-source development has completed. The <em>PyGranta meta-package</em> and
+<em>idiomatic packages</em> are manually tested and finalized.</p></li>
+</ol>
+<section id="phase-1-development">
+<h3>Phase 1: Development<a class="headerlink" href="#phase-1-development" title="Link to this heading">#</a></h3>
+<p>During development, the following processes happen continuously:</p>
+<ol class="arabic simple">
+<li><p>Incorporate changes to upstream API definitions into <em>auto-generated package</em> repositories.</p></li>
+<li><p>Check that code generation is successful by monitoring CI in the <em>auto-generated package</em> repositories.</p></li>
+<li><p>If code generation is not successful, resolve by either fixing the <em>codegen template</em>, fixing the <em>auto-generated
+package</em> configuration, or raise the issue with the internal Ansys development team.</p></li>
+</ol>
+<p>If <em>idiomatic package</em> development does not depend on upstream API development, then there is no dependency between
+the <em>idiomatic package</em> and the <em>auto-generated package</em> and work can proceed in parallel.</p>
+<p>If significant <em>idiomatic package</em> development is being done that depends on the current state of an <em>auto-generated
+package</em>, you should update the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch of the corresponding <em>idiomatic package</em> to depend on the
+<em>auto-generated package</em> <code class="docutils literal notranslate"><span class="pre">main</span></code> directly.</p>
+<p>During this phase, the <em>development test VM</em> may be upgraded if required to support new upstream Granta MI capabilities.</p>
+</section>
+<section id="phase-2-hardening">
+<h3>Phase 2: Hardening<a class="headerlink" href="#phase-2-hardening" title="Link to this heading">#</a></h3>
+<section id="phase-2a-initial-dev-releases">
+<h4>Phase 2a: Initial dev releases<a class="headerlink" href="#phase-2a-initial-dev-releases" title="Link to this heading">#</a></h4>
+<ol class="arabic">
+<li><p>Update the <em>development test VM</em> with the latest Granta MI software and databases. See the
+<code class="docutils literal notranslate"><span class="pre">ansys-grantami-bomanalytics</span></code> repository for details about preparing the Restricted Substances test database.</p></li>
+<li><p>Publish <em>auto-generated packages</em> to the internal PyPI mirror with <code class="docutils literal notranslate"><span class="pre">.dev</span></code> version numbers.</p></li>
+<li><p>Update <em>idiomatic package</em> <code class="docutils literal notranslate"><span class="pre">main</span></code> branches to depend on the <em>auto-generated package</em> <code class="docutils literal notranslate"><span class="pre">.dev</span></code> releases. If the
+<code class="docutils literal notranslate"><span class="pre">main</span></code> branch has not been updated to depend on the <em>auto-generated package</em> <code class="docutils literal notranslate"><span class="pre">main</span></code> branch during development,
+then there may be integration issues discovered at this point - these should be resolved in the PR before merging.
+The PR typically includes:</p>
+<ul class="simple">
+<li><p>Updates to Python version support to align with changes to the <em>auto-generated package</em>.</p></li>
+<li><p>Updates to the <code class="docutils literal notranslate"><span class="pre">README.rst</span></code> to reflect any changes in the minimum required Granta MI version.</p></li>
+<li><p>Changes at the interface with the <em>auto-generated package</em> if either the <em>codegen template</em> or API definition has
+changed.</p></li>
+<li><p>Changes to expected test results. This is typically relevant for <code class="docutils literal notranslate"><span class="pre">ansys-grantami-bomanalytics</span></code> which includes
+acceptance-style tests.</p></li>
+</ul>
+</li>
+<li><p>Publish <em>idiomatic packages</em> to the internal PyPI mirror with <code class="docutils literal notranslate"><span class="pre">.dev</span></code> version numbers.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>At this point release branches should <strong>not</strong> be created. <code class="docutils literal notranslate"><span class="pre">.dev</span></code> releases should be published to the internal
+PyPI mirror from the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These <code class="docutils literal notranslate"><span class="pre">.dev</span></code> releases can be used for internal testing of closed-source packages that have runtime
+dependencies on PyGranta packages.</p>
+</div>
+</li>
+<li><p>Continue to review any changes to API definitions via <em>auto-generated packages</em> throughout the hardening phase. If
+there are any issues with the API definitions, these must be escalated with high priority.</p></li>
+</ol>
+</section>
+<section id="phase-2b-documentation-review">
+<h4>Phase 2b: Documentation review<a class="headerlink" href="#phase-2b-documentation-review" title="Link to this heading">#</a></h4>
+<p>Review the documentation for all <em>idiomatic packages</em> and the <em>PyGranta meta-package</em>:</p>
+<ul>
+<li><p>Significant new documentation is reviewed by the appropriate reviews for linguistic and technical accuracy.</p></li>
+<li><p>References to dependencies are updated, including:</p>
+<ul class="simple">
+<li><p>Server software versions</p></li>
+<li><p>Required Python versions</p></li>
+<li><p>Compatible third-party library versions</p></li>
+</ul>
+</li>
+<li><p>References to Ansys documentation of other packages/products are checked to see if they need to be updated to the
+previous version of that documentation.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Ansys documentation for the current in-development release is published after the PyGranta packages are
+released. The documentation for the previous release should be used to ensure links in published PyGranta
+documentation can always be resolved.</p>
+</div>
+</li>
+</ul>
+</section>
+<section id="phase-2c-release-candidates">
+<h4>Phase 2c: Release candidates<a class="headerlink" href="#phase-2c-release-candidates" title="Link to this heading">#</a></h4>
+<p>Towards the end of the hardening phase, once the API definitions are determined to be stable, the <em>auto-generated
+packages</em> are released:</p>
+<ol class="arabic">
+<li><p>Create <code class="docutils literal notranslate"><span class="pre">release</span></code> branches for <em>auto-generated packages</em> and publish as release candidates to public PyPI.</p></li>
+<li><p>Create Pull Requests in <em>idiomatic package</em> repositories to update <code class="docutils literal notranslate"><span class="pre">main</span></code> to depend on the <em>auto-generated
+package</em> release candidate releases. Ensure CI passes for <em>idiomatic packages</em>.</p></li>
+<li><p>Publish <em>auto-generated packages</em> as stable releases to public PyPI.</p></li>
+<li><p>Create Pull Requests in <em>idiomatic package</em> repositories to update <code class="docutils literal notranslate"><span class="pre">main</span></code> to depend on the <em>auto-generated
+package</em> stable releases. Ensure CI passes for <em>idiomatic packages</em>.</p></li>
+<li><p>Create <code class="docutils literal notranslate"><span class="pre">release</span></code> branches for <em>idiomatic packages</em> and publish as release candidates to public PyPI.</p></li>
+<li><p>Update the <em>PyGranta meta-package</em> <code class="docutils literal notranslate"><span class="pre">main</span></code> branch to depend on the public <em>idiomatic packages</em> release candidates
+and <em>auto-generated packages</em> stable releases.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>At this point release branches should be created for <em>idiomatic packages</em>. However, during hardening these release
+branches still run CI against the <em>development test VM</em>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><em>Idiomatic package</em> release candidates must depend on stable release versions of <em>auto-generated packages</em> only.
+They must not depend on pre-release versions of <em>auto-generated packages</em>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When performing pre-releases of packages with towncrier, the Ansys action creates a Pull Request to update
+CHANGELOG.md on <code class="docutils literal notranslate"><span class="pre">main</span></code>, and commits the CHANGELOG.md changes directly to the release branch. The commit to the
+release branch should be reverted, and the Pull Request to merge the changes to <code class="docutils literal notranslate"><span class="pre">main</span></code> should be closed and
+not merged.</p>
+</div>
+</li>
+</ol>
+<p>The stable <em>auto-generated packages</em> and release candidate <em>idiomatic packages</em> can now be used for the final release of
+internal packages. It is recommended to make any closed-source <em>idiomatic package</em> release candidate dependencies
+flexible enough such that they match subsequent stable releases of those <em>idiomatic packages</em>.</p>
+<p>At the end of this phase, the <em>PyGranta meta-package</em> depends on release candidates for the <em>idiomatic packages</em> and
+releases of the <em>auto-generated packages</em>. This guarantees that there exists a consistent set of dependencies across all
+<em>idiomatic packages</em> and <em>auto-generated packages</em>. Any issues at this stage should be resolved by addressing any
+dependency conflicts in the <em>idiomatic packages</em> and publishing new release candidates to public PyPI as necessary.</p>
+</section>
+<section id="checklist">
+<h4>Checklist<a class="headerlink" href="#checklist" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><input type="checkbox"> The <em>development test VM</em> is running an up-to-date development version of Granta MI.</p></li>
+<li><p><input type="checkbox"> CI for all <em>idiomatic packages</em> is passing.</p></li>
+<li><p><input type="checkbox"> Documentation for all <em>idiomatic packages</em> and the <em>PyGranta meta-package</em> has been reviewed to verify
+significant new content, changes in dependencies (for example Python version support, minimum Granta MI version), and
+references to other Ansys documentation sources.</p></li>
+<li><p><input type="checkbox"> <code class="docutils literal notranslate"><span class="pre">release</span></code> branches have been created for <em>auto-generated packages</em> and <em>idiomatic packages</em>.</p></li>
+<li><p><input type="checkbox"> Stable <em>auto-generated packages</em> are available on PyPI.</p></li>
+<li><p><input type="checkbox"> Internal packages with runtime dependencies on <em>auto-generated packages</em> depend on the stable PyPI releases.</p></li>
+<li><p><input type="checkbox"> <em>Idiomatic packages</em> depend on stable releases of <em>auto-generated packages</em> only.</p></li>
+<li><p><input type="checkbox"> Release candidate <em>idiomatic packages</em> are available on PyPI.</p></li>
+<li><p><input type="checkbox"> Internal packages with runtime dependencies on <em>idiomatic packages</em> depend on the release candidate PyPI
+releases.</p></li>
+<li><p><input type="checkbox"> The <em>PyGranta meta-package</em> <code class="docutils literal notranslate"><span class="pre">main</span></code> branch depends on <em>idiomatic packages</em> release candidates and
+<em>auto-generated packages</em> stable releases only.</p></li>
+</ul>
+</section>
+</section>
+<section id="phase-3-pre-release">
+<h3>Phase 3: Pre-release<a class="headerlink" href="#phase-3-pre-release" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Provision a new <em>production test VM</em> to run the Granta MI release validated during the hardening phase.</p></li>
+<li><p>Update the latest <em>idiomatic package</em> <code class="docutils literal notranslate"><span class="pre">release</span></code> branches created during the hardening phase to run CI against the
+newly provisioned <em>production test VM</em>.</p></li>
+<li><p>Update the latest <em>idiomatic package</em> <code class="docutils literal notranslate"><span class="pre">release</span></code> branches created during the hardening phase to <strong>not</strong> run CI
+against the <em>development test VM</em>.</p></li>
+<li><p>Manually test the <em>PyGranta meta-package</em> against the Granta MI release candidate by installing the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch
+directly using <code class="docutils literal notranslate"><span class="pre">pip</span></code>.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If there have been significant changes to the <em>PyGranta meta-package</em>, a release candidate may optionally be
+published to PyPI. Examples of significant changes include re-organization of the documentation and changes to the
+CI process, both of which are not checked as part of the manual test required in this phase.</p>
+</div>
+<p>Testing should occur within 4 weeks following Phase 2. Any issues raised during testing should be immediately triaged
+and fixed or deferred.</p>
+<p>Checklist for completing this phase:</p>
+<ul class="simple">
+<li><p><input type="checkbox"> There is a new <em>production test VM</em> provisioned and running the release version of Granta MI.</p></li>
+<li><p><input type="checkbox"> All <code class="docutils literal notranslate"><span class="pre">release</span></code> branches no longer target the <em>development test VM</em>.</p></li>
+<li><p><input type="checkbox"> CI for all <em>idiomatic packages</em> is passing.</p></li>
+<li><p><input type="checkbox"> Manual testing has been completed against the <em>PyGranta meta-package</em> and all <em>idiomatic packages</em>.</p></li>
+<li><p><input type="checkbox"> The GitHub PyGranta Development project contains no must-deliver features or bug fixes still outstanding for
+the active release.</p></li>
+</ul>
+</section>
+<section id="phase-4-release">
+<h3>Phase 4: Release<a class="headerlink" href="#phase-4-release" title="Link to this heading">#</a></h3>
+<p>The PyAnsys meta-package is typically released a week before Granta MI is available to customers. As a result, the
+stable versions of the packages should be released at least a week before Granta MI is available to customers:</p>
+<ol class="arabic simple">
+<li><p>Defer any issues still associated with the active release in the GitHub PyGranta Development to a future release.</p></li>
+<li><p>Publish <em>idiomatic packages</em> as stable releases to public PyPI.</p></li>
+<li><p>Update the <em>PyGranta meta-package</em> <code class="docutils literal notranslate"><span class="pre">main</span></code> branch to depend on the public <em>idiomatic packages</em> stable releases.</p></li>
+<li><p>Create (or update if a release candidate was published in Phase 3) a <code class="docutils literal notranslate"><span class="pre">release</span></code> branch for the <em>PyGranta
+meta-package</em>.</p></li>
+<li><p>Publish the <em>PyGranta meta-package</em> as a stable release to public PyPI.</p></li>
+<li><p>Create a Pull Request in the PyAnsys meta-package repository to move the <em>PyGranta meta-package</em> dependency to the
+new stable release.</p></li>
+<li><p>If any new <em>idiomatic package</em> releases are compatible with the previous release of Granta MI and PyGranta,
+including the minimum supported Python version, create a patch release of the previous <em>PyGranta meta-package</em>
+release which includes the new <em>idiomatic package</em> releases.</p></li>
+</ol>
+<p>Checklist for completing this phase:</p>
+<ul class="simple">
+<li><p><input type="checkbox"> The active release in the GitHub PyGranta Development project is empty, with all deferred tickets re-assigned
+to a future release.</p></li>
+<li><p><input type="checkbox"> Stable releases of all <em>idiomatic packages</em> and the <em>PyGranta meta-package</em> are available on PyPI.</p></li>
+<li><p><input type="checkbox"> The PyAnsys meta-package depends on the <em>PyGranta meta-package</em> stable release.</p></li>
+<li><p><input type="checkbox"> A patch release has been made for the previous <em>PyGranta meta-package</em> if there is at least one backwards-
+compatible <em>idiomatic package</em> released during this development cycle.</p></li>
+</ul>
+</section>
+</section>
+<section id="addenda">
+<h2>Addenda<a class="headerlink" href="#addenda" title="Link to this heading">#</a></h2>
+<section id="test-vm-management">
+<h3>Test VM management<a class="headerlink" href="#test-vm-management" title="Link to this heading">#</a></h3>
+<p>There are multiple <em>production test VMs</em> in use at one time, and each runs a validated Granta MI version. The names and
+URLs of the <em>production test VM</em> are stored in the <code class="docutils literal notranslate"><span class="pre">AZURE_VM_NAME_yyRn</span></code> and <code class="docutils literal notranslate"><span class="pre">TEST_SERVER_yyRn_URL</span></code> secrets
+respectively, where <code class="docutils literal notranslate"><span class="pre">yyRn</span></code> is the Granta MI version, for example <code class="docutils literal notranslate"><span class="pre">25R2</span></code>.</p>
+<p><em>Production test VMs</em> are commissioned for a new Granta MI release once it is declared stable, and is decommissioned
+when support is withdrawn for that Granta MI release.</p>
+<p>The <em>development test VM</em> runs a development build of Granta MI, and is upgraded as required to support CI on
+<em>idiomatic package</em> <code class="docutils literal notranslate"><span class="pre">main</span></code> branches during development. The name and URL of the <em>development test VM</em> are stored in
+the <code class="docutils literal notranslate"><span class="pre">AZURE_VM_NAME_DEV</span></code> and <code class="docutils literal notranslate"><span class="pre">TEST_SERVER_DEV_URL</span></code> secrets respectively.</p>
+<p>The <em>development test VM</em> has a green desktop background to indicate it is safe to upgrade.</p>
+<p>This approach has the following advantages:</p>
+<ul class="simple">
+<li><p>CI is generally passing on all <em>idiomatic package</em> <code class="docutils literal notranslate"><span class="pre">main</span></code> branches at any point in development and release, which
+reflects successful CI run against all supported Granta MI releases and a recent Granta MI development build.</p></li>
+<li><p>All <em>PyGranta meta-package</em> and <em>idiomatic package</em> <strong>released</strong> <code class="docutils literal notranslate"><span class="pre">release</span></code> branches can be patched and used for
+releases if required. Changes in behavior from subsequent Granta MI development do not affect existing <code class="docutils literal notranslate"><span class="pre">release</span></code>
+branches.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If a <em>production test VM</em> has been decommissioned, it should be removed from <code class="docutils literal notranslate"><span class="pre">release</span></code> branch CI if a patch
+release is required.</p>
+</div>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definitions">Definitions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#development-and-release-timeline">Development and release timeline</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-1-development">Phase 1: Development</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-2-hardening">Phase 2: Hardening</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-2a-initial-dev-releases">Phase 2a: Initial dev releases</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-2b-documentation-review">Phase 2b: Documentation review</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-2c-release-candidates">Phase 2c: Release candidates</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#checklist">Checklist</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-3-pre-release">Phase 3: Pre-release</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-4-release">Phase 4: Release</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#addenda">Addenda</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-vm-management">Test VM management</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+<!-- If there is no fix edit button function, use the PyData edit-this-button-->
+</div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <ul class="this-page-menu">
+      <li><a href="_sources/development_and_release_processes.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+
+  <!-- Include desired assets -->
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.7/require.min.js"></script>
+
+<script>
+// Passing the search options to the search.js file
+const SEARCH_OPTIONS = JSON.parse('{"keys": ["title", "text", "objectID"], "limit": 10, "threshold": 0.2}');
+const SEARCH_FILE = "_static/search.json";
+const ADVANCE_SEARCH_PATH = "search.html";
+const EXTRA_SOURCES = JSON.parse('""');
+</script>
+
+
+<script src="_static/js/search.js"></script>
+
+  
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright (c) 2025 ANSYS, Inc. All rights reserved.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the
+  <a href="https://sphinxdocs.ansys.com/version/stable/index.html"
+    >Ansys Sphinx Theme</a
+  >
+  1.5.3. <br />Last updated on
+  <span id="ast_build_date"></span>
+</p>
+<script>
+  var options = { day: "numeric", month: "long", year: "numeric" };
+  var ast_lastModifiedDate = new Date(document.lastModified);
+  var ast_build_date = ast_lastModifiedDate.toLocaleDateString("en-US", options);
+  document.getElementById("ast_build_date").innerHTML = ast_build_date;
+</script></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
