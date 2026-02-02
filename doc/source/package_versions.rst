@@ -20,7 +20,7 @@ packages should always be upgraded following a Granta MI server upgrade.
 Package versions
 ----------------
 
-This table lists the individual PyGranta packages associated with a version of the PyGranta metapackage. This can be used
+This table lists the individual PyGranta packages associated with this version of the PyGranta metapackage. This can be used
 to determine the **minimum** PyGranta package that is compatible with a given version of Granta MI. However, due to
 backwards compatibility, it may be possible to use more modern package versions.
 
