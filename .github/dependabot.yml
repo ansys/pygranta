@@ -1,14 +1,21 @@
 version: 2
 updates:
-  - package-ecosystem: "pip"
+  - package-ecosystem: "uv"
     directory: "/"
     insecure-external-code-execution: allow
-    open-pull-requests-limit: 15
     schedule:
-      interval: "daily"
+      interval: "weekly"
+    cooldown:
+      default-days: 7
     versioning-strategy: "increase-if-necessary"
+    labels:
+      - "maintenance"
+      - "dependencies"
 
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
+    labels:
+      - "maintenance"
+      - "dependencies"
