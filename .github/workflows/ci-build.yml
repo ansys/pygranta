@@ -25,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: PyGranta Licenses Check
-        uses: ansys/actions/check-licenses@36cd86710c966963f4dcec56a9670171618cf76a  # v10.2.4
+        uses: ansys/actions/check-licenses@3931ac9351b13ae11b1203c2ef6b51e5c75502ea  # v10.2.5
         with:
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
           target: "all"
@@ -35,7 +35,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: PyGranta documentation style checks
-        uses: ansys/actions/doc-style@36cd86710c966963f4dcec56a9670171618cf76a  # v10.2.4
+        uses: ansys/actions/doc-style@3931ac9351b13ae11b1203c2ef6b51e5c75502ea  # v10.2.5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -73,7 +73,7 @@ jobs:
 
     steps:
       - name: Build wheelhouse and perform smoke test
-        uses: ansys/actions/build-wheelhouse@36cd86710c966963f4dcec56a9670171618cf76a  # v10.2.4
+        uses: ansys/actions/build-wheelhouse@3931ac9351b13ae11b1203c2ef6b51e5c75502ea  # v10.2.5
         with:
           library-name: ${{ env.PACKAGE_NAME }}
           operating-system: ${{ runner.os }}
@@ -100,7 +100,7 @@ jobs:
 
     steps:
       - name: Build documentation
-        uses: ansys/actions/doc-build@36cd86710c966963f4dcec56a9670171618cf76a  # v10.2.4
+        uses: ansys/actions/doc-build@3931ac9351b13ae11b1203c2ef6b51e5c75502ea  # v10.2.5
         with:
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
           sphinxopts: "-j auto -W --keep-going -n -t list_packages"
@@ -118,7 +118,7 @@ jobs:
       attestations: write
     steps:
       - name: Build library source and wheel artifacts
-        uses: ansys/actions/build-library@36cd86710c966963f4dcec56a9670171618cf76a  # v10.2.4
+        uses: ansys/actions/build-library@3931ac9351b13ae11b1203c2ef6b51e5c75502ea  # v10.2.5
         with:
           library-name: ${{ env.PACKAGE_NAME }}
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
@@ -131,7 +131,7 @@ jobs:
     needs: [ package ]
     steps:
       - name: Deploy the latest documentation
-        uses: ansys/actions/doc-deploy-dev@36cd86710c966963f4dcec56a9670171618cf76a  # v10.2.4
+        uses: ansys/actions/doc-deploy-dev@3931ac9351b13ae11b1203c2ef6b51e5c75502ea  # v10.2.5
         with:
           cname: ${{ env.DOCUMENTATION_CNAME }}
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -149,7 +149,7 @@ jobs:
    runs-on: ubuntu-latest
    steps:
      - name: Release to GitHub
-       uses: ansys/actions/release-github@36cd86710c966963f4dcec56a9670171618cf76a  # v10.2.4
+       uses: ansys/actions/release-github@3931ac9351b13ae11b1203c2ef6b51e5c75502ea  # v10.2.5
        with:
          library-name: ${{ env.PACKAGE_NAME }}
          additional-artifacts: 'all-deps-Linux-3.10 all-deps-Linux-3.11 all-deps-Linux-3.12 all-deps-Linux-3.13 all-deps-Windows-3.10 all-deps-Windows-3.11 all-deps-Windows-3.12 all-deps-Windows-3.13'
@@ -175,7 +175,7 @@ jobs:
    needs: [release]
    steps:
      - name: Deploy the latest release documentation
-       uses: ansys/actions/doc-deploy-stable@36cd86710c966963f4dcec56a9670171618cf76a  # v10.2.4
+       uses: ansys/actions/doc-deploy-stable@3931ac9351b13ae11b1203c2ef6b51e5c75502ea  # v10.2.5
        with:
          cname: ${{ env.DOCUMENTATION_CNAME }}
          token: ${{ secrets.GITHUB_TOKEN }}
