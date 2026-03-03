@@ -25,6 +25,7 @@ jobs:
             $currentRunNumber = "${{ github.run_number }}"
 
             $workflows =
+            @{Repository='ansys/grantami-system'; Name='CI'},
             @{Repository='ansys/grantami-jobqueue'; Name='CI'},
             @{Repository='ansys/grantami-recordlists'; Name='CI'},
             @{Repository='ansys/grantami-bomanalytics'; Name='Pre-merge checks'}
