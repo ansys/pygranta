@@ -112,6 +112,20 @@ wheels = [
 ]
 
 [[package]]
+name = "ansys-grantami-system"
+version = "1.0.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "ansys-grantami-serverapi-openapi" },
+    { name = "ansys-openapi-common" },
+    { name = "requests" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/19/f3/79a2f4becf486b6b317be5adecb32973ed0075c6e37b91a56763809208ed/ansys_grantami_system-1.0.0.tar.gz", hash = "sha256:039b00fef0b47427e0d6c60fd4b7a5630488802f14d13cf27618d208d7cf919f", size = 219658, upload-time = "2026-03-05T15:08:25.958Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/25/2d/ddad12886988b29db47098d8178f1a03644eca8d08c890fcbc50a38efea7/ansys_grantami_system-1.0.0-py3-none-any.whl", hash = "sha256:f61f3e653bcd3a4029046f86d5f3f4d975ef7ed1089a85705eb9042e24102798", size = 15502, upload-time = "2026-03-05T15:08:23.651Z" },
+]
+
+[[package]]
 name = "ansys-openapi-common"
 version = "2.3.2"
 source = { registry = "https://pypi.org/simple" }
@@ -735,6 +749,7 @@ dependencies = [
     { name = "ansys-grantami-jobqueue" },
     { name = "ansys-grantami-recordlists" },
     { name = "ansys-grantami-serverapi-openapi" },
+    { name = "ansys-grantami-system" },
 ]
 
 [package.dev-dependencies]
@@ -756,6 +771,7 @@ requires-dist = [
     { name = "ansys-grantami-jobqueue", specifier = "==1.3.0" },
     { name = "ansys-grantami-recordlists", specifier = "==2.1.0" },
     { name = "ansys-grantami-serverapi-openapi", specifier = "==5.1.0" },
+    { name = "ansys-grantami-system", specifier = "==1.0.0" },
 ]
 
 [package.metadata.requires-dev]

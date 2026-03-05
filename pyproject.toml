@@ -32,6 +32,7 @@ dependencies = [
   "ansys-grantami-bomanalytics-openapi==5.0.0",
   "ansys-grantami-recordlists==2.1.0",
   "ansys-grantami-jobqueue==1.3.0",
+  "ansys-grantami-system==1.0.0",
   "ansys-grantami-serverapi-openapi==5.1.0",
   "ansys-grantami-dataflow-extensions==0.3.0; sys_platform == 'win32'",
 ]
