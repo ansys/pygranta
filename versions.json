@@ -1,0 +1,27 @@
+[
+  {
+    "name": "dev",
+    "version": "dev",
+    "url": "https://grantami.docs.pyansys.com/version/dev/"
+  },
+  {
+    "name": "2026.1.0rc0",
+    "version": "2026.1.0rc0",
+    "url": "https://grantami.docs.pyansys.com/version/2026.1.0rc0/"
+  },
+  {
+    "name": "2025.2 (stable)",
+    "version": "2025.2",
+    "url": "https://grantami.docs.pyansys.com/version/stable/"
+  },
+  {
+    "name": "2025.1",
+    "version": "2025.1",
+    "url": "https://grantami.docs.pyansys.com/version/2025.1/"
+  },
+  {
+    "name": "Older version",
+    "version": "N/A",
+    "url": "https://grantami.docs.pyansys.com/version/"
+  }
+]
