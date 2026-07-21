@@ -149,7 +149,7 @@ jobs:
    runs-on: ubuntu-latest
    steps:
      - name: Release to GitHub
-       uses: ansys/actions/release-github@7419880d64bb0bba83f968ca803611df0b76faf0  # v10.3.4
+       uses: ansys/actions/release-github@84b6533ae76f5dde69a1df26c18682160a8121cf  # v10.3.5
        with:
          library-name: ${{ env.PACKAGE_NAME }}
          additional-artifacts: 'all-deps-Linux-3.10 all-deps-Linux-3.11 all-deps-Linux-3.12 all-deps-Linux-3.13 all-deps-Windows-3.10 all-deps-Windows-3.11 all-deps-Windows-3.12 all-deps-Windows-3.13'
