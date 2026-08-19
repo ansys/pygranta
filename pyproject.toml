@@ -46,6 +46,9 @@ doc = [
   "sphinx-jinja>=2.0.2",
   "toml>=0.10.2",
 ]
+all = [
+  {include-group = "doc"},
+]
 
 [project.urls]
 documentation = "https://grantami.docs.pyansys.com"
