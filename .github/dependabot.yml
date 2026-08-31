@@ -11,6 +11,14 @@ updates:
     labels:
       - "maintenance"
       - "dependencies"
+    groups:
+      doc-deps:
+        patterns:
+        - "*sphinx*"
+        - "toml"
+      src-deps:
+        patterns:
+        - "ansys-grantami-*"
 
   - package-ecosystem: "github-actions"
     directory: "/"
@@ -19,3 +27,7 @@ updates:
     labels:
       - "maintenance"
       - "dependencies"
+    groups:
+       actions:
+          patterns:
+            - "*"
