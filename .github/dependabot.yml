@@ -19,3 +19,7 @@ updates:
     labels:
       - "maintenance"
       - "dependencies"
+    groups:
+      ansys-actions:
+        patterns:
+          - "ansys*"
