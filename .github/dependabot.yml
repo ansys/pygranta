@@ -28,6 +28,6 @@ updates:
       - "maintenance"
       - "dependencies"
     groups:
-       actions:
-          patterns:
-            - "*"
+      ansys-actions:
+        patterns:
+          - "ansys*"
