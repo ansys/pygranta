@@ -34,7 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: PyGranta documentation style checks
-        uses: ansys/actions/doc-style@9dc4e3161033d2c2485fbf9687d40cfb7a661fb2  # v10.3.6
+        uses: ansys/actions/doc-style@21c78f8b27683ae8c93557345392abe39ab21d2f  # v11.0.4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
