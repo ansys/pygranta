@@ -1,0 +1,121 @@
+[
+    {
+        "objectID": "user_guide",
+        "href": "user_guide.html#user-guide",
+        "title": "User guide",
+        "section": "User guide",
+        "text": "The pygranta metapackage itself is not used directly. Instead, it provides a bundle of\nPyGranta packages that are compatible with each other and with a given Granta MI release.\nThe user guide for each PyGranta package provides general usage information.\nUser guide\npygranta"
+    },
+    {
+        "objectID": "user_guide",
+        "href": "user_guide.html#pygranta-user-guides",
+        "title": "User guide > PyGranta user guides",
+        "section": "PyGranta user guides",
+        "text": "PyGranta user guides"
+    },
+    {
+        "objectID": "getting_started",
+        "href": "getting_started.html#getting-started",
+        "title": "Getting started",
+        "section": "Getting started",
+        "text": "The pygranta metapackage ensures compatibility between PyGranta packages and\nprovides a convenient method for installing packages compatible with a specific\nrelease of Ansys Granta MI.\nMost packages require access to an installation of Ansys Granta MI. For more\ninformation on getting a licensed copy of Ansys products, visit the Ansys website.\nGetting started\npygranta"
+    },
+    {
+        "objectID": "getting_started",
+        "href": "getting_started.html#installation",
+        "title": "Getting started > Installation",
+        "section": "Installation",
+        "text": "There are several ways of installing PyGranta depending on your use case, but\nthe easiest is simply to run this command:\nThis installs all the PyGranta packages for the latest released version of Granta MI.\nIf you are interested in installing a specific version, such as 2023.2.0, you\ncan run a command like this one:\nThe versions of ansys-grantami-bomanalytics and ansys-grantami-bomanalytics-openapi included in the metapackage\nare compatible with that version of BoM Analytics Services, included with Granta MI Restricted\nSubstances and Sustainability Reports. Multiple versions of BoM Analytics Services are compatible with a single\nversion of Granta MI.\nYou can always install PyGranta packages individually by following the installation\ninstructions for each package. For example, the instructions for PyGranta\nRecordLists have you install it by running this command:\nInstallation\n2023.2.0"
+    },
+    {
+        "objectID": "getting_started",
+        "href": "getting_started.html#user-mode-installation",
+        "title": "Getting started > User mode installation",
+        "section": "User mode installation",
+        "text": "Before installing the pygranta metapackage in user mode, ensure that you have the\nlatest version of pip by running this command:\nThen, install the pygranta metapackage with this command:\nIf you are interested in installing a specific version, such as 2023.2.0, you\ncan run a command like this one:\nUser mode installation\npygranta\npygranta\n2023.2.0"
+    },
+    {
+        "objectID": "getting_started",
+        "href": "getting_started.html#offline-mode-installation",
+        "title": "Getting started > Offline mode installation",
+        "section": "Offline mode installation",
+        "text": "If you lack an internet connection on your installation machine, the\nrecommended way of installing the pygranta metapackage is downloading the\nwheelhouse archive for your corresponding machine\narchitecture from the repository’s Releases page.\nEach wheelhouse archive contains all the Python wheels necessary to install\nthe pygranta metapackage from scratch on Windows and Linux for all supported\nPython versions. You can install this on an isolated system with a fresh Python\ninstallation or on a virtual environment.\nFor example, on Linux with Python 3.12, unzip the wheelhouse archive and install\nit with these commands:\nIf you’re on Windows with Python 3.12, unzip to a wheelhouse directory and install\nusing the same command as for Linux.\nConsider installing using a virtual environment.\nOffline mode installation\npygranta\npygranta"
+    },
+    {
+        "objectID": "getting_started",
+        "href": "getting_started.html#versioning-system",
+        "title": "Getting started > Versioning system",
+        "section": "Versioning system",
+        "text": "The pygranta metapackage follows a semantic-like versioning system, though\nit has been adapted to the Ansys product release mechanism. In this sense, the\nfollowing versioning system is followed:\nWhere:\nXXXX is the Ansys product release year (for example, 2024).\nY is the Ansys product release within the same year (for example, 1,\nwhich relates to R1).\nZZ is the patched versions to the pygranta metapackage, if any.\nConsequently, the first pygranta metapackage compatible with the 2024 R1\nrelease would be:\nAny subsequent patched version of this package would have these versions:\nWhen using pip to install your package, you can install a specific version with a\ncommand like this:\nVersioning system\npygranta\nXXXX\nY\nZZ\npygranta\npygranta\npip"
+    },
+    {
+        "objectID": "package_versions",
+        "href": "package_versions.html#package-versions",
+        "title": "Package versions",
+        "section": "Package versions",
+        "text": "These tables map a PyGranta metapackage version to the individual PyGranta package included within it. In most cases,\nthis can be used to determine which PyGranta package is compatible with a given version of Granta MI.\nThe versions of ansys-grantami-bomanalytics and ansys-grantami-bomanalytics-openapi included in a metapackage version\nare compatible with that version of BoM Analytics Services, included with Granta MI Restricted\nSubstances and Sustainability Reports. Multiple versions of BoM Analytics Services are compatible with a single\nversion of Granta MI.\nPackage versions"
+    },
+    {
+        "objectID": "package_versions",
+        "href": "package_versions.html#20251",
+        "title": "Package versions > 2025.1",
+        "section": "2025.1",
+        "text": "Library\nVersion\nLinks\nansys-grantami-bomanalytics\n2.2.0\nPyPI, Documentation\nansys-grantami-bomanalytics-openapi\n3.1.0\nPyPI\nansys-grantami-recordlists\n1.3.0\nPyPI, Documentation\nansys-grantami-jobqueue\n1.1.0\nPyPI, Documentation\nansys-grantami-serverapi-openapi\n4.0.0\nPyPI\n2025.1"
+    },
+    {
+        "objectID": "package_versions",
+        "href": "package_versions.html#20242",
+        "title": "Package versions > 2024.2",
+        "section": "2024.2",
+        "text": "Library\nVersion\nLinks\nansys-grantami-bomanalytics\n2.1.1\nPyPI, Documentation\nansys-grantami-bomanalytics-openapi\n3.0.0\nPyPI\nansys-grantami-recordlists\n1.2.1\nPyPI, Documentation\nansys-grantami-jobqueue\n1.0.1\nPyPI, Documentation\nansys-grantami-serverapi-openapi\n3.0.0\nPyPI\n2024.2"
+    },
+    {
+        "objectID": "package_versions",
+        "href": "package_versions.html#20241",
+        "title": "Package versions > 2024.1",
+        "section": "2024.1",
+        "text": "Library\nVersion\nLinks\nansys-grantami-bomanalytics\n2.0.0\nPyPI, Documentation\nansys-grantami-bomanalytics-openapi\n2.0.0\nPyPI\nansys-grantami-recordlists\n1.1.0\nPyPI, Documentation\nansys-grantami-serverapi-openapi\n2.0.0\nPyPI\n2024.1"
+    },
+    {
+        "objectID": "package_versions",
+        "href": "package_versions.html#20232",
+        "title": "Package versions > 2023.2",
+        "section": "2023.2",
+        "text": "Library\nVersion\nLinks\nansys-grantami-bomanalytics\n1.2.0\nPyPI, Documentation\nansys-grantami-bomanalytics-openapi\n1.1.0\nPyPI\nansys-grantami-recordlists\n1.0.0.post1\nPyPI, Documentation\nansys-grantami-serverapi-openapi\n1.0.0\nPyPI\n2023.2"
+    },
+    {
+        "objectID": "index",
+        "href": "index.html#pygranta-202510",
+        "title": "PyGranta 2025.1.0",
+        "section": "PyGranta 2025.1.0",
+        "text": "Welcome to the PyGranta project. This page lists the PyAnsys packages\nthat provide integration with Granta MI services.\nSustainability and restricted substance analysis.\nManage favorite Granta MI materials in Python as record lists.\nImport and export text and Excel data with Python asynchronously.\nPyGranta 2025.1.0"
+    },
+    {
+        "objectID": "examples",
+        "href": "examples.html#examples",
+        "title": "Examples",
+        "section": "Examples",
+        "text": "Each PyGranta package has its own set of example scripts, provided as Jupyter notebooks.\nExamples"
+    },
+    {
+        "objectID": "examples",
+        "href": "examples.html#pygranta-examples",
+        "title": "Examples > PyGranta examples",
+        "section": "PyGranta examples",
+        "text": "PyGranta examples"
+    },
+    {
+        "objectID": "api",
+        "href": "api.html#api-reference",
+        "title": "API reference",
+        "section": "API reference",
+        "text": "The pygranta metapackage does not have an API. The only information that you can\nobtain specific to this package is the version.\nTo obtain the metapackage version, use this code:\nEach PyGranta package has its own “API reference” documentation section.\nAPI reference\npygranta"
+    },
+    {
+        "objectID": "api",
+        "href": "api.html#pygranta-api-documentation",
+        "title": "API reference > PyGranta API documentation",
+        "section": "PyGranta API documentation",
+        "text": "PyGranta API documentation"
+    }
+]
