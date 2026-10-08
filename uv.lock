@@ -1,5 +1,5 @@
 version = 1
-revision = 3
+revision = 5
 requires-python = ">=3.12"
 
 [[package]]
@@ -25,7 +25,7 @@ wheels = [
 
 [[package]]
 name = "ansys-grantami-bomanalytics"
-version = "2.4.1"
+version = "2.5.0rc0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "ansys-grantami-bomanalytics-openapi" },
@@ -33,23 +33,23 @@ dependencies = [
     { name = "defusedxml" },
     { name = "xmlschema" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/9d/c8/085f4c293b851d31c7df2e022bfcb8eb04458abe9991fceb708a8f5fe117/ansys_grantami_bomanalytics-2.4.1.tar.gz", hash = "sha256:c7ed62185340068afb3b61c402f7361944dbc42e4c9244b9ee557f315201baa3", size = 976868, upload-time = "2026-03-12T13:52:30.97Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/f6/d8/4de504712607e66868ae3584d4301f4509feb4adc605448d93660d07f9c0/ansys_grantami_bomanalytics-2.5.0rc0.tar.gz", hash = "sha256:c5b0891b47d9fd8e5343e4935f7e49b959cdd6defa7bf1196804029ec7d41aa5", size = 886311, upload-time = "2026-10-07T16:17:02.065Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/12/77/c316155d3542a8bbe89865b5c95cd1a04ec8ad9f4d43ec8850a1608dda16/ansys_grantami_bomanalytics-2.4.1-py3-none-any.whl", hash = "sha256:87daff3cf194683d2717221534029d6248ed49de13f052b380acf4af98674d38", size = 142740, upload-time = "2026-03-12T13:52:29.143Z" },
+    { url = "https://files.pythonhosted.org/packages/c7/f3/a401497595d5b22fe49725d0b2de9dd6a601b1628ff40671b01d5e6f6b1c/ansys_grantami_bomanalytics-2.5.0rc0-py3-none-any.whl", hash = "sha256:ad1143f35fc9a82a66e86763e46b9928f0ae20c8a5018d402c7e7806547ab0cc", size = 143137, upload-time = "2026-10-07T16:17:00.44Z" },
 ]
 
 [[package]]
 name = "ansys-grantami-bomanalytics-openapi"
-version = "5.0.0"
+version = "5.1.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "ansys-openapi-common" },
     { name = "python-dateutil" },
     { name = "requests" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/4f/ff/317ee7e7e5c95c2e3e3a1ed44f4ff29e18cd013357576895f88518ed1361/ansys_grantami_bomanalytics_openapi-5.0.0.tar.gz", hash = "sha256:2d74ed1233251a8b6e725c67575178c77ac45c2acc82ffab7d8d15a0a3b87f9c", size = 87187, upload-time = "2025-12-16T15:02:16.411Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/42/cc/c54ca61739245db931f9435572b0f5a0738d1a95e2c6447a86d2ddadc79c/ansys_grantami_bomanalytics_openapi-5.1.0.tar.gz", hash = "sha256:28306700b0adf07ea7fb932b31bc301bf6341b2ebe56b67d2d927a127f905d4d", size = 96740, upload-time = "2026-10-06T12:24:32.778Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/cc/a0/dee36a8fc0108ed121853c8ba6fab6e0cc32dafb93a901189a87e79f88c3/ansys_grantami_bomanalytics_openapi-5.0.0-py3-none-any.whl", hash = "sha256:8e146f264033c09e16818971bc04cef459e7ee7d1c677343ce3093a8376ded9e", size = 388792, upload-time = "2025-12-16T15:02:14.984Z" },
+    { url = "https://files.pythonhosted.org/packages/cd/bf/2251ee5362ac808ac2d7d267ccd95b599f99c25ba7750341da5c8ba84f63/ansys_grantami_bomanalytics_openapi-5.1.0-py3-none-any.whl", hash = "sha256:674a257663309cf79135143194dcb145b30a8e1e8a0e6e74b5aa5deee57c813c", size = 391230, upload-time = "2026-10-06T12:24:31.031Z" },
 ]
 
 [[package]]
@@ -68,57 +68,57 @@ wheels = [
 
 [[package]]
 name = "ansys-grantami-jobqueue"
-version = "1.3.0"
+version = "1.4.0rc0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "ansys-grantami-serverapi-openapi" },
     { name = "ansys-openapi-common" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/40/70/8aaf74540c74a19021a7e584b706ad6fd4f8a50c31fe714114edb6e97127/ansys_grantami_jobqueue-1.3.0.tar.gz", hash = "sha256:60a90242f6d6622e1f9d7f284ff497c9a47ebe2fd56436ae73e3583fdb9f4e20", size = 313080, upload-time = "2026-03-05T10:27:51.226Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/54/24/009d938458109bff5bc9db966ef2e8073128a1415e2a899f8ded1d20ca88/ansys_grantami_jobqueue-1.4.0rc0.tar.gz", hash = "sha256:8f99ccedb71ef68f0ca052690b597fe39f5c7e5d7848038d2028e526de0bbb25", size = 284314, upload-time = "2026-10-07T15:01:13.037Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/80/7e/275f2b1de5d76bc56150679f4251c0f5ddffebedd4d5fa6c330b2da5e35b/ansys_grantami_jobqueue-1.3.0-py3-none-any.whl", hash = "sha256:105eba202c40a4dd777e4133d9771dedff10e56b2de27d34bf2c9dd3c058bf9f", size = 22406, upload-time = "2026-03-05T10:27:49.185Z" },
+    { url = "https://files.pythonhosted.org/packages/be/3b/de5cdce8cc23b0f5186bf81989629622251d83443582f502183344bdd153/ansys_grantami_jobqueue-1.4.0rc0-py3-none-any.whl", hash = "sha256:25518b296b20f5bdfab7d6eb9bfeae10867bcd1b032b03f1b0cb863dfdd74a83", size = 22836, upload-time = "2026-10-07T15:01:11.709Z" },
 ]
 
 [[package]]
 name = "ansys-grantami-recordlists"
-version = "2.1.1"
+version = "2.2.0rc0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "ansys-grantami-serverapi-openapi" },
     { name = "ansys-openapi-common" },
     { name = "requests" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/30/e3/58df28da5f611eeeb5dcf2daac743c18d787a0fbf463d37e77dbf5baea5f/ansys_grantami_recordlists-2.1.1.tar.gz", hash = "sha256:7b8caef223ba3ffa6e680056fe087ce8eb0a152e04b021b48adf2e3d5525bae0", size = 205558, upload-time = "2026-03-12T14:32:48.373Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/b6/0b/fc9c350484bd0317cb740ef2df4c2a0a0c6cb664ed46d09aab285bfab9a7/ansys_grantami_recordlists-2.2.0rc0.tar.gz", hash = "sha256:4a26cc736c2c725b4f68dd4de7c81d988ff87de09bc4f6ec96a9a21485dfebf2", size = 137754, upload-time = "2026-10-07T12:55:14.496Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/2f/60/2cee8e2ae9eefbd1480fb95a4854e111d53509c453208449892c8f30ae5a/ansys_grantami_recordlists-2.1.1-py3-none-any.whl", hash = "sha256:6fa268ee847372897ec1326ba713a65ab0f6b8088547767e200c01b64e924565", size = 24621, upload-time = "2026-03-12T14:32:46.955Z" },
+    { url = "https://files.pythonhosted.org/packages/53/e3/1441ca76e1b65a40d92b6f233d99dad54970f469d1a74668bad6165b6b64/ansys_grantami_recordlists-2.2.0rc0-py3-none-any.whl", hash = "sha256:43ae5e5343f4014c2f5282d6943c61f693e96ab83784b0b74e864e238e31adcf", size = 24764, upload-time = "2026-10-07T12:55:13.274Z" },
 ]
 
 [[package]]
 name = "ansys-grantami-serverapi-openapi"
-version = "5.1.0"
+version = "6.0.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "ansys-openapi-common" },
     { name = "python-dateutil" },
     { name = "requests" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/80/c4/89aa623b46056f9bae8b3e96cccb127ad34cffafd57ecfb18b6b5b8d61b2/ansys_grantami_serverapi_openapi-5.1.0.tar.gz", hash = "sha256:699c9859714b23f4db14090f20d4d274462131672b55602cbef87113eb23ad66", size = 2132692, upload-time = "2025-12-16T14:43:59.874Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/bc/f3/dff7090134475f8113d591992aae560e550349a795e0b3f14ac512fbebaa/ansys_grantami_serverapi_openapi-6.0.0.tar.gz", hash = "sha256:d2f7f353d5680fe2a43c9dadec4bdcc5c764822ce9e81d5e243bd2d64326c9fd", size = 2447003, upload-time = "2026-10-06T12:24:22.361Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/d9/40/f1dbb9cd6f21199bc73af566cd211a820ed4d433a342d7f4c343bcba6497/ansys_grantami_serverapi_openapi-5.1.0-py3-none-any.whl", hash = "sha256:930ef5678e2ccc37f54801a4d57aa910df92842894632362e3f6472b79832859", size = 10496013, upload-time = "2025-12-16T14:43:57.72Z" },
+    { url = "https://files.pythonhosted.org/packages/d2/6e/4463911c1933907a8df2c9da9f4145919d27960ecb97f3fef3cd985b8bad/ansys_grantami_serverapi_openapi-6.0.0-py3-none-any.whl", hash = "sha256:57b042f9c7e5b62eeb4672e1f87890e25239182f9f3f6615d1d9b9beb4303762", size = 10715140, upload-time = "2026-10-06T12:24:19.451Z" },
 ]
 
 [[package]]
 name = "ansys-grantami-system"
-version = "1.0.0"
+version = "1.1.0rc0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "ansys-grantami-serverapi-openapi" },
     { name = "ansys-openapi-common" },
     { name = "requests" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/19/f3/79a2f4becf486b6b317be5adecb32973ed0075c6e37b91a56763809208ed/ansys_grantami_system-1.0.0.tar.gz", hash = "sha256:039b00fef0b47427e0d6c60fd4b7a5630488802f14d13cf27618d208d7cf919f", size = 219658, upload-time = "2026-03-05T15:08:25.958Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/73/2b/ae92b1e84b13c04aee0733528b01adc7a16c59e616fa2770d770cba2e510/ansys_grantami_system-1.1.0rc0.tar.gz", hash = "sha256:41570e2bf274f894211d66d6d26436493b76e534e7f9444b92710564325bd269", size = 180714, upload-time = "2026-10-07T16:16:52.817Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/25/2d/ddad12886988b29db47098d8178f1a03644eca8d08c890fcbc50a38efea7/ansys_grantami_system-1.0.0-py3-none-any.whl", hash = "sha256:f61f3e653bcd3a4029046f86d5f3f4d975ef7ed1089a85705eb9042e24102798", size = 15502, upload-time = "2026-03-05T15:08:23.651Z" },
+    { url = "https://files.pythonhosted.org/packages/1b/e8/d6b4084238a3c2841030baeea94791aec5a481c768db95169b5211ff1b6b/ansys_grantami_system-1.1.0rc0-py3-none-any.whl", hash = "sha256:fa2436d76958364888317f1e7d912809bb56f325dce3d133842f340339ed2398", size = 16938, upload-time = "2026-10-07T16:16:51.621Z" },
 ]
 
 [[package]]
@@ -644,13 +644,13 @@ doc = [
 
 [package.metadata]
 requires-dist = [
-    { name = "ansys-grantami-bomanalytics", specifier = "==2.4.1" },
-    { name = "ansys-grantami-bomanalytics-openapi", specifier = "==5.0.0" },
+    { name = "ansys-grantami-bomanalytics", specifier = "==2.5.0rc0" },
+    { name = "ansys-grantami-bomanalytics-openapi", specifier = "==5.1.0" },
     { name = "ansys-grantami-dataflow-extensions", marker = "sys_platform == 'win32'", specifier = "==0.3.1" },
-    { name = "ansys-grantami-jobqueue", specifier = "==1.3.0" },
-    { name = "ansys-grantami-recordlists", specifier = "==2.1.1" },
-    { name = "ansys-grantami-serverapi-openapi", specifier = "==5.1.0" },
-    { name = "ansys-grantami-system", specifier = "==1.0.0" },
+    { name = "ansys-grantami-jobqueue", specifier = "==1.4.0rc0" },
+    { name = "ansys-grantami-recordlists", specifier = "==2.2.0rc0" },
+    { name = "ansys-grantami-serverapi-openapi", specifier = "==6.0.0" },
+    { name = "ansys-grantami-system", specifier = "==1.1.0rc0" },
 ]
 
 [package.metadata.requires-dev]
