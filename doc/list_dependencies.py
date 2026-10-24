@@ -29,7 +29,6 @@ def list_current_dependencies(allow_prereleases: bool) -> List[Dict[str, str]]:
 
     pyansys_libraries = []
     for dependency in pyproject["project"]["dependencies"]:
-
         name, library_version = dependency.split(";")[0].split("==")[0:2]
         parsed_library_version: Version = parse_version(library_version)
 
