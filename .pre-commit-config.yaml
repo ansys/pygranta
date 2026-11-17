@@ -23,12 +23,12 @@ repos:
 
 # this validates our github workflow files
 - repo: https://github.com/python-jsonschema/check-jsonschema
-  rev: 0.38.2
+  rev: 0.39.0
   hooks:
     - id: check-github-workflows
 
 - repo: https://github.com/ansys/pre-commit-hooks
-  rev: v0.8.0
+  rev: v0.8.1
   hooks:
     - id: add-license-headers
       args:
